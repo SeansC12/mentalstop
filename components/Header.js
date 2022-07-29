@@ -3,6 +3,8 @@ import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { LayoutGroup, motion } from "framer-motion";
 import { useState } from "react";
+import favicon from "../public/favicon.ico";
+import Image from "next/image";
 
 const navigation = [
   {
@@ -53,21 +55,23 @@ export default function Header({ tab }) {
     }
   }
   return (
-    <div className="min-h-full">
-      <Disclosure as="nav" className="bg-white">
+    <div className="min-h-full font-Inter">
+      <Disclosure as="nav" className="bg-[#CCF5C8]">
         {({ open }) => (
           <>
-            <div className="items-centre flex h-16 md:h-12">
-              <div className="w-max">
+            <div className="relative w-full h-14 flex flex-row">
+              <div className="h-full absolute flex items-center justify-start z-20 ml-10">
                 <Link href="/">
-                  <img
-                    src=""
+                  <Image
+                    src={favicon}
                     alt=""
-                    className="h-full object-contain cursor-pointer pl-3 sm:w-52 sm:-mt-1"
+                    width="40px"
+                    height="40px"
+                    className="cursor-pointer"
                   />
                 </Link>
               </div>
-              <div className="hidden sm:flex items-center py-2 px-2">
+              <div className="absolute w-full h-full flex items-center justify-center z-10">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
@@ -87,17 +91,41 @@ export default function Header({ tab }) {
                   </Link>
                 ))}
               </div>
-              {/* mobile menu */}
-              <div className="w-full h-full items-center">
-                <Disclosure.Button className="float-right w-12 h-12 sm:h-9 sm:w-9 flex justify-center m-2 sm:m-1.5 bg-gray-800 items-center rounded-md text-gray-400 sm:hidden">
-                  {open ? (
-                    <XIcon className="block h-9 w-9 " aria-hidden="true" />
-                  ) : (
-                    <MenuIcon className="block h-6 w-6" aria-hidden="true" />
-                  )}
-                </Disclosure.Button>
-              </div>
             </div>
+
+            {/* <div className="items-centre flex h-16 md:h-12"> */}
+            {/* <div className="w-max"></div>
+              <div className="hidden sm:flex items-center py-2 px-2"> */}
+            {/* {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    aria-current={item.current ? "page" : undefined}
+                  >
+                    <div
+                      className={classNames(
+                        item.current
+                          ? "bg-gray-900 ml-5 text-white"
+                          : "text-black hover:bg-gray-700 hover:text-white ml-5",
+                        "px-3 py-2 rounded-md text-sm font-medium ml-5 h-fit w-max cursor-pointer text-center"
+                      )}
+                    >
+                      {item.name}
+                    </div>
+                  </Link>
+                ))} */}
+            {/* </div> */}
+            {/* mobile menu */}
+            <div className="w-full h-full items-center">
+              <Disclosure.Button className="float-right w-12 h-12 sm:h-9 sm:w-9 flex justify-center m-2 sm:m-1.5 bg-gray-800 items-center rounded-md text-gray-400 sm:hidden">
+                {open ? (
+                  <XIcon className="block h-9 w-9 " aria-hidden="true" />
+                ) : (
+                  <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                )}
+              </Disclosure.Button>
+            </div>
+            {/* </div> */}
             <div>
               <Disclosure.Panel className="sm:hidden">
                 <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
