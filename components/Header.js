@@ -31,6 +31,12 @@ const navigation = [
     heading: "Learn More",
     current: false,
   },
+  {
+    name: "Donate",
+    href: "/Donate",
+    heading: "Donate",
+    current: false,
+  },
 ];
 
 let navigationObjectKey = 0;
@@ -81,9 +87,9 @@ export default function Header({ tab }) {
                     <div
                       className={classNames(
                         item.current
-                          ? "bg-gray-900 ml-5 text-white"
-                          : "text-black hover:bg-gray-700 hover:text-white ml-5",
-                        "px-3 py-2 rounded-md text-sm font-medium ml-5 h-fit w-max cursor-pointer text-center"
+                          ? "bg-[#1A8C10] rounded-md text-white shadow-lg"
+                          : "text-black hover:bg-gray-700 hover:text-white",
+                        "px-3 py-[0.4rem] rounded-md text-sm font-medium ml-10 w-max cursor-pointer text-center"
                       )}
                     >
                       {item.name}
