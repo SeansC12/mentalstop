@@ -36,7 +36,7 @@ const cardInfos = [
 
 export default function Home() {
   return (
-    <div>
+    <div className="bg-gradient-to-r from-[#DFFFDC] to-[#E5E5DB]">
       <Header tab="Home" />
       <main className="h-full p-10 bg-gradient-to-b from-[#DFFFDC] to-[#E5E5DB]">
         <div>
