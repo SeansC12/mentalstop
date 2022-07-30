@@ -1,10 +1,14 @@
+import React, { useRef } from "react";
 import Link from "next/link";
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
-import { LayoutGroup, motion } from "framer-motion";
+import { LayoutGroup, motion, useCycle } from "framer-motion";
 import { useState } from "react";
-import favicon from "../public/favicon.ico";
+import favicon from "../../public/favicon.ico";
 import Image from "next/image";
+import { MenuToggle } from "./MenuToggle";
+import { Navigation } from "./Navigation";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 const navigation = [
   {
@@ -39,8 +43,6 @@ const navigation = [
   },
 ];
 
-let navigationObjectKey = 0;
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -51,8 +53,29 @@ function resetNavigation() {
   }
 }
 
+const sidebar = {
+  open: (height = 1000) => ({
+    clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+    transition: {
+      type: "spring",
+      stiffness: 20,
+      restDelta: 2,
+    },
+  }),
+  closed: {
+    clipPath: "circle(20px at 40px 40px)",
+    transition: {
+      delay: 0.5,
+      type: "spring",
+      stiffness: 400,
+      damping: 40,
+    },
+  },
+};
+
 export default function Header({ tab }) {
   resetNavigation();
+  let navigationObjectKey = 0;
   for (const key in navigation) {
     if (navigation[key].name === tab) {
       navigation[key].current = true;
@@ -60,103 +83,65 @@ export default function Header({ tab }) {
       break;
     }
   }
+
+  const [isOpen, toggleOpen] = useCycle(false, true);
+
   return (
     <div className="min-h-full font-Inter">
-      <Disclosure as="nav" className="bg-[#CCF5C8]">
-        {({ open }) => (
-          <>
-            <div className="relative w-full h-14 flex flex-row">
-              <div className="h-full absolute flex items-center justify-start z-20 ml-10">
-                <Link href="/">
-                  <Image
-                    src={favicon}
-                    alt=""
-                    width="40px"
-                    height="40px"
-                    className="cursor-pointer"
-                  />
-                </Link>
-              </div>
-              <div className="absolute w-full h-full flex items-center justify-center z-10">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    aria-current={item.current ? "page" : undefined}
-                  >
-                    <div
-                      className={classNames(
-                        item.current
-                          ? "bg-[#1A8C10] rounded-md text-white shadow-lg"
-                          : "text-black hover:bg-gray-700 hover:text-white",
-                        "px-3 py-[0.4rem] rounded-md text-sm font-medium ml-10 w-max cursor-pointer text-center"
-                      )}
-                    >
-                      {item.name}
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* <div className="items-centre flex h-16 md:h-12"> */}
-            {/* <div className="w-max"></div>
-              <div className="hidden sm:flex items-center py-2 px-2"> */}
-            {/* {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    aria-current={item.current ? "page" : undefined}
-                  >
-                    <div
-                      className={classNames(
-                        item.current
-                          ? "bg-gray-900 ml-5 text-white"
-                          : "text-black hover:bg-gray-700 hover:text-white ml-5",
-                        "px-3 py-2 rounded-md text-sm font-medium ml-5 h-fit w-max cursor-pointer text-center"
-                      )}
-                    >
-                      {item.name}
-                    </div>
-                  </Link>
-                ))} */}
-            {/* </div> */}
-            {/* mobile menu */}
-            <div className="w-full h-full items-center">
-              <Disclosure.Button className="float-right w-12 h-12 sm:h-9 sm:w-9 flex justify-center m-2 sm:m-1.5 bg-gray-800 items-center rounded-md text-gray-400 sm:hidden">
-                {open ? (
-                  <XIcon className="block h-9 w-9 " aria-hidden="true" />
-                ) : (
-                  <MenuIcon className="block h-6 w-6" aria-hidden="true" />
-                )}
-              </Disclosure.Button>
-            </div>
-            {/* </div> */}
-            <div>
-              <Disclosure.Panel className="sm:hidden">
-                <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                  {navigation.map((item) => (
-                    <Disclosure.Button
-                      key={item.name}
-                      as="a"
-                      href={item.href}
-                      className={classNames(
-                        item.current
-                          ? "bg-gray-800 text-white"
-                          : "text-gray-800 hover:bg-gray-700 hover:text-white",
-                        "block px-3 py-2 rounded-md text-base font-medium"
-                      )}
-                      aria-current={item.current ? "page" : undefined}
-                    >
-                      {item.name}
-                    </Disclosure.Button>
-                  ))}
-                </div>
-              </Disclosure.Panel>
-            </div>
-          </>
+      <div className="bg-[#CCF5C8] sm:h-14">
+        {/* Mobile View */}
+        {useWindowDimensions().width < 640 && (
+          <motion.div
+            initial={false}
+            animate={isOpen ? "open" : "closed"}
+            custom={10}
+          >
+            <motion.div
+              className="bg-[#98C9A3] absolute top-0 left-0 bottom-0 w-[300px] shadow-md"
+              variants={sidebar}
+            />
+            <Navigation isOpen={isOpen} navigation={navigation} />
+            <MenuToggle toggle={() => toggleOpen()} />
+          </motion.div>
         )}
-      </Disclosure>
+
+        {/* Desktop View */}
+        {useWindowDimensions().width > 640 && (
+          <div className="relative w-full h-14 flex flex-row">
+            <div className="visible h-full absolute flex items-center justify-start z-20 ml-10">
+              <Link href="/">
+                <Image
+                  src={favicon}
+                  alt=""
+                  width="40px"
+                  height="40px"
+                  className="cursor-pointer"
+                />
+              </Link>
+            </div>
+            <div className="hidden absolute w-full h-full sm:flex items-center justify-center z-10">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  aria-current={item.current ? "page" : undefined}
+                >
+                  <div
+                    className={classNames(
+                      item.current
+                        ? "bg-[#1A8C10] rounded-md text-white shadow-lg"
+                        : "text-black hover:bg-[#1A8C10] hover:text-white",
+                      "px-3 py-[0.4rem] rounded-md text-sm font-medium ml-10 w-max cursor-pointer text-center"
+                    )}
+                  >
+                    {item.name}
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
 
       <div className="shadow border-b" />
     </div>
