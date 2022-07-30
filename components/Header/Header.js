@@ -100,7 +100,7 @@ export default function Header({ tab }) {
               className="bg-[#98C9A3] absolute top-0 left-0 bottom-0 w-[300px] shadow-md"
               variants={sidebar}
             />
-            <Navigation isOpen={isOpen} navigation={navigation} />
+            <Navigation navigation={navigation} />
             <MenuToggle toggle={() => toggleOpen()} />
           </motion.div>
         )}

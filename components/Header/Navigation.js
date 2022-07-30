@@ -17,7 +17,7 @@ export const Navigation = ({ navigation, isOpen }) => (
     variants={variants}
   >
     {navigation.map((i) => (
-      <MenuItem isOpen={isOpen} i={i} key={i} />
+      <MenuItem i={i} key={i} />
     ))}
   </motion.ul>
 );

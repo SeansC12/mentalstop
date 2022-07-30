@@ -13,7 +13,7 @@ const Path = (props) => (
 
 export const MenuToggle = ({ toggle }) => (
   <button
-    className="flex items-center justify-center shadow-inner rounded-full bg-[#BFD8BD]"
+    className="flex items-center justify-center shadow-2xl rounded-full bg-[#BFD8BD]"
     onClick={toggle}
   >
     <svg className="mt-1" width="23" height="23" viewBox="0 0 23 23">
