@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         Inter: ["Inter"],
+        lora: ["Lora"]
       },
     },
   },

@@ -1,34 +1,38 @@
 import Link from "next/link";
 import React from "react";
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
 import "../public/callIcon.svg";
+import "../public/donateImg.png"
+import "../public/helpOthersImg.png"
+import "../public/helpYourselfImg.png"
+import "../public/learnMoreImg.png"
 
 const cardInfos = [
   {
-    title: "Get support if you are\nfeeling down.",
+    title: "Get support if you are feeling down.",
     buttonLabel: "Help yourself",
-    imageLink: "",
+    imageLink: "helpYourselfImg.png",
     bgColour: "#C6DAF9",
     cardLink: "/GetHelp",
   },
   {
     title: "Learn more about mental illnesses.",
     buttonLabel: "Learn More",
-    imageLink: "",
+    imageLink: "learnMoreImg.png",
     bgColour: "#AFE9AA",
     cardLink: "/LearnMore",
   },
   {
     title: "Help someone else in need.",
     buttonLabel: "Help others",
-    imageLink: "",
+    imageLink: "helpOthersImg.png",
     bgColour: "#AFE9AA",
     cardLink: "/OfferHelp",
   },
   {
     title: "Support mental health organisations.",
     buttonLabel: "Donate",
-    imageLink: "",
+    imageLink: "donateImg.png",
     bgColour: "#C6DAF9",
     cardLink: "/Donate",
   },
@@ -36,11 +40,11 @@ const cardInfos = [
 
 export default function Home() {
   return (
-    <div className="bg-gradient-to-r from-[#DFFFDC] to-[#E5E5DB]">
+    <div>
       <Header tab="Home" />
-      <main className="h-full p-10 bg-gradient-to-b from-[#DFFFDC] to-[#E5E5DB]">
+      <main className="h-full font-Inter pb-96 p-16 bg-gradient-to-b from-[#DFFFDC] to-[#E5E5DB]">
         <div>
-          <p className="text-3xl">
+          <p className="text-5xl font-lora">
             "Not until we are lost, <br />
             do we begin to{" "}
             <strong className="text-green-700">understand ourselves</strong>"
@@ -49,30 +53,37 @@ export default function Home() {
           <p className="mt-3">- Henry David Thoreau</p>
         </div>
         <div className="flex w-full h-[30vh] rounded-2xl p-10 bg-gradient-to-r from-[#D23737] to-[#DC5858] items-center text-white mt-10">
-          <div className="text-5xl w-full">
-            <p>Need help urgently?</p>
-            <p>Call the samaritans of singapore at 1-767</p>
+          <div className="text-4xl w-full leading-normal">
+            <strong>
+              Need help urgently?
+              <br />
+              Call the samaritans of singapore at <u>1-767</u>
+            </strong>
           </div>
           <img className="h-32" src="callIcon.svg"></img>
         </div>
-        <div className="flex-row justify-center h-[75vh] text-center">
-          <p className="text-2xl pt-10 p-5 font-bold">Explore our options:</p>
-          <div className="grid md:grid-cols-2 h-full place-items-center">
-            {cardInfos.map((cardInfo) => (
-              <div
-                className="rounded-xl w-[90%] h-[90%] text-left px-5 py-4"
-                style={{ backgroundColor: cardInfo.bgColour }}
-              >
-                <p className="text-3xl">{cardInfo.title}</p>
-                <div className="">
-                  <Link href={cardInfo.cardLink}>
-                    <p className="bg-opacity-10 bg-black cursor-pointer w-fit h-fit p-2 px-5 rounded-full">
-                      {cardInfo.buttonLabel}
-                    </p>
-                  </Link>
+        <div className="h-[75vh] text-center">
+          <p className="text-4xl pt-16 p-5 font-bold">Explore our options:</p>
+          <div className="h-full flex justify-center">
+            <div className="grid md:grid-cols-2 h-full place-items-center w-[80%] gap-14 mt-8">
+              {cardInfos.map((cardInfo) => (
+                <div
+                  key={cardInfo}
+                  className="rounded-2xl w-[100%] h-[100%] text-left p-8 relative"
+                  style={{ backgroundColor: cardInfo.bgColour }}
+                >
+                  <p className="text-4xl font-lora">{cardInfo.title}</p>
+                  <div className="flex mt-auto absolute bottom-8 w-fit">
+                    <Link href={cardInfo.cardLink}>
+                      <b className="text-xl bg-opacity-10 bg-black cursor-pointer w-fit h-fit py-2 px-6 rounded-full font-Inter">
+                        {cardInfo.buttonLabel}
+                      </b>
+                    </Link>
+                  </div>
+                  <img className="ml-auto" src={cardInfo.imageLink}></img>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </main>
