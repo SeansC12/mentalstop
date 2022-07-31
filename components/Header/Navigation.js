@@ -16,8 +16,8 @@ export const Navigation = ({ navigation, isOpen }) => (
     className="flex flex-col p-6 absolute top-24 w-60"
     variants={variants}
   >
-    {navigation.map((i) => (
-      <MenuItem i={i} key={i} />
+    {navigation.map((i, key) => (
+      <MenuItem i={i} key={key} />
     ))}
   </motion.ul>
 );
