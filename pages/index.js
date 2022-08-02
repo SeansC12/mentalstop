@@ -57,7 +57,7 @@ export default function Home() {
             <strong>
               Need help urgently?
               <br />
-              Call the samaritans of singapore at <u>1-767</u>
+              Call the Samaritans of Singapore at <a href="tel:1-767" className="underline">1-767</a>
             </strong>
           </div>
           <img className="h-32" src="callIcon.svg"></img>
