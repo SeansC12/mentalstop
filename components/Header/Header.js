@@ -1,14 +1,14 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { LayoutGroup, motion, useCycle } from "framer-motion";
-import { useState } from "react";
 import favicon from "../../public/favicon.ico";
 import Image from "next/image";
 import { MenuToggle } from "./MenuToggle";
 import { Navigation } from "./Navigation";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
+import useOutsideClickAlerter from "../../hooks/useOutsideClickAlerter";
 
 const navigation = [
   {
@@ -85,6 +85,18 @@ export default function Header({ tab }) {
   }
 
   const [isOpen, toggleOpen] = useCycle(false, true);
+  const mobileNavBarRef = useRef();
+  const menuToggleRef = useRef();
+
+  useOutsideClickAlerter(
+    () => {
+      if (isOpen && !menuToggleRef.current.contains(event.target)) {
+        toggleOpen();
+      }
+    },
+    mobileNavBarRef,
+    isOpen
+  );
 
   return (
     <div className="min-h-full font-Inter">
@@ -99,9 +111,13 @@ export default function Header({ tab }) {
             <motion.div
               className="bg-[#98C9A3] absolute top-0 left-0 bottom-0 w-[300px] shadow-md"
               variants={sidebar}
+              ref={mobileNavBarRef}
             />
             <Navigation navigation={navigation} />
-            <MenuToggle toggle={() => toggleOpen()} />
+            {console.log(isOpen)}
+            <div ref={menuToggleRef}>
+              <MenuToggle toggle={() => toggleOpen()} />
+            </div>
           </motion.div>
         )}
 
