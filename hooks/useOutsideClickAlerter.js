@@ -1,7 +1,7 @@
-import { useLayoutEffect } from "react";
+import { useEffect } from "react";
 
 export default function useOutsideClickAlerter(callback, ref, state) {
-  useLayoutEffect(() => {
+  useEffect(() => {
     function handleClickOutside(e) {
       const event = e;
       if (ref.current && !ref.current.contains(event.target)) {

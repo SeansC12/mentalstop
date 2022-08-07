@@ -2,10 +2,10 @@ import Link from "next/link";
 import React from "react";
 import Header from "../components/Header/Header";
 import "../public/callIcon.svg";
-import "../public/donateImg.png"
-import "../public/helpOthersImg.png"
-import "../public/helpYourselfImg.png"
-import "../public/learnMoreImg.png"
+import "../public/donateImg.png";
+import "../public/helpOthersImg.png";
+import "../public/helpYourselfImg.png";
+import "../public/learnMoreImg.png";
 
 const cardInfos = [
   {
@@ -66,9 +66,9 @@ export default function Home() {
           <p className="text-4xl pt-16 p-5 font-bold">Explore our options:</p>
           <div className="h-full flex justify-center">
             <div className="grid md:grid-cols-2 h-full place-items-center w-[80%] gap-14 mt-8">
-              {cardInfos.map((cardInfo) => (
+              {cardInfos.map((cardInfo, key) => (
                 <div
-                  key={cardInfo}
+                  key={key}
                   className="rounded-2xl w-[100%] h-[100%] text-left p-8 relative"
                   style={{ backgroundColor: cardInfo.bgColour }}
                 >
