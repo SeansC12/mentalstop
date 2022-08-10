@@ -86,7 +86,10 @@ function GetHelp() {
         <div>
           {/* Good Mental Health Practices */}
           {/* Header */}
-          <div className="font-Inter text-center text-md mt-20">Seek Help</div>
+          <div className="grid place-items-center my-10">
+            <div className="border border-[#1A8C10] w-[75%] rounded" />
+          </div>
+          <div className="font-Inter text-center text-md">Seek Help</div>
 
           {/* Line */}
           <div className="grid place-items-center my-3">
@@ -96,10 +99,6 @@ function GetHelp() {
           {/* Subheader */}
           <div className="font-lora text-center text-2xl mb-10 -mt-2">
             Positive Mental Health Practices
-          </div>
-
-          <div className="grid place-items-center my-3">
-            <div className="border border-[#1A8C10] w-[75%] rounded" />
           </div>
 
           <div className="mt-12 font-lora text-center text-3xl">
