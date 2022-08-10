@@ -1,18 +1,26 @@
+import Router, { useRouter } from "next/router";
 import React, { useState } from "react";
 import Header from "../components/Header/Header";
 
 export default function Diary() {
   const [diaryText, setDiaryText] = useState("");
-  const [diaryEvaluation, setDiaryEvaluation] = useState(null)
-  const [errorInEval, setErrorInEval] = useState(false)
+  const [diaryEvaluation, setDiaryEvaluation] = useState(null);
+  const [errorInEval, setErrorInEval] = useState({
+    error: false,
+    description: "",
+  });
+  const [showPrivacyInfo, setShowPrivacyInfo] = useState(false);
+  const [showError, setShowError] = useState("");
+  const router = useRouter();
 
-  const analyse = (text) => {
+  const analyse = () => {
+    setShowError("");
     setDiaryText(null);
-    setDiaryEvaluation(null)
+    setDiaryEvaluation(null);
     const url =
       "https://text-analysis12.p.rapidapi.com/sentiment-analysis/api/v1.1";
 
-    const options = {
+    const apiParams = {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -21,69 +29,96 @@ export default function Diary() {
       },
       body: `{"language":"english","text":"${diaryText}"}`,
     };
-    const thing = {
-      "app_version": "v1.0-17660c86",
-      "time_taken": 0.0031015872955322266,
-      "msg": "Sentiment Analysis successful",
-      "ok": true,
-      "aggregate_sentiment": {
-          "neg": 0,
-          "neu": 0.215,
-          "pos": 0.785,
-          "compound": 0.8074
-      },
-      "sentiment_list": [
-          {
-              "neg": 0,
-              "neu": 0.215,
-              "pos": 0.785,
-              "compound": 0.8074,
-              "sentence": "i love my life, woo"
-          }
-      ],
-      "sentiment": "positive"
-  }
 
-    fetch(url, options)
+    fetch(url, apiParams)
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
-        setDiaryText("")
-        setDiaryEvaluation(json)
+        setDiaryEvaluation(json);
+        setShowError("");
+        // Router.push({
+        //   pathname: "Diary/Results",
+        //   query: {result: json.aggregate_sentiment.compound}
+        // })
+        // Router.push("/Diary/Results/", {query: {result: json.aggregate_sentiment.compound}}, {shallow: true})
+        router.push(
+          `/Diary/Results?results=${json.aggregate_sentiment.compound}`,
+          `/Diary`,
+          { shallow: true }
+        );
       })
-      .catch((err) => console.error("error:" + err));
+      .catch((err) =>
+        setErrorInEval({
+          error: true,
+          description: err,
+        })
+      );
+  };
+
+  const feedbackToEmotion = (e) => {
+    if (e == null) {
+      return "";
+    } else if (e < -0.5) {
+      return "Looks like your day wasn't great, but that's ok. We all have bad days :)";
+    } else if (e < 0) {
+      return "a bit bad";
+    } else if (e < 0.5) {
+      return "a bit good";
+    } else if (e < 1) {
+      return "Seems like you've had a great day";
+    }
   };
 
   return (
     <div>
       <Header tab="Get Help" />
-      <div className="bg-[#fff] p-10">
+      <main className="bg-[#fff] p-10">
         <div>
           <p className="text-4xl font-lora">Write about how your day went</p>
           <p className="text-2xl font-lora mt-3">
             Studies have shown that writing down your feelings and thoughts can
             help you improve your mental health
           </p>
-          <p className="text-2xl font-lora">
-            And don't worry, everything you say is stored in your device itself
+          <p
+            className="text-xl font-lora underline w-fit"
+            onMouseEnter={() => setShowPrivacyInfo(true)}
+            onMouseLeave={() => setShowPrivacyInfo(false)}
+          >
+            Where is my data stored?
           </p>
+          {showPrivacyInfo && (
+            <div>
+              We store everything about you in your device itself, no one else
+              has access to it
+            </div>
+          )}
         </div>
         <textarea
-          className="w-[100%] border-black border-2"
-          onChange={(e) => {
-            setDiaryText(e.target.value);
-          }}
+          className="w-[100%] h-[50vh] p-5 border-none outline-none bg-[#CAEAC2]"
+          onChange={(e) => setDiaryText(e.target.value)}
+          placeholder="Start writing here..."
         />
         <button
-          className="bg-[#DED4D4] w-36 h-10 rounded-full"
-          onClick={() => analyse()}
-          style={{ backgroundColor: diaryText == null ? "#DED4D4" : "#CAEAC2" }}
-          disabled={diaryText == "" || diaryText == null}
+          className="bg-[#DED4D4] w-36 h-10 rounded-full m-auto"
+          onClick={() => {
+            diaryText == null
+              ? setShowError("Evaluating, please wait")
+              : diaryText == ""
+              ? setShowError("Please key in your thoughts first")
+              : analyse();
+          }}
+          style={{
+            backgroundColor:
+              diaryText == null || diaryText == "" ? "#DED4D4" : "#CAEAC2",
+          }}
         >
           {diaryText == null ? "Evaluating..." : "Evaluate"}
         </button>
-        <p>{diaryEvaluation != null && diaryEvaluation.aggregate_sentiment.compound}</p>
-      </div>
+        {diaryEvaluation && (
+          <p>{diaryEvaluation.aggregate_sentiment.compound * 5 + 5}/10</p>
+        )}
+        <p>{feedbackToEmotion(diaryEvaluation)}</p>
+        {showError != "" && <div>{showError}</div>}
+      </main>
     </div>
   );
 }
