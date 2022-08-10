@@ -145,7 +145,11 @@ function GetHelp() {
             <strong>time and effort. </strong>Click the card below and start
             adopting positive mental health habits!
           </div>
-          <GetHelpCard data={mentalHealthHabits} index={2} />
+          <GetHelpCard
+            data={mentalHealthHabits}
+            index={2}
+            link="/MentalHealthTips"
+          />
         </div>
 
         <div className="my-10 grid place-items-center">
