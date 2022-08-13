@@ -14,7 +14,7 @@ export default function Questions() {
       questions[currentQuestionIndex].answersToPoints[input] ||
       questions[currentQuestionIndex].answersToPoints[mcqInput];
 
-    if (currentQuestionIndex == questions.length - 1) {
+    if (currentQuestionIndex === questions.length - 1) {
     } else {
       setCurrentQuestionIndex((i) => i + 1);
     }
@@ -29,7 +29,7 @@ export default function Questions() {
           <div className="">
             <p>{questions[currentQuestionIndex].question}</p>
             <p>{questions[currentQuestionIndex].subtext}</p>
-            {questions[currentQuestionIndex].type == "range" ? (
+            {questions[currentQuestionIndex].type === "range" ? (
               <input
                 type="range"
                 onChange={(val) => {
@@ -47,7 +47,7 @@ export default function Questions() {
                     setMcqInput(answer);
                   }}
                   style={{
-                    backgroundColor: mcqInput == answer ? "blue" : "white",
+                    backgroundColor: mcqInput === answer ? "blue" : "white",
                   }}
                 >
                   {answer}
