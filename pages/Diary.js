@@ -78,20 +78,20 @@ export default function Diary() {
         <button
           className="bg-[#DED4D4] w-36 h-10 rounded-full m-auto"
           onClick={() => {
-            diaryText == null
+            diaryText === null
               ? setShowError("Evaluating, please wait")
-              : diaryText == ""
+              : diaryText === ""
               ? setShowError("Please key in your thoughts first")
               : analyse();
           }}
           style={{
             backgroundColor:
-              diaryText == null || diaryText == "" ? "#DED4D4" : "#CAEAC2",
+              diaryText === null || diaryText === "" ? "#DED4D4" : "#CAEAC2",
           }}
         >
-          {diaryText == null ? "Evaluating..." : "Evaluate"}
+          {diaryText === null ? "Evaluating..." : "Evaluate"}
         </button>
-        {showError != "" && <div>{showError}</div>}
+        {showError !== "" && <div>{showError}</div>}
         <div>
           <p
             className="text-xl font-lora underline w-fit"
