@@ -5,10 +5,6 @@ import Header from "../components/Header/Header";
 export default function Diary() {
   const [diaryText, setDiaryText] = useState("");
   const [diaryEvaluation, setDiaryEvaluation] = useState(null);
-  const [errorInEval, setErrorInEval] = useState({
-    error: false,
-    description: "",
-  });
   const [showPrivacyInfo, setShowPrivacyInfo] = useState(false);
   const [showError, setShowError] = useState("");
   const router = useRouter();
@@ -35,11 +31,6 @@ export default function Diary() {
       .then((json) => {
         setDiaryEvaluation(json);
         setShowError("");
-        // Router.push({
-        //   pathname: "Diary/Results",
-        //   query: {result: json.aggregate_sentiment.compound}
-        // })
-        // Router.push("/Diary/Results/", {query: {result: json.aggregate_sentiment.compound}}, {shallow: true})
         router.push(
           `/Diary/Results?results=${json.aggregate_sentiment.compound}`,
           `/Diary`,
@@ -54,19 +45,19 @@ export default function Diary() {
       );
   };
 
-  const feedbackToEmotion = (e) => {
-    if (e == null) {
-      return "";
-    } else if (e < -0.5) {
-      return "Looks like your day wasn't great, but that's ok. We all have bad days :)";
-    } else if (e < 0) {
-      return "a bit bad";
-    } else if (e < 0.5) {
-      return "a bit good";
-    } else if (e < 1) {
-      return "Seems like you've had a great day";
-    }
-  };
+  // const feedbackToEmotion = (e) => {
+  //   if (e == null) {
+  //     return "";
+  //   } else if (e < -0.5) {
+  //     return "Looks like your day wasn't great, but that's ok. We all have bad days :)";
+  //   } else if (e < 0) {
+  //     return "a bit bad";
+  //   } else if (e < 0.5) {
+  //     return "a bit good";
+  //   } else if (e < 1) {
+  //     return "Seems like you've had a great day";
+  //   }
+  // };
 
   return (
     <div>
@@ -78,19 +69,6 @@ export default function Diary() {
             Studies have shown that writing down your feelings and thoughts can
             help you improve your mental health
           </p>
-          <p
-            className="text-xl font-lora underline w-fit"
-            onMouseEnter={() => setShowPrivacyInfo(true)}
-            onMouseLeave={() => setShowPrivacyInfo(false)}
-          >
-            Where is my data stored?
-          </p>
-          {showPrivacyInfo && (
-            <div>
-              We store everything about you in your device itself, no one else
-              has access to it
-            </div>
-          )}
         </div>
         <textarea
           className="w-[100%] h-[50vh] p-5 border-none outline-none bg-[#CAEAC2]"
@@ -113,11 +91,22 @@ export default function Diary() {
         >
           {diaryText == null ? "Evaluating..." : "Evaluate"}
         </button>
-        {diaryEvaluation && (
-          <p>{diaryEvaluation.aggregate_sentiment.compound * 5 + 5}/10</p>
-        )}
-        <p>{feedbackToEmotion(diaryEvaluation)}</p>
         {showError != "" && <div>{showError}</div>}
+        <div>
+          <p
+            className="text-xl font-lora underline w-fit"
+            onMouseEnter={() => setShowPrivacyInfo(true)}
+            onMouseLeave={() => setShowPrivacyInfo(false)}
+          >
+            Where is my data stored?
+          </p>
+          {showPrivacyInfo && (
+            <p>
+              We store everything about you in your device itself, no one else
+              has access to it
+            </p>
+          )}
+        </div>
       </main>
     </div>
   );
