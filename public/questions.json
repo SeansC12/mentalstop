@@ -72,14 +72,14 @@
         "type": "range",
         "subtext":"0: Significantly (negatively), 5: Not at all, 10: Significantly (positively)",
         "answersToPoints":{
-            "1": -5,
-            "2": -4,
-            "3": -3,
-            "4": -2,
-            "5": 0,
-            "6": 3,
-            "7": 5,
-            "8": 7,
+            "1": 1,
+            "2": 2,
+            "3": 3,
+            "4": 4,
+            "5": 5,
+            "6": 6,
+            "7": 7,
+            "8": 8,
             "9": 9,
             "10": 10
         }
