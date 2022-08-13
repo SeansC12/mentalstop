@@ -1,12 +1,12 @@
 import React from "react";
 import Header from "../components/Header/Header";
 
-function GetHelp() {
+function Donate() {
   return (
     <div>
-      <Header tab="Get Help" />
+      <Header tab="Donate" />
     </div>
   );
 }
 
-export default GetHelp;
+export default Donate;
