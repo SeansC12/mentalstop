@@ -86,7 +86,7 @@ export default function Results() {
 
   return (
     <div>
-      <Header tab="Diary" />
+      <Header tab="Get Help" />
       <main className="text-center">
         <div className="p-10">
           <div className="">
