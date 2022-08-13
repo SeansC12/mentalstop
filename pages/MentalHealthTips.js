@@ -1,6 +1,6 @@
 import React from "react";
-import LeftMentalHealthTipsCard from "../components/GetHelp/LeftMentalHealthTipsCard";
-import RightMentalHealthTipsCard from "../components/GetHelp/RightMentalHealthTipsCard";
+import LeftMentalHealthTipsCard from "../components/GetHelp/MentalHealthTips/LeftMentalHealthTipsCard";
+import RightMentalHealthTipsCard from "../components/GetHelp/MentalHealthTips/RightMentalHealthTipsCard";
 import Header from "../components/Header/Header";
 
 const mentalHealthTips = [
@@ -61,9 +61,9 @@ function MentalHealthTips() {
   return (
     <div>
       <Header tab="Get Help" />
-      <main className="h-full font-Inter pb-96 p-16 bg-gradient-to-b from-[#DFFFDC] to-[#E5E5DB]">
+      <main className="h-full font-Inter pb-96 p-16 bg-gradient-to-b from-[#C6DAF9] to-[#FFFFFF]">
         <div className="flex flex-col">
-          <p className="text-5xl font-lora text-[#1A8C10] mb-2">
+          <p className="text-5xl font-lora text-[#577AAF] mb-2">
             Stay mentally healthy
           </p>
           <p className="text-5xl font-lora text-black">

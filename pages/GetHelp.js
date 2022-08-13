@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../components/Header/Header";
-import GetHelpCard from "../components/GetHelp/GetHelpCard";
+import GetHelpCard from "../components/GetHelp/Homepage/GetHelpCard";
 
 const ourOptions = {
   Diary: {
@@ -71,7 +71,7 @@ function GetHelp() {
             Professional Help
           </div>
           <div className="grid place-items-center my-3">
-            <div className="border border-[#1A8C10] w-[75%] rounded" />
+            <div className="border border-[#1A8C10] w-[100%] rounded" />
           </div>
 
           <div className="mt-12 font-lora text-center text-3xl">
@@ -79,7 +79,11 @@ function GetHelp() {
             for help. Things get crazy and overwhelming, it's life.
           </div>
           <div className="mt-10">
-            <GetHelpCard data={professionalSupport} index={0} />
+            <GetHelpCard
+              data={professionalSupport}
+              index={0}
+              link="/ProfessionalSupport"
+            />
           </div>
         </div>
 
@@ -87,7 +91,7 @@ function GetHelp() {
           {/* Good Mental Health Practices */}
           {/* Header */}
           <div className="grid place-items-center my-10">
-            <div className="border border-[#1A8C10] w-[75%] rounded" />
+            <div className="border border-[#1A8C10] w-[100%] rounded" />
           </div>
           <div className="font-Inter text-center text-md">Seek Help</div>
 
@@ -123,7 +127,7 @@ function GetHelp() {
           </div>
 
           <div className="my-10 grid place-items-center">
-            <div className="border border-[#1A8C10] rounded w-[75%]"></div>
+            <div className="border border-[#1A8C10] rounded w-[100%]"></div>
           </div>
 
           <div className="mb-5 font-lora text-center text-3xl">
@@ -153,7 +157,7 @@ function GetHelp() {
         </div>
 
         <div className="my-10 grid place-items-center">
-          <div className="border border-[#1A8C10] rounded w-[75%]"></div>
+          <div className="border border-[#1A8C10] rounded w-[100%]"></div>
         </div>
 
         <div>

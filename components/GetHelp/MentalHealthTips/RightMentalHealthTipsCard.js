@@ -9,7 +9,7 @@ function RightMentalHealthTipsCard({ data }) {
           <div className="w-full h-full bg-black"></div>
         </div>
         <div className="col-start-2 col-end-3">
-          <h1 className="text-3xl text-[#1A8C10]">{title}</h1>
+          <h1 className="text-3xl text-[#577AAF]">{title}</h1>
           <h2>{description}</h2>
         </div>
       </div>
