@@ -1,6 +1,7 @@
+import { Router, useRouter } from "next/router";
 import React, { useState } from "react";
-import Header from "../../components/Header/Header";
-import questions from "../../public/questions.json";
+// import Header from "../../../components/Header/Header";
+import questions from "../../../public/questions.json";
 // import { SliderWhite } from "../../components/GetHelp/Slider";
 
 let questionScores = 0;
@@ -8,6 +9,7 @@ export default function Questions() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [mcqInput, setMcqInput] = useState(null);
   let input = 5;
+  const router = useRouter();
 
   const handleSubmit = () => {
     questionScores +=
@@ -15,6 +17,11 @@ export default function Questions() {
       questions[currentQuestionIndex].answersToPoints[mcqInput];
 
     if (currentQuestionIndex == questions.length - 1) {
+      router.push(
+        `/GetHelp/Questions/Results?result=${input}`,
+        "/GetHelp/Questions",
+        { shallow: true }
+      );
     } else {
       setCurrentQuestionIndex((i) => i + 1);
     }
