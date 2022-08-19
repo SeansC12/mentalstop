@@ -36,7 +36,7 @@ export default function Questions() {
           <div className="">
             <p>{questions[currentQuestionIndex].question}</p>
             <p>{questions[currentQuestionIndex].subtext}</p>
-            {questions[currentQuestionIndex].type == "range" ? (
+            {questions[currentQuestionIndex].type === "range" ? (
               <input
                 type="range"
                 onChange={(val) => {
@@ -54,7 +54,7 @@ export default function Questions() {
                     setMcqInput(answer);
                   }}
                   style={{
-                    backgroundColor: mcqInput == answer ? "blue" : "white",
+                    backgroundColor: mcqInput === answer ? "blue" : "white",
                   }}
                 >
                   {answer}
