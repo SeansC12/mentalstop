@@ -2,10 +2,10 @@ import Link from "next/link";
 import React from "react";
 import Header from "../components/Header/Header";
 import "../public/callIcon.svg";
-import "../public/donateImg.png"
-import "../public/helpOthersImg.png"
-import "../public/helpYourselfImg.png"
-import "../public/learnMoreImg.png"
+import "../public/donateImg.png";
+import "../public/helpOthersImg.png";
+import "../public/helpYourselfImg.png";
+import "../public/learnMoreImg.png";
 
 const cardInfos = [
   {
@@ -57,10 +57,12 @@ export default function Home() {
             <strong>
               Need help urgently?
               <br />
-              Call the Samaritans of Singapore at <a href="tel:1-767" className="underline">1-767</a>
+              Call the Samaritans of Singapore at 1-767
             </strong>
           </div>
-          <img className="h-32" src="callIcon.svg"></img>
+          <a href="tel:1-767">
+            <img className="h-32" src="callIcon.svg" />
+          </a>
         </div>
         <div className="h-[75vh] text-center">
           <p className="text-4xl pt-16 p-5 font-bold">Explore our options:</p>
