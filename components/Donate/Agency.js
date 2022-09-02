@@ -17,7 +17,7 @@ function Agency({ details, selectedHelpline, setSelectedHelpline }) {
             setSelectedHelpline();
           }}
         >
-          <img src={imageLink} className="object-contain w-[70%] h-[75%]"></img>
+          <img src={imageLink} className="object-contain w-[70%] h-[75%]" />
           <div className="font-lora text-[#577AAF] text-2xl">{name}</div>
           <div className="font-Inter text-[#577AAF]">{openingHours}</div>
         </motion.div>
