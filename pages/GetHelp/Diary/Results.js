@@ -66,9 +66,6 @@ export default function Results() {
         param.push([parsedEmotionsLog[i].date, parsedEmotionsLog[i].score]);
       }
       lineOfBestFitCoordinates = getLineOfBestFit(param);
-      console.log(getBestFit(param));
-      console.log(lineOfBestFitCoordinates);
-      console.log(param);
       if (
         parsedEmotionsLog.at(-1).date == newLog.date &&
         parsedEmotionsLog.at(-1).month == newLog.month &&
@@ -93,13 +90,6 @@ export default function Results() {
     // const labels = parsedEmotionsLog.map((log) => `${log.date}`);
     let lineOfBestFitDataset = [];
     let scoreDataset = [];
-
-    // for (let i = 0; i < lineOfBestFitCoordinates.length; i++) {
-    //   lineOfBestFitDataset.push({
-    //     x: `${lineOfBestFitCoordinates[i][0]}`,
-    //     y: lineOfBestFitCoordinates[i][1],
-    //   });
-    // }
 
     for (let i = 0; i < parsedEmotionsLog.length; i++) {
       scoreDataset.push({
