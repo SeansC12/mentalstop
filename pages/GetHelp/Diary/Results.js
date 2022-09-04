@@ -14,6 +14,7 @@ import {
 import { motion } from "framer-motion";
 import Header from "../../../components/Header/Header";
 import { useEffect, useState } from "react";
+import { getLineOfBestFit } from "../../../utils/LinearRegression";
 
 ChartJS.register(
   CategoryScale,
@@ -27,6 +28,7 @@ ChartJS.register(
 
 export default function Results() {
   const [emotionsLogs, setEmotionsLogs] = useState(null);
+  let lineOfBestFitCoordinates = [];
 
   let parsedEmotionsLog = null;
   const date = new Date();
@@ -39,8 +41,16 @@ export default function Results() {
   };
   useEffect(() => {
     const emotionsLog = localStorage.getItem("emotionsLog");
+
     if (emotionsLog) {
       parsedEmotionsLog = JSON.parse(emotionsLog);
+
+      // get line of best fit
+      lineOfBestFitCoordinates = getLineOfBestFit([
+        [parsedEmotionsLog.at(0).date, parsedEmotionsLog.at(0).score],
+        [parsedEmotionsLog.at(-1).date, parsedEmotionsLog.at(-1).score],
+      ]);
+      console.log(lineOfBestFitCoordinates);
       if (
         parsedEmotionsLog.at(-1).date == newLog.date &&
         parsedEmotionsLog.at(-1).month == newLog.month &&
@@ -49,7 +59,7 @@ export default function Results() {
         if (
           confirm(
             "We have detected that you already wrote in your diary today\nWould you like to update it?"
-          ) == true
+          ) === true
         ) {
           parsedEmotionsLog.pop();
           parsedEmotionsLog.push(newLog);
@@ -62,23 +72,45 @@ export default function Results() {
     }
     localStorage.setItem("emotionsLog", JSON.stringify(parsedEmotionsLog));
 
-    const labels = parsedEmotionsLog.map((log) => `${log.date}`);
+    // const labels = parsedEmotionsLog.map((log) => `${log.date}`);
+    let lineOfBestFitDataset = [];
+    let scoreDataset = [];
+
+    for (let i = 0; i < lineOfBestFitCoordinates.length; i++) {
+      lineOfBestFitDataset.push({
+        x: `${lineOfBestFitCoordinates[i][0]}`,
+        y: lineOfBestFitCoordinates[i][1],
+      });
+    }
+
+    for (let i = 0; i < parsedEmotionsLog.length; i++) {
+      scoreDataset.push({
+        x: `${parsedEmotionsLog[i].date}`,
+        y: parsedEmotionsLog[i].score,
+      });
+    }
+
+    console.log(scoreDataset);
+    console.log(lineOfBestFitDataset);
     const data = {
-      labels,
+      type: "line",
       datasets: [
         {
           label: "Daily",
-          data: parsedEmotionsLog.map((emotionLog) => emotionLog.score),
+          data: scoreDataset,
           borderColor: "rgb(255, 99, 132)",
           backgroundColor: "rgba(255, 99, 132, 0.5)",
         },
-        // {
-        //   label: 'Average',
-        //   data: labels.map(() => Math.floor(Math.random() * 10)),
-        //   borderColor: 'rgb(53, 162, 235)',
-        //   backgroundColor: 'rgba(53, 162, 235, 0.5)',
-        // },
+        {
+          label: "Average",
+          data: lineOfBestFitDataset,
+          borderColor: "rgb(53, 162, 235)",
+          backgroundColor: "rgba(53, 162, 235, 0.5)",
+        },
       ],
+      options: {
+        parsing: false,
+      },
     };
 
     setEmotionsLogs(data);
