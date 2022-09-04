@@ -47,7 +47,7 @@ export function getLineOfBestFit(coordinates) {
   for (let i = 0; i < dataArrLength; i++) {
     const eachCoordinate = coordinates[i];
     const eachX = eachCoordinate[0];
-    const newY = gradient * eachX + interceptY;
+    const newY = gradient * i + interceptY;
     bestFitCoordinates.push([eachX, newY]);
   }
 

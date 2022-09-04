@@ -14,7 +14,7 @@ import {
 import { motion } from "framer-motion";
 import Header from "../../../components/Header/Header";
 import { useEffect, useState } from "react";
-import { getLineOfBestFit } from "../../../utils/LinearRegression";
+import { getLineOfBestFit, getBestFit } from "../../../utils/LinearRegression";
 
 ChartJS.register(
   CategoryScale,
@@ -25,6 +25,21 @@ ChartJS.register(
   Tooltip,
   Legend
 );
+
+const month = {
+  1: "Jan",
+  2: "Feb",
+  3: "Mar",
+  4: "Apr",
+  5: "May",
+  6: "Jun",
+  7: "Jul",
+  8: "Aug",
+  9: "Sep",
+  10: "Oct",
+  11: "Nov",
+  12: "Dec",
+};
 
 export default function Results() {
   const [emotionsLogs, setEmotionsLogs] = useState(null);
@@ -46,11 +61,14 @@ export default function Results() {
       parsedEmotionsLog = JSON.parse(emotionsLog);
 
       // get line of best fit
-      lineOfBestFitCoordinates = getLineOfBestFit([
-        [parsedEmotionsLog.at(0).date, parsedEmotionsLog.at(0).score],
-        [parsedEmotionsLog.at(-1).date, parsedEmotionsLog.at(-1).score],
-      ]);
+      let param = [];
+      for (let i = 0; i < parsedEmotionsLog.length; i++) {
+        param.push([parsedEmotionsLog[i].date, parsedEmotionsLog[i].score]);
+      }
+      lineOfBestFitCoordinates = getLineOfBestFit(param);
+      console.log(getBestFit(param));
       console.log(lineOfBestFitCoordinates);
+      console.log(param);
       if (
         parsedEmotionsLog.at(-1).date == newLog.date &&
         parsedEmotionsLog.at(-1).month == newLog.month &&
@@ -76,22 +94,24 @@ export default function Results() {
     let lineOfBestFitDataset = [];
     let scoreDataset = [];
 
-    for (let i = 0; i < lineOfBestFitCoordinates.length; i++) {
+    // for (let i = 0; i < lineOfBestFitCoordinates.length; i++) {
+    //   lineOfBestFitDataset.push({
+    //     x: `${lineOfBestFitCoordinates[i][0]}`,
+    //     y: lineOfBestFitCoordinates[i][1],
+    //   });
+    // }
+
+    for (let i = 0; i < parsedEmotionsLog.length; i++) {
+      scoreDataset.push({
+        x: `${parsedEmotionsLog[i].date} ${month[parsedEmotionsLog[i].month]}`,
+        y: parsedEmotionsLog[i].score,
+      });
       lineOfBestFitDataset.push({
-        x: `${lineOfBestFitCoordinates[i][0]}`,
+        x: `${parsedEmotionsLog[i].date} ${month[parsedEmotionsLog[i].month]}`,
         y: lineOfBestFitCoordinates[i][1],
       });
     }
 
-    for (let i = 0; i < parsedEmotionsLog.length; i++) {
-      scoreDataset.push({
-        x: `${parsedEmotionsLog[i].date}`,
-        y: parsedEmotionsLog[i].score,
-      });
-    }
-
-    console.log(scoreDataset);
-    console.log(lineOfBestFitDataset);
     const data = {
       type: "line",
       datasets: [
@@ -123,11 +143,14 @@ export default function Results() {
         <div className="p-10">
           <div className="">
             <p className="font-bold text-2xl">Today's results: </p>
-            <p>Results: {Router.query.results * 5 + 5}/10</p>
+            <p>
+              Results: {Math.round((Router.query.results * 5 + 5) * 100) / 100}{" "}
+              / 10
+            </p>
           </div>
           <div className="my-10 w-[100%] h-0.5 bg-[#aae99a]"></div>
           <div>
-            <p className="font-bold text-2xl pb-10">Past Week</p>
+            <p className="font-bold text-2xl pb-10">Past Entries</p>
             {emotionsLogs && <Line data={emotionsLogs} />}
           </div>
         </div>
