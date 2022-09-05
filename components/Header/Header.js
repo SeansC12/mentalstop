@@ -103,22 +103,33 @@ export default function Header({ tab }) {
       <div className="bg-[#CCF5C8] sm:h-14">
         {/* Mobile View */}
         {useWindowDimensions().width < 640 && (
-          <motion.div
-            initial={false}
-            animate={isOpen ? "open" : "closed"}
-            custom={10}
-          >
-            <motion.div
-              className="bg-[#98C9A3] absolute top-0 left-0 bottom-0 w-[300px] shadow-md"
-              variants={sidebar}
-              ref={mobileNavBarRef}
-            />
-            <Navigation navigation={navigation} />
-            {console.log(isOpen)}
-            <div ref={menuToggleRef}>
-              <MenuToggle toggle={() => toggleOpen()} />
+          <div className="relative bg-[#CCF5C8] h-20 w-full">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3">
+              <Image
+                src={favicon}
+                alt=""
+                width="45px"
+                height="45px"
+                className="cursor-pointer"
+              />
             </div>
-          </motion.div>
+            <motion.div
+              initial={false}
+              animate={isOpen ? "open" : "closed"}
+              custom={10}
+            >
+              <motion.div
+                className="bg-[#98C9A3] absolute top-0 left-0 bottom-0 w-[300px] shadow-md"
+                variants={sidebar}
+                ref={mobileNavBarRef}
+              />
+              <Navigation navigation={navigation} />
+              {console.log(isOpen)}
+              <div ref={menuToggleRef}>
+                <MenuToggle toggle={() => toggleOpen()} />
+              </div>
+            </motion.div>
+          </div>
         )}
 
         {/* Desktop View */}
