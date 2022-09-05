@@ -126,13 +126,15 @@ export default function Header({ tab }) {
           <div className="relative w-full h-14 flex flex-row">
             <div className="visible h-full absolute flex items-center justify-start z-20 ml-10">
               <Link href="/">
-                <Image
-                  src={favicon}
-                  alt=""
-                  width="40px"
-                  height="40px"
-                  className="cursor-pointer"
-                />
+                <div>
+                  <Image
+                    src={favicon}
+                    alt=""
+                    width="40px"
+                    height="40px"
+                    className="cursor-pointer"
+                  />
+                </div>
               </Link>
             </div>
             <div className="hidden absolute w-full h-full sm:flex items-center justify-center z-10">
