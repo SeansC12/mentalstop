@@ -8,7 +8,7 @@ const ourOptions = {
     Copy: "Write a short paragraph describing your emotions throughout the day, and our Diary AI will analyse your text using world-leading Machine Learning algorithms to gather trends in your feelings.",
     ButtonText: "Open Diary",
     ImageLink: "",
-    redirectLink: "/GetHelp/Questions",
+    redirectLink: "/GetHelp/Diary",
   },
   Inquire: {
     Header: "Find out about how you’re feeling with Inquire",
