@@ -96,11 +96,11 @@ export default function Diary() {
     <div>
       <Header tab="Get Help" />
       <main className="bg-[#fff] p-10">
-        <div className="flex flex-row items-start justify-start w-full h-full">
-          <p className="text-4xl font-medium font-Inter text-green-700 w-max">
+        <div className="flex flex-col lg:flex-row items-start justify-start w-full h-full">
+          <p className="text-lg lg:text-4xl md:text-2xl sm:text-xl font-medium font-Inter text-green-700 w-max">
             In less than a hundred words,
           </p>
-          <p className="text-4xl font-Inter grow ml-2 w-max">
+          <p className="text-lg lg:text-4xl md:text-2xl sm:text-xl font-Inter grow lg:ml-2 w-max">
             write about how your day went.
           </p>
         </div>
@@ -140,19 +140,21 @@ export default function Diary() {
           </motion.button>
         </div>
         <div>
-          <p
-            className="text-xl font-lora underline w-fit"
-            // onMouseEnter={() => setShowPrivacyInfo(true)}
-            // onMouseLeave={() => setShowPrivacyInfo(false)}
-          >
-            Where is my data stored?
-          </p>
-          <p>
-            We store everything about you in your device itself, no one else has
-            access to it. Once you click the "Evaluate" button, we permanently
-            delete your diary entry from all our databases, and just save the
-            score. Even the score is saved only on your device, not on our
-            servers.
+          <div className="flex items-center justify-center mt-4 sm:flex sm:items-start sm:justify-start">
+            <p
+              className="text-md lg:text-xl md:text-lg font-lora underline w-fit"
+              // onMouseEnter={() => setShowPrivacyInfo(true)}
+              // onMouseLeave={() => setShowPrivacyInfo(false)}
+            >
+              Where is my data stored?
+            </p>
+          </div>
+          <p className="text-sm lg:text-lg md:text-md font-lora">
+            We store everything about you in <strong>your device itself</strong>
+            , no one else has access to it. Once you click the "Evaluate"
+            button, we <strong>permanently delete</strong> your diary entry from
+            all our databases, and just save the score. Even the score is saved
+            only on your device, not on our servers.
           </p>
         </div>
       </main>
