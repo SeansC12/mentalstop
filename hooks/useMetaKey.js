@@ -10,9 +10,9 @@ export default function useMetaKey(callback, inputRef) {
       }
     }
 
-    document.addEventListener("keypress", handleSubmit);
+    document.addEventListener("keydown", handleSubmit);
     return () => {
-      document.removeEventListener("keypress", handleSubmit);
+      document.removeEventListener("keydown", handleSubmit);
     };
   }, [inputRef]);
 }
