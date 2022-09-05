@@ -2,14 +2,17 @@ import Router, { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
 import Header from "../../../components/Header/Header";
 import useMetaKey from "../../../hooks/useMetaKey";
+import { motion, useAnimationControls } from "framer-motion";
 
 export default function Diary() {
   const [diaryText, setDiaryText] = useState("");
   const [diaryEvaluation, setDiaryEvaluation] = useState(null);
-  const [showPrivacyInfo, setShowPrivacyInfo] = useState(false);
-  const [showError, setShowError] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const inputRef = useRef();
   const router = useRouter();
+  const evaluateButtonControls = useAnimationControls();
+  const textAreaControls = useAnimationControls();
 
   let buttonRef = useRef();
 
@@ -26,7 +29,7 @@ export default function Diary() {
 
   const analyse = () => {
     console.log("analysing");
-    setShowError("");
+    setErrorMessage("");
     setDiaryText(null);
     setDiaryEvaluation(null);
     const url =
@@ -44,21 +47,16 @@ export default function Diary() {
 
     fetch(url, apiParams)
       .then((res) => res.json())
-      .then(
-        (json) => {
-          console.log("hi");
-          setDiaryEvaluation(json);
-          setShowError("");
-          router.push(
-            `/GetHelp/Diary/Results?results=${json.aggregate_sentiment.compound}`,
-            `/GetHelp/Diary`,
-            { shallow: true }
-          );
-        },
-        () => console.log("failed 2")
-      )
+      .then((json) => {
+        setDiaryEvaluation(json);
+        setErrorMessage("");
+        router.push(
+          `/GetHelp/Diary/Results?results=${json.aggregate_sentiment.compound}`,
+          `/GetHelp/Diary`,
+          { shallow: true }
+        );
+      })
       .catch((err) => {
-        // console.log("it fialed");
         setErrorInEval({
           error: true,
           description: err,
@@ -80,6 +78,20 @@ export default function Diary() {
   //   }
   // };
 
+  useEffect(() => {
+    if (diaryText === null || diaryText === "") {
+      evaluateButtonControls.start({
+        backgroundColor: "#DED4D4",
+        transition: {
+          scaleX: 0,
+          ease: "linear",
+        },
+      });
+    } else {
+      evaluateButtonControls.start({ backgroundColor: "#CAEAC2" });
+    }
+  }, [diaryText]);
+  console.log(errorMessage);
   return (
     <div>
       <Header tab="Get Help" />
@@ -92,44 +104,56 @@ export default function Diary() {
             write about how your day went.
           </p>
         </div>
-        <textarea
-          className="w-[100%] h-[50vh] p-5 border-none outline-none bg-[#CAEAC2] mt-4 rounded-xl"
+        <motion.textarea
+          className={
+            errorMessage !== ""
+              ? "w-[100%] h-[50vh] p-5 border-none outline-none bg-[#CAEAC2] mt-4 rounded-xl placeholder:text-red-500"
+              : "w-[100%] h-[50vh] p-5 border-none outline-none bg-[#CAEAC2] mt-4 rounded-xl placeholder:text-slate-400"
+          }
           onChange={(e) => setDiaryText(e.target.value)}
-          placeholder="Start writing here..."
+          placeholder={
+            errorMessage !== ""
+              ? "*This field is required"
+              : "Start writing here..."
+          }
           ref={inputRef}
+          animate={textAreaControls}
         />
-        <button
-          className="bg-[#DED4D4] w-36 h-10 rounded-full m-auto"
-          onClick={() => {
-            diaryText === null
-              ? setShowError("Evaluating, please wait")
-              : diaryText === ""
-              ? setShowError("Please key in your thoughts first")
-              : analyse();
-          }}
-          style={{
-            backgroundColor:
-              diaryText === null || diaryText === "" ? "#DED4D4" : "#CAEAC2",
-          }}
-          ref={buttonRef}
-        >
-          {diaryText === null ? "Evaluating..." : "Evaluate"}
-        </button>
-        {showError !== "" && <div>{showError}</div>}
+        <div className="flex items-center justify-center w-full">
+          <motion.button
+            className="bg-[#DED4D4] w-36 h-10 rounded-full m-auto font-semibold mt-5"
+            onClick={() => {
+              if (diaryText === "") {
+                setErrorMessage("Textarea empty");
+                setIsLoading(false);
+                textAreaControls.start({ x: [-7, 7, -7, 7, -7, 0] });
+              } else {
+                analyse();
+                setIsLoading(true);
+                setErrorMessage("");
+              }
+            }}
+            ref={buttonRef}
+            animate={evaluateButtonControls}
+          >
+            {isLoading ? "Evaluating..." : "Evaluate"}
+          </motion.button>
+        </div>
         <div>
           <p
             className="text-xl font-lora underline w-fit"
-            onMouseEnter={() => setShowPrivacyInfo(true)}
-            onMouseLeave={() => setShowPrivacyInfo(false)}
+            // onMouseEnter={() => setShowPrivacyInfo(true)}
+            // onMouseLeave={() => setShowPrivacyInfo(false)}
           >
             Where is my data stored?
           </p>
-          {showPrivacyInfo && (
-            <p>
-              We store everything about you in your device itself, no one else
-              has access to it
-            </p>
-          )}
+          <p>
+            We store everything about you in your device itself, no one else has
+            access to it. Once you click the "Evaluate" button, we permanently
+            delete your diary entry from all our databases, and just save the
+            score. Even the score is saved only on your device, not on our
+            servers.
+          </p>
         </div>
       </main>
     </div>
