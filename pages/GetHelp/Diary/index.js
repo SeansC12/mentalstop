@@ -25,6 +25,7 @@ export default function Diary() {
   }, inputRef);
 
   const analyse = () => {
+    console.log("analysing");
     setShowError("");
     setDiaryText(null);
     setDiaryEvaluation(null);
@@ -43,22 +44,26 @@ export default function Diary() {
 
     fetch(url, apiParams)
       .then((res) => res.json())
-      .then((json) => {
-        setDiaryEvaluation(json);
-        setShowError("");
-        console.log(json.aggregate_sentiment.compound);
-        router.push(
-          `/GetHelp/Diary/Results?results=${json.aggregate_sentiment.compound}`,
-          `/GetHelp/Diary`,
-          { shallow: true }
-        );
-      })
-      .catch((err) =>
+      .then(
+        (json) => {
+          console.log("hi");
+          setDiaryEvaluation(json);
+          setShowError("");
+          router.push(
+            `/GetHelp/Diary/Results?results=${json.aggregate_sentiment.compound}`,
+            `/GetHelp/Diary`,
+            { shallow: true }
+          );
+        },
+        () => console.log("failed 2")
+      )
+      .catch((err) => {
+        // console.log("it fialed");
         setErrorInEval({
           error: true,
           description: err,
-        })
-      );
+        });
+      });
   };
 
   // const feedbackToEmotion = (e) => {
@@ -87,31 +92,29 @@ export default function Diary() {
             write about how your day went.
           </p>
         </div>
-        <form>
-          <textarea
-            className="w-[100%] h-[50vh] p-5 border-none outline-none bg-[#CAEAC2] mt-4 rounded-xl"
-            onChange={(e) => setDiaryText(e.target.value)}
-            placeholder="Start writing here..."
-            ref={inputRef}
-          />
-          <button
-            className="bg-[#DED4D4] w-36 h-10 rounded-full m-auto"
-            onClick={() => {
-              diaryText === null
-                ? setShowError("Evaluating, please wait")
-                : diaryText === ""
-                ? setShowError("Please key in your thoughts first")
-                : analyse();
-            }}
-            style={{
-              backgroundColor:
-                diaryText === null || diaryText === "" ? "#DED4D4" : "#CAEAC2",
-            }}
-            ref={buttonRef}
-          >
-            {diaryText === null ? "Evaluating..." : "Evaluate"}
-          </button>
-        </form>
+        <textarea
+          className="w-[100%] h-[50vh] p-5 border-none outline-none bg-[#CAEAC2] mt-4 rounded-xl"
+          onChange={(e) => setDiaryText(e.target.value)}
+          placeholder="Start writing here..."
+          ref={inputRef}
+        />
+        <button
+          className="bg-[#DED4D4] w-36 h-10 rounded-full m-auto"
+          onClick={() => {
+            diaryText === null
+              ? setShowError("Evaluating, please wait")
+              : diaryText === ""
+              ? setShowError("Please key in your thoughts first")
+              : analyse();
+          }}
+          style={{
+            backgroundColor:
+              diaryText === null || diaryText === "" ? "#DED4D4" : "#CAEAC2",
+          }}
+          ref={buttonRef}
+        >
+          {diaryText === null ? "Evaluating..." : "Evaluate"}
+        </button>
         {showError !== "" && <div>{showError}</div>}
         <div>
           <p
