@@ -9,7 +9,7 @@ export function getBestFit(coordinates) {
   let meanY = 0;
   for (let i = 0; i < dataArrLength; i++) {
     const eachCoordinate = coordinates[i];
-    sumX += eachCoordinate[0];
+    sumX += i;
     sumY += eachCoordinate[1];
   }
   meanX = sumX / dataArrLength;
@@ -20,7 +20,7 @@ export function getBestFit(coordinates) {
   let totalDevXY = 0;
   for (let i = 0; i < dataArrLength; i++) {
     const eachCoordinate = coordinates[i];
-    const eachX = eachCoordinate[0];
+    const eachX = i;
     const eachY = eachCoordinate[1];
     totalDevXSquare += Math.pow(eachX - meanX, 2);
     totalDevXY += (eachX - meanX) * (eachY - meanY);
@@ -46,9 +46,10 @@ export function getLineOfBestFit(coordinates) {
   const bestFitCoordinates = [];
   for (let i = 0; i < dataArrLength; i++) {
     const eachCoordinate = coordinates[i];
-    const eachX = eachCoordinate[0];
-    const newY = gradient * i + interceptY;
-    bestFitCoordinates.push([eachX, newY]);
+    const displayX = eachCoordinate[0];
+    const eachX = i;
+    const newY = gradient * eachX + interceptY;
+    bestFitCoordinates.push([displayX, newY]);
   }
 
   return bestFitCoordinates;
