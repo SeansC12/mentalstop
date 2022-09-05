@@ -66,6 +66,9 @@ export default function Results() {
         param.push([parsedEmotionsLog[i].date, parsedEmotionsLog[i].score]);
       }
       lineOfBestFitCoordinates = getLineOfBestFit(param);
+      console.log(param);
+      console.log(lineOfBestFitCoordinates);
+      console.log(getBestFit(param));
       if (
         parsedEmotionsLog.at(-1).date == newLog.date &&
         parsedEmotionsLog.at(-1).month == newLog.month &&
