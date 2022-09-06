@@ -120,16 +120,16 @@ function LearnMore() {
                   className="grid grid-cols-2 rounded-xl h-fit mx-2 my-4 md:m-10"
                   style={{ backgroundColor: illness.color }}
                 >
-                  <div className="p-5 md:p-10">
-                    <p className="text-xl">{illness.name}</p>
-                    <div className="h-full relative">
-                      <button
-                        className="font-bold md:text-xl bg-black rounded-full px-4 p-2 bg-opacity-10 absolute bottom-7"
-                        onClick={() => setOpenedIllness(i)}
-                      >
-                        See More
-                      </button>
-                    </div>
+                  <div className="p-5 md:p-10 flex flex-col">
+                    <p className="text-xl grow">{illness.name}</p>
+                    <button
+                      className="font-bold md:text-xl bg-black rounded-full px-4 p-2 bg-opacity-10 w-40 grow max-h-12"
+                      onClick={() => setOpenedIllness(i)}
+                    >
+                      See More
+                    </button>
+                    {/* <div className="h-full relative">
+                    </div> */}
                   </div>
                   <img
                     className="object-cover aspect-square w-full h-full"

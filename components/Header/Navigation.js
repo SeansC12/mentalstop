@@ -13,7 +13,7 @@ const variants = {
 
 export const Navigation = ({ navigation, isOpen }) => (
   <motion.ul
-    className="flex flex-col p-6 absolute top-24 w-60"
+    className="flex flex-col p-6 absolute top-24 w-60 z-60"
     variants={variants}
   >
     {navigation.map((i, key) => (

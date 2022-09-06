@@ -123,7 +123,9 @@ export default function Header({ tab }) {
                 variants={sidebar}
                 ref={mobileNavBarRef}
               />
-              <Navigation navigation={navigation} />
+              <div className="absolute z-50">
+                <Navigation navigation={navigation} />
+              </div>
               {console.log(isOpen)}
               <div ref={menuToggleRef}>
                 <MenuToggle toggle={() => toggleOpen()} />
