@@ -103,22 +103,50 @@ export default function Header({ tab }) {
       <div className="bg-[#CCF5C8] sm:h-14">
         {/* Mobile View */}
         {useWindowDimensions().width < 640 && (
-          <motion.div
-            initial={false}
-            animate={isOpen ? "open" : "closed"}
-            custom={10}
-          >
-            <motion.div
-              className="bg-[#98C9A3] absolute top-0 left-0 bottom-0 w-[300px] shadow-md"
-              variants={sidebar}
-              ref={mobileNavBarRef}
+          <>
+            {/*  <div className="relative bg-[#CCF5C8] h-20 w-full">
+         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3">
+           <Image
+             src={favicon}
+              alt=""
+             width="45px"
+             height="45px"
+             className="cursor-pointer"
             />
-            <Navigation navigation={navigation} />
-            {console.log(isOpen)}
-            <div ref={menuToggleRef}>
-              <MenuToggle toggle={() => toggleOpen()} />
+           </div> */}
+            {/* <div className="opacity-0 h-20 w-full mb-10"> */}
+            <div className="bg-[#CCF5C8] h-20 w-full fixed top-0 left-0">
+              <div className="w-full h-full relative">
+                <div className="absolute z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-[41.6666%]">
+                  <Image
+                    src={favicon}
+                    alt=""
+                    width="45px"
+                    height="45px"
+                    className="cursor-pointer"
+                  />
+                </div>
+              </div>
+              <div className="fixed z-50 top-0 left-0">
+                <motion.div
+                  initial={false}
+                  animate={isOpen ? "open" : "closed"}
+                  custom={10}
+                >
+                  <motion.div
+                    className="bg-[#98C9A3] fixed top-0 left-0 bottom-0 w-[300px] shadow-md"
+                    variants={sidebar}
+                    ref={mobileNavBarRef}
+                  />
+                  <Navigation navigation={navigation} />
+                  <div ref={menuToggleRef}>
+                    <MenuToggle toggle={() => toggleOpen()} />
+                  </div>
+                </motion.div>
+              </div>
             </div>
-          </motion.div>
+            {/* </div> */}
+          </>
         )}
 
         {/* Desktop View */}
@@ -126,13 +154,15 @@ export default function Header({ tab }) {
           <div className="relative w-full h-14 flex flex-row">
             <div className="visible h-full absolute flex items-center justify-start z-20 ml-10">
               <Link href="/">
-                <Image
-                  src={favicon}
-                  alt=""
-                  width="40px"
-                  height="40px"
-                  className="cursor-pointer"
-                />
+                <div>
+                  <Image
+                    src={favicon}
+                    alt=""
+                    width="40px"
+                    height="40px"
+                    className="cursor-pointer"
+                  />
+                </div>
               </Link>
             </div>
             <div className="hidden absolute w-full h-full sm:flex items-center justify-center z-10">
@@ -159,7 +189,7 @@ export default function Header({ tab }) {
         )}
       </div>
 
-      <div className="shadow border-b" />
+      <div className="shadow border-b mb-10 sm:mb-0" />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
-import Header from "../components/Header/Header";
-import GetHelpCard from "../components/GetHelp/Homepage/GetHelpCard";
+import Header from "../../components/Header/Header";
+import GetHelpCard from "../../components/GetHelp/Homepage/GetHelpCard";
+
 
 const ourOptions = {
   Diary: {
@@ -8,12 +9,14 @@ const ourOptions = {
     Copy: "Write a short paragraph describing your emotions throughout the day, and our Diary AI will analyse your text using world-leading Machine Learning algorithms to gather trends in your feelings.",
     ButtonText: "Open Diary",
     ImageLink: "",
+    redirectLink: "/GetHelp/Diary",
   },
   Inquire: {
     Header: "Find out about how you’re feeling with Inquire",
     Copy: "Fill up a few questions, and our Inquire AI will use your responses to intelligently analyse trends in your feelings over past Inquire responses.",
     ButtonText: "Open Inquire",
     ImageLink: "",
+    redirectLink: "/GetHelp/Questions",
   },
 };
 
