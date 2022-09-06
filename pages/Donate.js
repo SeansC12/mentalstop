@@ -92,7 +92,7 @@ function Donate() {
             others in need of mental health support.
           </p>
         </div>
-        <div className="grid grid-cols-3 grid-rows-2 gap-5 mt-10">
+        <div className="flex flex-col sm:grid sm:grid-cols-3 sm:grid-rows-2 sm:gap-5 sm:mt-10">
           {agencies.map((data, key) => (
             <Agency
               details={data}
