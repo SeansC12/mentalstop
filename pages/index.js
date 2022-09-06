@@ -57,32 +57,37 @@ export default function Home() {
             <strong>
               Need help urgently?
               <br />
-              Call the Samaritans of Singapore at <a href="tel:1-767" className="underline">1-767</a>
+              Call the Samaritans of Singapore at{" "}
+              <a href="tel:1-767" className="underline">
+                1-767
+              </a>
             </strong>
           </div>
           {/* <img className="h-32" src="callIcon.svg"></img> */}
         </div>
-        <div className="h-[75vh] text-center">
-          <p className="text-2xl md:text-4xl pt-16 p-5 font-bold">
+        <div className="text-center">
+          <p className="text-2xl md:text-4xl pt-16 font-bold">
             Explore our options:
           </p>
 
-          <div className="grid md:grid-cols-2 h-fit place-items-center w-[80%] gap-14 m-auto mt-8">
+          <div className="grid md:grid-cols-2 h-fit place-items-center md:w-[80%] gap-7 md:gap-14 m-auto mt-8">
             {cardInfos.map((cardInfo, key) => (
               <div
                 key={key}
-                className="rounded-2xl w-[100%] h-[100%] text-left p-8 relative"
+                className="rounded-2xl w-full h-full text-left p-4 md:p-8 relative"
                 style={{ backgroundColor: cardInfo.bgColour }}
               >
-                <p className="text-4xl font-lora">{cardInfo.title}</p>
-                <div className="flex mt-auto absolute bottom-8 w-fit">
+                <p className="text-xl sm:text-2xl xl:text-4xl font-lora">
+                  {cardInfo.title}
+                </p>
+                <div className="absolute bottom-8 w-fit">
                   <Link href={cardInfo.cardLink}>
-                    <b className="text-xl bg-opacity-10 bg-black cursor-pointer w-fit h-fit py-2 px-6 rounded-full font-Inter">
+                    <b className="text-sm md:text-xl bg-opacity-10 bg-black cursor-pointer w-fit h-fit py-2 px-6 rounded-full font-Inter">
                       {cardInfo.buttonLabel}
                     </b>
                   </Link>
                 </div>
-                <img className="ml-auto" src={cardInfo.imageLink}></img>
+                <img className="w-32 ml-auto" src={cardInfo.imageLink}></img>
               </div>
             ))}
           </div>
