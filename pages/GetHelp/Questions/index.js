@@ -31,7 +31,7 @@ export default function Questions() {
     <div>
       <Header tab="Get Help" />
       <main className="p-10 md:p-16 bg-gradient-to-b from-[#DFFFDC] to-[#E5E5DB] h-screen">
-        <div className="h-screen">
+        <div className="">
           <p className="text-4xl">Answer a few questions to determine if you may be at risk of mental health issues</p>
         </div>
         <div className="">
