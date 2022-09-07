@@ -29,7 +29,7 @@ const cardInfos = [
   },
   {
     title: "Take a look at some good mental health practices",
-    buttonLabel: "Take a look",
+    buttonLabel: "Explore",
     imageLink: "helpOthersImg.png",
     bgColour: "#AFE9AA",
     cardLink: "/MentalHealthTips",
