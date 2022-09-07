@@ -2,7 +2,6 @@ import React from "react";
 import Header from "../../components/Header/Header";
 import GetHelpCard from "../../components/GetHelp/Homepage/GetHelpCard";
 
-
 const ourOptions = {
   Diary: {
     Header: "Take down your emotions and thoughts with Diary",
@@ -29,7 +28,7 @@ const mentalHealthHabits = {
 
 const professionalSupport = {
   Header: "Get professional support.",
-  Copy: "If none of the self-help techniques work for you, remember that professional help is always one call away from you.",
+  Copy: "Whatever is going on right now, remember that professional help is always one call away from you.",
   ButtonText: "Find Support",
   ImageLink: "",
 };
@@ -63,21 +62,11 @@ function GetHelp() {
         </div>
         <div>
           {/* Professional Support */}
-          {/* Header */}
-          <div className="font-Inter text-center text-md mt-10">Seek Help</div>
-          {/* Line */}
-          <div className="grid place-items-center my-3">
-            <div className="border border-[#1A8C10] w-5 rounded" />
-          </div>
-          {/* Subheader */}
-          <div className="font-lora text-center text-2xl mb-10 -mt-2">
-            Professional Help
-          </div>
-          <div className="grid place-items-center my-3">
+          <div className="grid place-items-center my-10">
             <div className="border border-[#1A8C10] w-[100%] rounded" />
           </div>
 
-          <div className="mt-12 font-lora text-center text-3xl">
+          <div className="font-lora text-center text-3xl">
             There is nothing to be <strong>ashamed</strong> about reaching out
             for help. Things get crazy and overwhelming, it's life.
           </div>
@@ -96,19 +85,8 @@ function GetHelp() {
           <div className="grid place-items-center my-10">
             <div className="border border-[#1A8C10] w-[100%] rounded" />
           </div>
-          <div className="font-Inter text-center text-md">Seek Help</div>
 
-          {/* Line */}
-          <div className="grid place-items-center my-3">
-            <div className="border border-[#1A8C10] w-5 rounded" />
-          </div>
-
-          {/* Subheader */}
-          <div className="font-lora text-center text-2xl mb-10 -mt-2">
-            Positive Mental Health Practices
-          </div>
-
-          <div className="mt-12 font-lora text-center text-3xl">
+          <div className="font-lora text-center text-3xl">
             Mental Health is also about <strong>protecting</strong> yourself and
             <strong> maintaining</strong> a healthy mental lifestyle
           </div>
@@ -129,11 +107,7 @@ function GetHelp() {
             </div>
           </div>
 
-          <div className="my-10 grid place-items-center">
-            <div className="border border-[#1A8C10] rounded w-[100%]"></div>
-          </div>
-
-          <div className="mb-5 font-lora text-center text-3xl">
+          <div className="mt-10 mb-5 font-lora text-center text-3xl">
             Taking care of our <strong>mental wellbeing</strong>
           </div>
 
@@ -167,16 +141,21 @@ function GetHelp() {
           {" "}
           {/* Self-Assessment */}
           {/* Header */}
-          <div className="font-Inter text-center text-md mt-12">
-            Self-Assessment
+          <div className="mt-10 mb-5 font-lora text-center text-3xl">
+            <strong>Mental well-being self-assessment tools</strong>
           </div>
-          {/* Line */}
-          <div className="grid place-items-center my-3">
-            <div className="border border-[#1A8C10] w-5 rounded" />
-          </div>
-          {/* Subheader */}
-          <div className="font-lora text-center text-2xl mb-10 -mt-2">
-            Explore our options
+          <div className="px-10">
+            <div className="mb-5 font-lora text-center text-lg">
+              Our mental well-being is important because it affects how we
+              handle stress and tackle the different demands in our lives.
+              Having a positive mindset and being resilient can directly affect
+              our overall well-being.
+            </div>
+            <div className="mb-10 font-lora text-center text-lg">
+              Below are 2 of our specially designed self-assessment tools which
+              will help you to assess your mental well-being. Note that it is
+              only suitable for those <strong>aged 13 and above.</strong>
+            </div>
           </div>
           {ourOptionsComponentArray.map((component, key) => (
             <div className="mb-8" key={key}>
