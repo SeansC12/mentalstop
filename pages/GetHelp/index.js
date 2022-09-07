@@ -53,7 +53,7 @@ function GetHelp() {
   return (
     <div>
       <Header tab="Get Help" />
-      {showQuestions && <QuestionModal></QuestionModal>}
+      {showQuestions && <QuestionModal setShowModal={setShowQuestions} />}
       <main className="h-full font-Inter pb-96 p-16 bg-gradient-to-b from-[#DFFFDC] to-[#E5E5DB]">
         <div>
           <p className="text-5xl font-lora">
@@ -186,6 +186,11 @@ function GetHelp() {
               {component}
             </div>
           ))}
+          <button
+            onClick={() => {
+              setShowQuestions(true);
+            }}
+          >show qns</button>
         </div>
       </main>
     </div>
