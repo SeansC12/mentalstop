@@ -1,7 +1,8 @@
 import React from "react";
 import Header from "../../components/Header/Header";
 import GetHelpCard from "../../components/GetHelp/Homepage/GetHelpCard";
-
+import { useState } from "react";
+import QuestionModal from "../../components/GetHelp/QuestionModal";
 
 const ourOptions = {
   Diary: {
@@ -48,9 +49,11 @@ for (const option in ourOptions) {
 }
 
 function GetHelp() {
+  const [showQuestions, setShowQuestions] = useState(false);
   return (
     <div>
       <Header tab="Get Help" />
+      {showQuestions && <QuestionModal></QuestionModal>}
       <main className="h-full font-Inter pb-96 p-16 bg-gradient-to-b from-[#DFFFDC] to-[#E5E5DB]">
         <div>
           <p className="text-5xl font-lora">
