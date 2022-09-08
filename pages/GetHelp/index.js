@@ -109,13 +109,13 @@ function GetHelp() {
               <div className="border border-[#1A8C10] w-[100%] rounded" />
             </div>
 
-            <div className="font-lora text-center text-3xl">
+            <div className="font-lora text-center text-xl md:text-3xl">
               Mental Health is also about <strong>protecting</strong> yourself
               and
               <strong> maintaining</strong> a healthy mental lifestyle
             </div>
-            <div className="mx-[12.5%]">
-              <div className="font-Inter text-center text-md mt-10">
+            <div className="md:mx-[12.5%]">
+              <div className="font-Inter text-center md:text-md m-5">
                 We experience varying emotions, ranging from happiness to
                 sadness to anger and more. On some days, we may feel energised
                 while on other days, we may feel stressed. It is normal to feel
@@ -123,16 +123,14 @@ function GetHelp() {
                 accepting and embracing all these emotions.
               </div>
 
-              <div className="flex items-center justify-center">
-                <iframe
-                  src="https://www.youtube.com/embed/WeY79OCq9bI"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                  className="w-full max-w-full md:max-w-[70%] md:w-[70%] aspect-video"
-                ></iframe>
-              </div>
+              <iframe
+                src="https://www.youtube.com/embed/WeY79OCq9bI"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full max-w-full md:max-w-[70%] md:w-[70%] aspect-video mx-auto"
+              ></iframe>
+
               <div className="mt-12 mb-5 font-lora text-center text-xl">
                 Sustaining mental-wellbeing requires{" "}
                 <strong>time and effort. </strong>Click the card below and start
@@ -153,9 +151,8 @@ function GetHelp() {
               <iframe
                 src="https://www.youtube.com/embed/WeY79OCq9bI"
                 title="YouTube video player"
-                frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
+                allowFullScreen
                 className="w-full max-w-full md:max-w-[70%] md:w-[70%] aspect-video"
               ></iframe>
             </div>
@@ -182,7 +179,7 @@ function GetHelp() {
             <div className="mt-10 mb-5 font-lora text-center text-3xl">
               <strong>Mental well-being self-assessment tools</strong>
             </div>
-            <div className="px-10">
+            <div className="md:px-10">
               <div className="mb-5 font-lora text-center text-lg">
                 Our mental well-being is important because it affects how we
                 handle stress and tackle the different demands in our lives.
@@ -202,6 +199,7 @@ function GetHelp() {
               </div>
             ))}
           </div>
+          <button onClick={() => setShowQuestions(true)}>show qns</button>
         </main>
       </>
     </>

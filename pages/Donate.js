@@ -78,7 +78,7 @@ function Donate() {
   return (
     <div>
       <Header tab="Donate" />
-      <main className="h-full p-16 bg-gradient-to-b from-[#C6DAF9] to-[#C6DAF9]">
+      <main className="h-full pt-16 p-10 md:p-16 bg-gradient-to-b from-[#C6DAF9] to-[#C6DAF9]">
         <div className="flex flex-col">
           {/* Desktop View */}
           {useWindowDimensions().width > 640 && (
