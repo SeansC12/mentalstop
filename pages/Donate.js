@@ -3,6 +3,7 @@ import Header from "../components/Header/Header";
 import Agency from "../components/Donate/Agency";
 import useOutsideClickAlerter from "../hooks/useOutsideClickAlerter";
 import "../public/donateIcon.svg";
+import useWindowDimensions from "../hooks/useWindowDimensions";
 
 const agencies = [
   {
@@ -77,22 +78,39 @@ function Donate() {
   return (
     <div>
       <Header tab="Donate" />
-      <main className="h-full pb-96 p-16 bg-gradient-to-b from-[#C6DAF9] to-[#FFFFFF]">
+      <main className="h-full p-16 bg-gradient-to-b from-[#C6DAF9] to-[#C6DAF9]">
         <div className="flex flex-col">
-          <div className="flex flex-row">
-            <p className="text-5xl font-lora text-black mb-2 mr-3">
-              Sometimes,{" "}
-            </p>
-            <p className="text-[#577AAF] text-5xl font-lora mr-3">
-              a dollar goes a long way
-            </p>
-            <p className="text-5xl font-lora text-black">in supporting</p>
-          </div>
-          <p className="text-5xl font-lora text-black mb-2">
-            others in need of mental health support.
-          </p>
+          {/* Desktop View */}
+          {useWindowDimensions().width > 640 && (
+            <>
+              <div className="flex flex-row">
+                <p className="text-xl md:text-2xl lg:text-5xl font-lora text-black mb-2 mr-3">
+                  Sometimes,{" "}
+                </p>
+                <p className="text-[#468aff] text-xl md:text-2xl lg:text-5xl font-lora mr-3">
+                  a dollar goes a long way
+                </p>
+                <p className="text-xl md:text-2xl lg:text-5xl font-lora text-black">
+                  in supporting
+                </p>
+              </div>
+              <p className="text-xl md:text-2xl lg:text-5xl font-lora text-black mb-2">
+                others in need of mental health support.
+              </p>
+            </>
+          )}
+          {/* Mobile View */}
+          {useWindowDimensions().width < 640 && (
+            <>
+              <div className="text-xl font-lora text-black mb-3">
+                Sometimes,{" "}
+                <span className="text-[#468aff]">a dollar goes a long way</span>{" "}
+                in supporting others in need of mental support.
+              </div>
+            </>
+          )}
         </div>
-        <div className="flex flex-col sm:grid sm:grid-cols-3 sm:grid-rows-2 sm:gap-5 sm:mt-10">
+        <div className="flex flex-col gap-5 sm:grid sm:grid-cols-2 sm:grid-rows-3 sm:gap-5 sm:mt-10 lg:grid lg:grid-cols-3 lg:grid-rows-2 lg:gap-5 lg:mt-10">
           {agencies.map((data, key) => (
             <Agency
               details={data}

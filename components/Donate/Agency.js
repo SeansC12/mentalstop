@@ -12,14 +12,23 @@ function Agency({ details, selectedHelpline, setSelectedHelpline }) {
       ) : (
         <motion.div
           whileHover={{ opacity: 0.7 }}
-          className="bg-white rounded-2xl flex justify-start items-center h-full flex-col cursor-pointer"
+          className="bg-white rounded-2xl flex justify-stretch items-center h-full min-h-[232px] flex-col cursor-pointer text-center px-3"
           onClick={() => {
             setSelectedHelpline();
           }}
         >
-          <img src={imageLink} className="object-contain w-[70%] h-[75%]" />
-          <div className="font-lora text-[#577AAF] text-2xl">{name}</div>
-          <div className="font-Inter text-[#577AAF]">{openingHours}</div>
+          <img
+            src={imageLink}
+            className="object-contain w-[70%] h-[75%] grow"
+          />
+          <div className="flex justify-center items-center grow flex-col">
+            <div className="font-lora text-[#577AAF] text-lg md:text-xl lg:text-2xl">
+              {name}
+            </div>
+            <div className="font-lora text-[#577AAF] text-base md:text-lg lg:text-xl">
+              {openingHours}
+            </div>
+          </div>
         </motion.div>
       )}
     </div>
