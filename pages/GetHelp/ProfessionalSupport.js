@@ -99,10 +99,10 @@ function ProfessionalSupport() {
           ))}
           {selectedHelpline >= 0 && selectedHelpline <= agencies.length && (
             <div className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fixed w-[100vw] h-[100vh] bg-black/25 z-10">
-              <div className="relative overflow-scroll">
+              <div className="relative">
                 <div
                   ref={modalRef}
-                  className="fixed flex flex-col p-5 md:p-10 pr-15 overflow-scroll justify-start top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[75vh] w-[75vw] bg-white text-black rounded-2xl z-20"
+                  className="fixed flex flex-col overflow-scroll p-5 md:p-10 pr-15 justify-start top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[75vh] w-[75vw] bg-white text-black rounded-2xl z-20"
                 >
                   <img
                     src={agencies[selectedHelpline].imageLink}
