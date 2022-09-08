@@ -12,7 +12,7 @@ function Agency({ details, selectedHelpline, setSelectedHelpline }) {
       ) : (
         <motion.div
           whileHover={{ opacity: 0.7 }}
-          className="bg-white rounded-2xl flex justify-start items-center h-full flex-col cursor-pointer"
+          className="bg-white rounded-2xl flex justify-start items-center h-full flex-col cursor-pointer p-5 md:p-10 shadow-lg"
           onClick={() => {
             setSelectedHelpline();
           }}

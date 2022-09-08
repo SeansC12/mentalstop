@@ -14,7 +14,7 @@ function GetHelpCard({ data, index, link }) {
       <h2 className="font-medium font-Inter  md:text-xl">{Copy}</h2>
       <button
         onClick={() => {
-          Router.push(`${redirectLink}`);
+          Router.push(`${link}`);
         }}
         className={`rounded-2xl px-4 py-2 w-max`}
         style={{ backgroundColor: colours[((index + 1) % 4) - 1] }}

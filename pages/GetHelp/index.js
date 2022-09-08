@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import GetHelpCard from "../../components/GetHelp/Homepage/GetHelpCard";
-import QuestionModal from "../../components/GetHelp/QuestionModal";
+import QuestionModal from "../../components/GetHelp/Questions/QuestionModal";
 import { AnimatePresence } from "framer-motion";
 
 const ourOptions = {
@@ -97,7 +97,7 @@ function GetHelp() {
               <GetHelpCard
                 data={professionalSupport}
                 index={0}
-                link="/ProfessionalSupport"
+                link="/GetHelp/ProfessionalSupport"
               />
             </div>
           </div>
@@ -139,11 +139,11 @@ function GetHelp() {
               <GetHelpCard
                 data={mentalHealthHabits}
                 index={2}
-                link="/MentalHealthTips"
+                link="/GetHelp/MentalHealthTips"
               />
             </div>
 
-            <div className="mt-10 mb-5 font-lora text-center text-3xl">
+            {/* <div className="mt-10 mb-5 font-lora text-center text-3xl">
               Taking care of our <strong>mental wellbeing</strong>
             </div>
 
@@ -164,8 +164,8 @@ function GetHelp() {
             <GetHelpCard
               data={mentalHealthHabits}
               index={2}
-              link="/MentalHealthTips"
-            />
+              link="/GetHelp/MentalHealthTips"
+            /> */}
           </div>
 
           <div className="my-10 grid place-items-center">
