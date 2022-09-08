@@ -71,35 +71,25 @@ function GetHelp() {
       </AnimatePresence>
       <div>
         <Header tab="Get Help" />
-        <main className="h-full font-Inter pb-96 p-16 bg-gradient-to-b from-[#DFFFDC] to-[#E5E5DB]">
+        <main className="font-Inter pt-16 p-5 md:p-16 bg-gradient-to-b from-[#DFFFDC] to-[#E5E5DB]">
           <div>
-            <p className="text-5xl font-lora">
+            <p className="text-2xl md:text-5xl font-lora">
               "Happiness can be found even in the darkest of times, if one only
               remembers to{" "}
               <strong className="text-green-700">turn on the light.</strong>"
-              <br />
             </p>
             <p className="mt-3">- Albert Dumbledore</p>
           </div>
           <div>
-            {/* Professional Support */}
-            {/* Header */}
-            <div className="font-Inter text-center text-md mt-10">
-              Seek Help
-            </div>
-            {/* Line */}
-            <div className="grid place-items-center my-3">
-              <div className="border border-[#1A8C10] w-5 rounded" />
-            </div>
             {/* Subheader */}
-            <div className="font-lora text-center text-2xl mb-10 -mt-2">
+            <div className="font-lora text-center text-2xl mb-10 mt-10">
               Professional Help
             </div>
             <div className="grid place-items-center my-3">
               <div className="border border-[#1A8C10] w-[100%] rounded" />
             </div>
 
-            <div className="mt-12 font-lora text-center text-3xl">
+            <div className="mt-12 font-lora text-center text-2xl md:text-3xl">
               There is nothing to be <strong>ashamed</strong> about reaching out
               for help. Things get crazy and overwhelming, it's life.
             </div>
