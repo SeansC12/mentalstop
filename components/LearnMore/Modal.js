@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import "../../public/closeButton.svg"
 
 function Modal({data, setShowModal}) {
   return (
