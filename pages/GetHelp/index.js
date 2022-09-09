@@ -50,7 +50,7 @@ function GetHelp() {
   return (
     <div>
       <Header tab="Get Help" />
-      <main className="h-full font-Inter pb-96  md:p-16 bg-gradient-to-b from-[#DFFFDC] to-[#E5E5DB]">
+      <main className="h-full font-Inter md:p-16 bg-gradient-to-b from-[#DFFFDC] to-[#E5E5DB]">
         <div>
           <p className="text-5xl font-lora">
             "Happiness can be found even in the darkest of times, if one only
