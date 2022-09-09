@@ -124,7 +124,7 @@ function Donate() {
               <div className="relative">
                 <div
                   ref={modalRef}
-                  className="fixed flex flex-col p-10 pr-15 justify-start top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[75vh] w-[75vw] bg-white text-black rounded-2xl z-20 overflow-y-scroll"
+                  className="fixed flex flex-col p-10 pr-15 justify-start top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[75vh] w-[75vw] bg-white text-black rounded-2xl z-20 overflow-y-scroll md:overflow-auto"
                 >
                   <img
                     src={agencies[selectedHelpline].imageLink}
