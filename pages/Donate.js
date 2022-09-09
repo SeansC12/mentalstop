@@ -124,19 +124,19 @@ function Donate() {
               <div className="relative">
                 <div
                   ref={modalRef}
-                  className="fixed flex flex-col p-10 pr-15 justify-start top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[75vh] w-[75vw] bg-white text-black rounded-2xl z-20"
+                  className="fixed flex flex-col p-10 pr-15 justify-start top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[75vh] w-[75vw] bg-white text-black rounded-2xl z-20 overflow-y-scroll"
                 >
                   <img
                     src={agencies[selectedHelpline].imageLink}
-                    className="object-contain h-[25%] w-max mb-10"
+                    className="object-contain h-[15%] w-max mb-10"
                   />
-                  <h1 className="font-lora text-2xl font-semibold mb-3">
+                  <h1 className="font-lora text-lg md:text-2xl lg:font-semibold mb-1 lg:mb-3">
                     {agencies[selectedHelpline].name}
                   </h1>
-                  <h2 className="font-Inter text-base font-medium">
+                  <h2 className="font-Inter text-xs md:text-base font-medium">
                     {agencies[selectedHelpline].message}
                   </h2>
-                  <h3 className="font-Inter text-base font-medium mt-5">
+                  <h3 className="font-Inter text-sm md:text-base font-medium mt-5">
                     Contact{" "}
                     <a
                       className="text-blue-500 underline"
@@ -146,26 +146,54 @@ function Donate() {
                     </a>{" "}
                     to learn more about donations
                   </h3>
-                  <h1 className="font-lora text-2xl font-semibold mt-5">
+                  <h1 className="font-lora text-base md:text-2xl font-semibold mt-5">
                     What will my money be used for?
                   </h1>
                   <div className="flex flex-row items-start justify-start w-full mt-3 gap-2">
                     <img
                       src="https://i.imgur.com/1s52NYY.png"
-                      className="w-7 aspect-square"
+                      className="w-4 lg:w-7 aspect-square"
                     />
-                    <div className="overflow-clip">
+                    <div className="text-sm -mt-[3px] lg:mt-0 lg:text-base overflow-clip">
                       {agencies[selectedHelpline].moneyGoWhere}
                     </div>
                   </div>
-                  <a href={agencies[selectedHelpline].websiteLink}>
-                    <img
-                      src="donateIcon.svg"
-                      className="absolute bottom-4 left-[calc(100%-8rem)] aspect-square h-24 cursor-pointer"
-                    />
-                  </a>
+                  <div className="w-full flex justify-center items-center">
+                    <a href={agencies[selectedHelpline].websiteLink}>
+                      <img
+                        src="donateIcon.svg"
+                        className="mt-3 aspect-square h-20 md:h-24 cursor-pointer md:absolute md:bottom-4 md:left-[calc(100%-8rem)]"
+                      />
+                    </a>
+                  </div>
+                  {/* {useWindowDimensions().width >= 640 && (
+                    <a href={agencies[selectedHelpline].websiteLink}>
+                      <img
+                        src="donateIcon.svg"
+                        className="absolute bottom-4 left-[calc(100%-8rem)] aspect-square h-24 cursor-pointer"
+                      />
+                    </a>
+                  )}
+                  {useWindowDimensions().width < 640 && (
+                    <div className="w-full flex justify-center items-center">
+                      <a href={agencies[selectedHelpline].websiteLink}>
+                        <img
+                          src="donateIcon.svg"
+                          className="aspect-square h-24 cursor-pointer"
+                        />
+                      </a>
+                    </div>
+                  )} */}
+                  {/* <div className="w-full flex justify-center items-center">
+                    <a href={agencies[selectedHelpline].websiteLink}>
+                      <img
+                        src="donateIcon.svg"
+                        className="absolute bottom-4 left-[calc(100%-8rem)] aspect-square h-24 cursor-pointer"
+                      />
+                    </a>
+                  </div> */}
                   <div
-                    className="absolute cursor-pointer top-4 left-[calc(100%-3rem)]"
+                    className="fixed cursor-pointer top-4 left-[calc(100%-3rem)]"
                     onClick={() => setSelectedHelpline(undefined)}
                   >
                     <svg

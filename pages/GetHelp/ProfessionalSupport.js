@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
-import Header from "../components/Header/Header";
-import Agency from "../components/GetHelp/ProfessionalSupport/Agency";
-import useOutsideClickAlerter from "../hooks/useOutsideClickAlerter";
-import "../public/callIcon.svg";
+import Header from "../../components/Header/Header";
+import Agency from "../../components/GetHelp/ProfessionalSupport/Agency";
+import useOutsideClickAlerter from "../../hooks/useOutsideClickAlerter";
+import "../../public/callIcon.svg";
 
 const agencies = [
   {

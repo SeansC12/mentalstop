@@ -74,7 +74,7 @@ function GetHelp() {
             <GetHelpCard
               data={professionalSupport}
               index={0}
-              link="/ProfessionalSupport"
+              link="/GetHelp/ProfessionalSupport"
             />
           </div>
         </div>
