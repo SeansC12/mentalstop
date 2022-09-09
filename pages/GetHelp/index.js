@@ -12,13 +12,21 @@ const ourOptions = {
     ImageLink: "",
     redirectLink: "/GetHelp/Diary",
   },
-  Inquire: {
-    Header: "Find out about how you’re feeling with Inquire",
-    Copy: "Fill up a few questions, and our Inquire AI will use your responses to intelligently analyse trends in your feelings over past Inquire responses.",
-    ButtonText: "Open Inquire",
-    ImageLink: "",
-    redirectLink: "/GetHelp/Questions",
-  },
+  // Inquire: {
+  //   Header: "Find out about how you’re feeling with Inquire",
+  //   Copy: "Fill up a few questions, and our Inquire AI will use your responses to intelligently analyse trends in your feelings over past Inquire responses.",
+  //   ButtonText: "Open Inquire",
+  //   ImageLink: "",
+  //   redirectLink: "/GetHelp/Questions",
+  // },
+};
+
+const Inquire = {
+  Header: "Find out about how you’re feeling with Inquire",
+  Copy: "Fill up a few questions, and our Inquire AI will use your responses to intelligently analyse trends in your feelings over past Inquire responses.",
+  ButtonText: "Open Inquire",
+  ImageLink: "",
+  redirectLink: "/GetHelp/Questions",
 };
 
 const mentalHealthHabits = {
@@ -26,6 +34,7 @@ const mentalHealthHabits = {
   Copy: "We have curated a list of the most effective positive mental health practices that you can do every day to help improve your mental health.",
   ButtonText: "Learn More",
   ImageLink: "",
+  redirectLink: "/GetHelp/MentalHealthTips"
 };
 
 const professionalSupport = {
@@ -33,6 +42,7 @@ const professionalSupport = {
   Copy: "Whatever is going on right now, remember that professional help is always one call away from you.",
   ButtonText: "Find Support",
   ImageLink: "",
+  redirectLink: "/GetHelp/ProfessionalSupport"
 };
 
 const optionsArray = [];
@@ -198,8 +208,27 @@ function GetHelp() {
                 {component}
               </div>
             ))}
+            {/* Questionnaire */}
+            <div
+              className={`flex flex-col p-4 md:p-8 text-left mb-8 bg-slate-500 rounded-2xl font-Inter min-h-56 bg-cover bg-[url("https://images.unsplash.com/photo-1554757387-2a28855c78fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80")]`}
+            >
+              <h1 className="font-normal font-lora text-2xl md:text-4xl">
+                {Inquire.Header}
+              </h1>
+              <h2 className="font-medium font-Inter  md:text-xl">
+                {Inquire.Copy}
+              </h2>
+              <button
+                onClick={() => {
+                  setShowQuestions(true);
+                }}
+                className={`rounded-2xl px-4 py-2 w-max bg-[#E2DB98]`}
+                // style={{ backgroundColor: colours[((index + 1) % 4) - 1] }}
+              >
+                {Inquire.ButtonText}
+              </button>
+            </div>
           </div>
-          <button onClick={() => setShowQuestions(true)}>show qns</button>
         </main>
       </>
     </>

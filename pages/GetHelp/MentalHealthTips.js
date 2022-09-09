@@ -68,7 +68,7 @@ function MentalHealthTips() {
           <p className="font-lora text-[#577AAF] mb-2">Stay mentally healthy</p>
           <p className="font-lora text-black">by adopting good practices.</p>
         </div>
-        <div className="flex gap-5 w-fit m-auto bg-[#DFFFDC] p-10 rounded-xl">
+        <div className="flex gap-10 w-fit m-auto bg-[#DFFFDC] p-10 rounded-xl">
           <AnimateSharedLayout>
             {mentalHealthTips.map((tip, index) => (
               <MenuItem
@@ -84,7 +84,7 @@ function MentalHealthTips() {
           </AnimateSharedLayout>
         </div>
         <div className="bg-[#9ade94] mt-10 p-10 rounded-xl text-center">
-          <strong className="text-3xl">
+          <strong className="text-3xl p-10">
             {mentalHealthTips[selectedTip].title}
           </strong>
           <p className="text-xl">{mentalHealthTips[selectedTip].description}</p>
@@ -99,7 +99,10 @@ function MenuItem({ selected, onClick, tip }) {
     <motion.div
       className="cursor-pointer relative w-fit text-base md:text-xl"
       onClick={onClick}
-      animate={{ scale: selected ? 1.1 : 1 }}
+      animate={{
+        scale: selected ? 1.1 : 1,
+        fontWeight: selected ? "semi-bold" : "normal",
+      }}
     >
       {tip.title}
       {selected && (

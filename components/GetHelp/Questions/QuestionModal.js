@@ -10,6 +10,7 @@ let questionScores = 0;
 
 export default function QuestionModal({ setShowModal }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(-1);
+  const [questionsEnded, setQuestionsEnded] = useState(false);
   const router = useRouter();
 
   let input = 5;
@@ -22,11 +23,12 @@ export default function QuestionModal({ setShowModal }) {
     }
     console.log(questionScores);
     if (currentQuestionIndex === questions.length - 1) {
-      router.push(
-        `/GetHelp/Questions/Results?result=${questionScores}`,
-        "/GetHelp/Questions",
-        { shallow: true }
-      );
+      // router.push(
+      //   `/GetHelp/Questions/Results?result=${questionScores}`,
+      //   "/GetHelp/Questions",
+      //   { shallow: true }
+      // );
+      setQuestionsEnded(true);
     } else {
       setCurrentQuestionIndex((i) => i + 1);
     }
@@ -50,39 +52,47 @@ export default function QuestionModal({ setShowModal }) {
           className="absolute right-2 top-2 cursor-pointer"
           onClick={() => setShowModal(false)}
         />
-
-        {currentQuestionIndex < 0 ? (
-          <div className="text-center">
-            <strong className="text-4xl">
-              Mental well-being self assesment
-            </strong>
-            <p className="text-xl pt-10">
-              Answer a few questions to determine if you may be at risk of
-              mental health issues
-              <br />
-              Note that this isn't a professional diagnosis, it should be used
-              as a rough gauge as <strong>TEXT</strong>
-            </p>
-
-            <button
-              className="p-3 px-7 text-xl text-white rounded-full bg-gradient-to-r from-[rgb(80,80,160)] to-[rgb(40,200,200)]"
-              onClick={() => setCurrentQuestionIndex(0)}
-            >
-              Start!
-            </button>
+        {questionsEnded ? (
+          <div>
+            <p>Your Score: {questionScores}</p>
+            <p>Your score shows that:</p>
           </div>
-        ) : questions[currentQuestionIndex].type === "range" ? (
-          <Range
-            question={questions[currentQuestionIndex]}
-            currentQuestionIndex={currentQuestionIndex}
-            handleSubmit={handleSubmit}
-          />
         ) : (
-          <Mcq
-            question={questions[currentQuestionIndex]}
-            currentQuestionIndex={currentQuestionIndex}
-            handleSubmit={handleSubmit}
-          />
+          <>
+            {currentQuestionIndex < 0 ? (
+              <div className="text-center">
+                <strong className="text-4xl">
+                  Mental well-being self assesment
+                </strong>
+                <p className="text-xl pt-10">
+                  Answer a few questions to determine if you may be at risk of
+                  mental health issues
+                  <br />
+                  Note that this isn't a professional diagnosis, it should be
+                  used as a rough gauge as <strong>TEXT</strong>
+                </p>
+
+                <button
+                  className="p-3 px-7 text-xl text-white rounded-full bg-gradient-to-r from-[rgb(80,80,160)] to-[rgb(40,200,200)]"
+                  onClick={() => setCurrentQuestionIndex(0)}
+                >
+                  Start!
+                </button>
+              </div>
+            ) : questions[currentQuestionIndex].type === "range" ? (
+              <Range
+                question={questions[currentQuestionIndex]}
+                currentQuestionIndex={currentQuestionIndex}
+                handleSubmit={handleSubmit}
+              />
+            ) : (
+              <Mcq
+                question={questions[currentQuestionIndex]}
+                currentQuestionIndex={currentQuestionIndex}
+                handleSubmit={handleSubmit}
+              />
+            )}
+          </>
         )}
       </div>
     </motion.div>

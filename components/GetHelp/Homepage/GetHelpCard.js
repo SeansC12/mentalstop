@@ -1,7 +1,7 @@
 import React from "react";
 import Router from "next/router";
 
-function GetHelpCard({ data, index, link }) {
+function GetHelpCard({ data, index }) {
   let { Header, Copy, ButtonText, ImageLink, redirectLink } = data;
   ImageLink =
     "https://images.unsplash.com/photo-1554757387-2a28855c78fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80";
@@ -14,7 +14,7 @@ function GetHelpCard({ data, index, link }) {
       <h2 className="font-medium font-Inter  md:text-xl">{Copy}</h2>
       <button
         onClick={() => {
-          Router.push(`${link}`);
+          Router.push(`${redirectLink}`);
         }}
         className={`rounded-2xl px-4 py-2 w-max`}
         style={{ backgroundColor: colours[((index + 1) % 4) - 1] }}
