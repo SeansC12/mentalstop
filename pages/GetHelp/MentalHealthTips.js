@@ -15,7 +15,7 @@ const mentalHealthTips = [
     You can also practice mindfulness in many other ways, though. Therapists around the world recommends incorporating mindfulness into routine activities we tend to take for granted. There is a lot we can gain from even the simplest activities
     
     Think about the last time you ate something that tasted good, maybe an expensive dessert. Were you in the moment when you ate it? Were you present, only thinking about the taste of the food and the experience of eating it?`,
-    imageLink: "",
+    imageLink: "/meditationImage.jpg",
   },
   {
     title: "2. Laugh it out",
@@ -24,7 +24,7 @@ const mentalHealthTips = [
     “I would say laughter is the best medicine. But it’s more than that. It’s an entire regime of antibiotics and steroids.” - Stephen Tyrone Colbert
     
     Stephen Tyrone Colbert is an American comedian, writer, producer, political commentator, actor, and television host.`,
-    imageLink: "",
+    imageLink: "/meditationImage.jpg",
   },
   {
     title: "3. Volunteer Somewhere",
@@ -61,14 +61,10 @@ function MentalHealthTips() {
   return (
     <div>
       <Header tab="Get Help" />
-      <main className="h-full font-Inter pb-96 p-16 bg-gradient-to-b from-[#C6DAF9] to-[#FFFFFF]">
-        <div className="flex flex-col">
-          <p className="text-5xl font-lora text-[#577AAF] mb-2">
-            Stay mentally healthy
-          </p>
-          <p className="text-5xl font-lora text-black">
-            by adopting good practices.
-          </p>
+      <main className="h-full font-Inter pb-96 pt-16 p-10 md:p-16 bg-gradient-to-b from-[#C6DAF9] to-[#FFFFFF]">
+        <div className="flex flex-col text-2xl md:text-5xl">
+          <p className="font-lora text-[#577AAF] mb-2">Stay mentally healthy</p>
+          <p className="font-lora text-black">by adopting good practices.</p>
         </div>
         <div className="mt-20">
           {mentalHealthTips.map((data, index) => {
