@@ -24,12 +24,6 @@ const navigation = [
     current: false,
   },
   {
-    name: "Offer Help",
-    href: "/OfferHelp",
-    heading: "Offer Help",
-    current: false,
-  },
-  {
     name: "Learn More",
     href: "/LearnMore",
     heading: "Learn More",
