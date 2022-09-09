@@ -151,7 +151,7 @@ export default function Home() {
             </div>
             <div className="text-xl font-bold">
               There is nothing to be ashamed of. Everyone goes through hard
-              times, do not be afraid to reach out for help
+              times, do not be afraid to reach out for help.
             </div>
             <div className="w-full flex justify-center items-center">
               {useWindowDimensions().width < 1200 && (
@@ -198,26 +198,58 @@ export default function Home() {
                 Relationships
               </div>
             </div>
-            <div className="w-full h-[110%] rounded-xl bg-white p-4 grid grid-cols-[25%_75%] grid-rows-1">
-              <div className="flex justify-center items-center">
-                <img
-                  src={
-                    reachingOutForHelpImportance[selectedImportance].iconLink
-                  }
-                  className="w-3/4 aspect-square"
-                />
+            {useWindowDimensions().width >= 850 && (
+              <div className="w-full h-[110%] rounded-xl bg-white p-4 grid grid-cols-[25%_75%] grid-rows-1">
+                <div className="flex justify-center items-center">
+                  <img
+                    src={
+                      reachingOutForHelpImportance[selectedImportance].iconLink
+                    }
+                    className="w-3/4 aspect-square"
+                  />
+                </div>
+                <div className="flex flex-col items-center justify-start">
+                  <div className="text-lg md:text-xl font-lora font-bold">
+                    {reachingOutForHelpImportance[selectedImportance].header}
+                  </div>
+                  <div className="grow flex items-center justify-center">
+                    <div>
+                      {reachingOutForHelpImportance[selectedImportance].copy}
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="flex flex-col items-center justify-start">
-                <div className="text-lg md:text-xl font-lora font-bold">
-                  {reachingOutForHelpImportance[selectedImportance].header}
+            )}
+            {useWindowDimensions().width < 850 && (
+              <div className="w-full h-[110%] rounded-xl bg-white p-4 flex flex-col">
+                <div className="grid grid-cols-[25%_75%] gap-3">
+                  <img
+                    src={
+                      reachingOutForHelpImportance[selectedImportance].iconLink
+                    }
+                    className="w-full aspect-square"
+                  />
+                  <div className="flex items-center justify-center text-lg md:text-xl font-lora font-bold">
+                    {reachingOutForHelpImportance[selectedImportance].header}
+                  </div>
                 </div>
                 <div className="grow flex items-center justify-center">
                   <div>
                     {reachingOutForHelpImportance[selectedImportance].copy}
                   </div>
                 </div>
+                {/* <div className="flex flex-col items-center justify-start">
+                  <div className="text-lg md:text-xl font-lora font-bold">
+                    {reachingOutForHelpImportance[selectedImportance].header}
+                  </div>
+                  <div className="grow flex items-center justify-center">
+                    <div>
+                      {reachingOutForHelpImportance[selectedImportance].copy}
+                    </div>
+                  </div>
+                </div> */}
               </div>
-            </div>
+            )}
           </div>
         </div>
       </main>
