@@ -33,7 +33,7 @@ const cardInfos = [
     buttonLabel: "Explore",
     imageLink: "helpOthersImg.png",
     bgColour: "#AFE9AA",
-    cardLink: "/MentalHealthTips",
+    cardLink: "/GetHelp/MentalHealthTips",
   },
   {
     title: "Support mental health organisations.",

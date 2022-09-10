@@ -102,7 +102,7 @@ function ProfessionalSupport() {
               <div className="relative">
                 <div
                   ref={modalRef}
-                  className="fixed flex flex-col overflow-scroll p-5 md:p-10 pr-15 justify-start top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[75vh] w-[75vw] bg-white text-black rounded-2xl z-20"
+                  className="fixed flex flex-col overflow-scroll md:overflow-auto p-5 md:p-10 pr-15 justify-start top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[75vh] w-[75vw] bg-white text-black rounded-2xl z-20"
                 >
                   <img
                     src={agencies[selectedHelpline].imageLink}

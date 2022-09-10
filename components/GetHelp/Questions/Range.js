@@ -53,7 +53,7 @@ export default function Range({
             min={1}
             max={10}
             step={0.1}
-            defaultValue={input}
+            defaultValue={5.5}
           ></input>
           <p>10</p>
         </div>
