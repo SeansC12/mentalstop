@@ -128,7 +128,7 @@ export default function Header({ tab }) {
                   custom={10}
                 >
                   <motion.div
-                    className="bg-[#98C9A3] fixed top-0 left-0 bottom-0 w-[300px] shadow-md"
+                    className="bg-[#98C9A3] fixed top-0 left-0 bottom-0 w-[70%] max-w-[300px] shadow-md"
                     variants={sidebar}
                     ref={mobileNavBarRef}
                   />
@@ -142,10 +142,12 @@ export default function Header({ tab }) {
             {/* </div> */}
           </>
         )}
+      </div>
 
-        {/* Desktop View */}
-        {useWindowDimensions().width > 640 && (
-          <div className="relative w-full h-14 flex flex-row">
+      {/* Desktop View */}
+      {useWindowDimensions().width >= 640 && (
+        <div className="fixed bg-[#CCF5C8] top-0 left-0 h-14 w-full">
+          <div className="relative w-full h-full flex flex-row">
             <div className="visible h-full absolute flex items-center justify-start z-20 ml-10">
               <Link href="/">
                 <div>
@@ -180,8 +182,8 @@ export default function Header({ tab }) {
               ))}
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
 
       <div className="shadow border-b mb-10 sm:mb-0" />
     </div>
