@@ -119,12 +119,12 @@ function ProfessionalSupport() {
                       Call at {agencies[selectedHelpline].link.split(":").pop()}
                     </h3>
                   </div>
-                  {/* <a href={agencies[selectedHelpline].link}>
+                  <a href={agencies[selectedHelpline].link}>
                     <img
-                      src="callIcon.svg"
+                      src="/callIcon.svg"
                       className="absolute bottom-4 left-[calc(100%-8rem)] aspect-square h-24"
                     />
-                  </a> */}
+                  </a>
                   <div
                     className="absolute cursor-pointer top-4 left-[calc(100%-3rem)]"
                     onClick={() => setSelectedHelpline(undefined)}
