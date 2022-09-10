@@ -11,7 +11,7 @@ function Agency({ details, selectedHelpline, setSelectedHelpline }) {
         <div></div>
       ) : (
         <motion.div
-          whileHover={{ opacity: 0.7 }}
+          whileHover={{ opacity: 0.7 }} // bug: hover makes the z index become auto and for some reason increase and overlap navbar
           className="bg-white rounded-2xl flex justify-start items-center h-full flex-col cursor-pointer p-5 md:p-10 shadow-lg"
           onClick={() => {
             setSelectedHelpline();
