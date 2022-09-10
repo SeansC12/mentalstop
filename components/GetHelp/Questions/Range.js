@@ -10,10 +10,10 @@ export default function Range({
   let input = 5;
   return (
     <div className="text-center">
-      <strong className="text-4xl">
+      <strong className="text-2xl md:text-4xl">
         Question {currentQuestionIndex + 1} of {questions.length}
       </strong>
-      <p className="text-3xl p-5">{question.question}</p>
+      <p className="text-xl md:text-3xl p-5">{question.question}</p>
       <p>{question.subtext}</p>
       {useWindowDimensions().width > 640 ? (
         <div className="text-3xl p-10">
