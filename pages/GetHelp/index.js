@@ -146,12 +146,12 @@ function GetHelp() {
                 <strong>time and effort. </strong>Click the card below and start
                 adopting positive mental health habits!
               </div>
-              <GetHelpCard
-                data={mentalHealthHabits}
-                index={2}
-                link="/GetHelp/MentalHealthTips"
-              />
             </div>
+            <GetHelpCard
+              data={mentalHealthHabits}
+              index={2}
+              link="/GetHelp/MentalHealthTips"
+            />
 
             {/* <div className="mt-10 mb-5 font-lora text-center text-3xl">
               Taking care of our <strong>mental wellbeing</strong>
@@ -215,7 +215,7 @@ function GetHelp() {
               <h1 className="font-normal font-lora text-2xl md:text-4xl">
                 {Inquire.Header}
               </h1>
-              <h2 className="font-medium font-Inter  md:text-xl">
+              <h2 className="font-medium font-Inter my-2 md:text-xl">
                 {Inquire.Copy}
               </h2>
               <button

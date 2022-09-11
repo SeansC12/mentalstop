@@ -1,4 +1,4 @@
-import Router from "next/router";
+import { useRouter } from "next/router";
 import React from "react";
 import { Line } from "react-chartjs-2";
 import {
@@ -27,7 +27,7 @@ ChartJS.register(
 
 export default function Results() {
   const [emotionsLogs, setEmotionsLogs] = useState(null);
-
+  const Router = useRouter;
   let parsedEmotionsLog = null;
   const date = new Date();
   const newLog = {

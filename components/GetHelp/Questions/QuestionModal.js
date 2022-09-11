@@ -1,19 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import questions from "../../../public/questions.json";
 import { motion } from "framer-motion";
 import "../../../public/closeButton.svg";
-import { useRouter } from "next/router";
 import Mcq from "./Mcq";
 import Range from "./Range";
 
 let questionScores = 0;
-
 export default function QuestionModal({ setShowModal }) {
+  useEffect(() => {
+    // needed as user leaving qns and coming back will not reset prev score
+    questionScores = 0;
+  }, []);
+
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(-1);
   const [questionsEnded, setQuestionsEnded] = useState(false);
-  const router = useRouter();
 
-  let input = 5;
   const handleSubmit = (input) => {
     if (questions[currentQuestionIndex].type === "mcq") {
       questionScores +=
@@ -23,11 +24,6 @@ export default function QuestionModal({ setShowModal }) {
     }
     console.log(questionScores);
     if (currentQuestionIndex === questions.length - 1) {
-      // router.push(
-      //   `/GetHelp/Questions/Results?result=${questionScores}`,
-      //   "/GetHelp/Questions",
-      //   { shallow: true }
-      // );
       setQuestionsEnded(true);
     } else {
       setCurrentQuestionIndex((i) => i + 1);
@@ -46,7 +42,7 @@ export default function QuestionModal({ setShowModal }) {
         onClick={() => setShowModal(false)}
       />
 
-      <div className=" md:w-3/4 lg:w-1/2 h-2/3 lg:h-1/2 m-5 rounded-md p-5 bg-gradient-to-r from-[#C6DAF9] to-[#DFFFDC] z-50 relative">
+      <div className="w-3/4 lg:w-1/2 h-2/3 m-5 rounded-md p-5 bg-gradient-to-r from-[#C6DAF9] to-[#DFFFDC] z-50 relative overflow-auto">
         <img
           src="closeButton.svg"
           className="absolute right-2 top-2 cursor-pointer"
@@ -61,15 +57,15 @@ export default function QuestionModal({ setShowModal }) {
           <>
             {currentQuestionIndex < 0 ? (
               <div className="text-center">
-                <strong className="text-4xl">
+                <strong className="text-2xl md:text-4xl">
                   Mental well-being self assesment
                 </strong>
-                <p className="text-xl pt-10">
+                <p className="text-lg md:text-xl p-5 md:p-10">
                   Answer a few questions to determine if you may be at risk of
                   mental health issues
                   <br />
-                  Note that this isn't a professional diagnosis, it should be
-                  used as a rough gauge as <strong>TEXT</strong>
+                  Note that this <strong>isn't a professional diagnosis</strong>
+                  , it should be used as a <strong>rough gauge</strong>
                 </p>
 
                 <button
@@ -79,18 +75,30 @@ export default function QuestionModal({ setShowModal }) {
                   Start!
                 </button>
               </div>
-            ) : questions[currentQuestionIndex].type === "range" ? (
-              <Range
-                question={questions[currentQuestionIndex]}
-                currentQuestionIndex={currentQuestionIndex}
-                handleSubmit={handleSubmit}
-              />
             ) : (
-              <Mcq
-                question={questions[currentQuestionIndex]}
-                currentQuestionIndex={currentQuestionIndex}
-                handleSubmit={handleSubmit}
-              />
+              <>
+                {questions[currentQuestionIndex].type === "range" ? (
+                  <Range
+                    question={questions[currentQuestionIndex]}
+                    currentQuestionIndex={currentQuestionIndex}
+                    handleSubmit={handleSubmit}
+                  />
+                ) : (
+                  <Mcq
+                    question={questions[currentQuestionIndex]}
+                    currentQuestionIndex={currentQuestionIndex}
+                    handleSubmit={handleSubmit}
+                  />
+                )}
+                {/* <button
+                  className="py-2 px-5 bg-gray-200 rounded-full absolute top-2 left-2"
+                  onClick={() => {
+                    setCurrentQuestionIndex((c) => c - 1);
+                  }}
+                >
+                  Back
+                </button> */}
+              </>
             )}
           </>
         )}
