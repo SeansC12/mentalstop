@@ -34,7 +34,7 @@ const mentalHealthHabits = {
   Copy: "We have curated a list of the most effective positive mental health practices that you can do every day to help improve your mental health.",
   ButtonText: "Learn More",
   ImageLink: "",
-  redirectLink: "/GetHelp/MentalHealthTips"
+  redirectLink: "/GetHelp/MentalHealthTips",
 };
 
 const professionalSupport = {
@@ -42,7 +42,7 @@ const professionalSupport = {
   Copy: "Whatever is going on right now, remember that professional help is always one call away from you.",
   ButtonText: "Find Support",
   ImageLink: "",
-  redirectLink: "/GetHelp/ProfessionalSupport"
+  redirectLink: "/GetHelp/ProfessionalSupport",
 };
 
 const optionsArray = [];
