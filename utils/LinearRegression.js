@@ -38,6 +38,10 @@ export function getBestFit(coordinates) {
 export function getLineOfBestFit(coordinates) {
   // This function only returns y values -- x values will stay the same
   const dataArrLength = coordinates.length;
+
+  if (coordinates.length === 0) return []
+  if (coordinates.length === 1) return [0, coordinates[0][1]]
+
   const _a = getBestFit(coordinates),
     gradient = _a[0],
     interceptY = _a[1];
