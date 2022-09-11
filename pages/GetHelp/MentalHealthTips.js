@@ -119,7 +119,7 @@ function MentalHealthTips() {
             >
               {"<"}
             </button>
-            <div className="flex w-full overflow-auto m-5 items-center h-fit bg-green-400 p-5">
+            <div className="flex w-full overflow-x-hidden overflow-y-auto m-5 items-center h-fit bg-green-400 p-5">
               <AnimatePresence>
                 {mentalHealthTips.map((tip, i) =>
                   i === selectedTip ? (
