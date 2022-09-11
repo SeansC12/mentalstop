@@ -45,20 +45,23 @@ export default function Results() {
   const [emotionsLogs, setEmotionsLogs] = useState(null);
   let lineOfBestFitCoordinates = [];
 
-  let parsedEmotionsLog = null;
+  let parsedEmotionsLog = [];
   const date = new Date();
   const newLog = {
     date: date.getDate(),
     month: date.getMonth(),
     year: date.getFullYear(),
     score: Router.query.results * 5 + 5,
-    text: "test",
   };
+
   useEffect(() => {
     const emotionsLog = localStorage.getItem("emotionsLog");
+    console.log(emotionsLog === true);
 
     if (emotionsLog) {
       parsedEmotionsLog = JSON.parse(emotionsLog);
+      console.log(parsedEmotionsLog);
+      console.log(parsedEmotionsLog.at(-1));
 
       // get line of best fit
       let param = [];
@@ -66,18 +69,18 @@ export default function Results() {
         param.push([parsedEmotionsLog[i].date, parsedEmotionsLog[i].score]);
       }
       lineOfBestFitCoordinates = getLineOfBestFit(param);
-      console.log(param);
-      console.log(lineOfBestFitCoordinates);
-      console.log(getBestFit(param));
+
       if (
         parsedEmotionsLog.at(-1).date == newLog.date &&
         parsedEmotionsLog.at(-1).month == newLog.month &&
         parsedEmotionsLog.at(-1).year == newLog.year
       ) {
+        // console.log(parsedEmotionsLog.at(-1));
         if (
           confirm(
             "We have detected that you already wrote in your diary today\nWould you like to update it?"
           ) === true
+          // false === true
         ) {
           parsedEmotionsLog.pop();
           parsedEmotionsLog.push(newLog);
@@ -86,7 +89,7 @@ export default function Results() {
         parsedEmotionsLog = [...parsedEmotionsLog, newLog];
       }
     } else {
-      parsedEmotionsLog = [newLog];
+      parsedEmotionsLog.push(newLog);
     }
     localStorage.setItem("emotionsLog", JSON.stringify(parsedEmotionsLog));
 
@@ -99,10 +102,21 @@ export default function Results() {
         x: `${parsedEmotionsLog[i].date} ${month[parsedEmotionsLog[i].month]}`,
         y: parsedEmotionsLog[i].score,
       });
-      lineOfBestFitDataset.push({
-        x: `${parsedEmotionsLog[i].date} ${month[parsedEmotionsLog[i].month]}`,
-        y: lineOfBestFitCoordinates[i][1],
-      });
+      try {
+        lineOfBestFitDataset.push({
+          x: `${parsedEmotionsLog[i].date} ${
+            month[parsedEmotionsLog[i].month]
+          }`,
+          y: lineOfBestFitCoordinates[i][1],
+        });
+      } catch (err) {
+        lineOfBestFitCoordinates.push({
+          x: `${parsedEmotionsLog[i].date} ${
+            month[parsedEmotionsLog[i].month]
+          }`,
+          y: parsedEmotionsLog[i].score,
+        });
+      }
     }
 
     const data = {

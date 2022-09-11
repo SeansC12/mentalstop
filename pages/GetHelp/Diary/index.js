@@ -91,7 +91,6 @@ export default function Diary() {
       evaluateButtonControls.start({ backgroundColor: "#CAEAC2" });
     }
   }, [diaryText]);
-  console.log(errorMessage);
   return (
     <div>
       <Header tab="Get Help" />
