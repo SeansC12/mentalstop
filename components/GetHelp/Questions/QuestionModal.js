@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import questions from "../../../public/questions.json";
 import { motion } from "framer-motion";
 import "../../../public/closeButton.svg";
-import { useRouter } from "next/router";
 import Mcq from "./Mcq";
 import Range from "./Range";
 
@@ -15,9 +14,7 @@ export default function QuestionModal({ setShowModal }) {
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(-1);
   const [questionsEnded, setQuestionsEnded] = useState(false);
-  const router = useRouter();
 
-  let input = 5;
   const handleSubmit = (input) => {
     if (questions[currentQuestionIndex].type === "mcq") {
       questionScores +=
