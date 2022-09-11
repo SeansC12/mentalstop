@@ -81,22 +81,23 @@ function Donate() {
       <main className="h-full pt-16 p-10 md:p-16 bg-gradient-to-b from-[#C6DAF9] to-[#C6DAF9]">
         <div className="flex flex-col">
           {/* Desktop View */}
-          {useWindowDimensions().width > 640 && (
+          {useWindowDimensions().width >= 640 && (
             <>
-              <div className="flex flex-row">
-                <p className="text-xl md:text-2xl lg:text-5xl font-lora text-black mb-2 mr-3">
-                  Sometimes,{" "}
-                </p>
-                <p className="text-[#468aff] text-xl md:text-2xl lg:text-5xl font-lora mr-3">
+              {/* <div className="flex flex-row"> */}
+              <div className="text-xl md:text-2xl lg:text-5xl font-lora text-black mb-2 mr-3">
+                Sometimes,{" "}
+                <span className="text-[#468aff] text-xl md:text-2xl lg:text-5xl font-lora mr-3">
                   a dollar goes a long way
-                </p>
-                <p className="text-xl md:text-2xl lg:text-5xl font-lora text-black">
-                  in supporting
-                </p>
+                </span>
+                <span className="text-xl md:text-2xl lg:text-5xl font-lora text-black">
+                  in supporting{" "}
+                </span>
+                <span className="text-xl md:text-2xl lg:text-5xl font-lora text-black mb-2">
+                  others in need of mental health support.
+                </span>
               </div>
-              <p className="text-xl md:text-2xl lg:text-5xl font-lora text-black mb-2">
-                others in need of mental health support.
-              </p>
+
+              {/* </div> */}
             </>
           )}
           {/* Mobile View */}
