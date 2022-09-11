@@ -1,4 +1,3 @@
-import Router from "next/router";
 import React from "react";
 import { Line } from "react-chartjs-2";
 import {
@@ -11,8 +10,6 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { motion } from "framer-motion";
-import Header from "../../../components/Header/Header";
 import { useEffect, useState } from "react";
 
 ChartJS.register(
