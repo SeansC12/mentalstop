@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import "../../../public/closeButton.svg";
 import Mcq from "./Mcq";
 import Range from "./Range";
+import Results from "./Results";
 
 let questionScores = 0;
 export default function QuestionModal({ setShowModal }) {
@@ -42,17 +43,14 @@ export default function QuestionModal({ setShowModal }) {
         onClick={() => setShowModal(false)}
       />
 
-      <div className="w-3/4 lg:w-1/2 h-2/3 m-5 rounded-md p-5 bg-gradient-to-r from-[#C6DAF9] to-[#DFFFDC] z-50 relative overflow-auto">
+      <div className="w-3/4 lg:w-1/2 h-2/3 m-5 rounded-md p-5 bg-[#EBEBEB] z-50 relative overflow-auto">
         <img
           src="closeButton.svg"
           className="absolute right-2 top-2 cursor-pointer"
           onClick={() => setShowModal(false)}
         />
         {questionsEnded ? (
-          <div>
-            <p>Your Score: {questionScores}</p>
-            <p>Your score shows that:</p>
-          </div>
+          <Results result={questionScores}></Results>
         ) : (
           <>
             {currentQuestionIndex < 0 ? (
@@ -67,13 +65,14 @@ export default function QuestionModal({ setShowModal }) {
                   Note that this <strong>isn't a professional diagnosis</strong>
                   , it should be used as a <strong>rough gauge</strong>
                 </p>
-
-                <button
-                  className="p-3 px-7 text-xl text-white rounded-full bg-gradient-to-r from-[rgb(80,80,160)] to-[rgb(40,200,200)]"
-                  onClick={() => setCurrentQuestionIndex(0)}
-                >
-                  Start!
-                </button>
+                <div className="flex justify-center absolute bottom-5 w-[calc(100%-40px)]">
+                  <button
+                    className="p-3 px-7 text-xl text-black rounded-full bg-[#C6DAF9] font-semibold"
+                    onClick={() => setCurrentQuestionIndex(0)}
+                  >
+                    Start!
+                  </button>
+                </div>
               </div>
             ) : (
               <>
