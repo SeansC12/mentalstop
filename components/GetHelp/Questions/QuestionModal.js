@@ -27,11 +27,6 @@ export default function QuestionModal({ setShowModal }) {
     }
     console.log(questionScores);
     if (currentQuestionIndex === questions.length - 1) {
-      // router.push(
-      //   `/GetHelp/Questions/Results?result=${questionScores}`,
-      //   "/GetHelp/Questions",
-      //   { shallow: true }
-      // );
       setQuestionsEnded(true);
     } else {
       setCurrentQuestionIndex((i) => i + 1);
@@ -50,7 +45,7 @@ export default function QuestionModal({ setShowModal }) {
         onClick={() => setShowModal(false)}
       />
 
-      <div className="w-3/4 lg:w-1/2 h-2/3 m-5 rounded-md p-5 bg-gradient-to-r from-[#C6DAF9] to-[#DFFFDC] z-50 relative">
+      <div className="w-3/4 lg:w-1/2 h-2/3 m-5 rounded-md p-5 bg-gradient-to-r from-[#C6DAF9] to-[#DFFFDC] z-50 relative overflow-auto">
         <img
           src="closeButton.svg"
           className="absolute right-2 top-2 cursor-pointer"
@@ -68,7 +63,7 @@ export default function QuestionModal({ setShowModal }) {
                 <strong className="text-2xl md:text-4xl">
                   Mental well-being self assesment
                 </strong>
-                <p className="text-lg md:text-xl p-5 md:p-10 overflow-scroll">
+                <p className="text-lg md:text-xl p-5 md:p-10">
                   Answer a few questions to determine if you may be at risk of
                   mental health issues
                   <br />

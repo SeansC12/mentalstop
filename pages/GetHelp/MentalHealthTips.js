@@ -1,6 +1,5 @@
-import React, { createFactory, useState } from "react";
-import LeftMentalHealthTipsCard from "../../components/GetHelp/MentalHealthTips/LeftMentalHealthTipsCard";
-import RightMentalHealthTipsCard from "../../components/GetHelp/MentalHealthTips/RightMentalHealthTipsCard";
+import React, { useState } from "react";
+import MenuItem from "../../components/GetHelp/MentalHealthTips/MenuItem";
 import Header from "../../components/Header/Header";
 import {
   AnimateSharedLayout,
@@ -165,27 +164,6 @@ function MentalHealthTips() {
         )}
       </main>
     </div>
-  );
-}
-
-function MenuItem({ selected, onClick, tip }) {
-  return (
-    <motion.div
-      className="cursor-pointer relative w-fit text-base md:text-xl"
-      onClick={onClick}
-      animate={{
-        scale: selected ? 1.1 : 1,
-        fontWeight: selected ? "semi-bold" : "normal",
-      }}
-    >
-      {tip.title}
-      {selected && (
-        <motion.div
-          layoutId="underline"
-          className="w-full h-1 bg-green-400 rounded-full"
-        ></motion.div>
-      )}
-    </motion.div>
   );
 }
 
