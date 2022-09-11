@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { LayoutGroup, motion, useCycle } from "framer-motion";
-import favicon from "../../public/favicon.ico";
+import favicon from "../../public/mentalStopLogo.png";
 import Image from "next/image";
 import { MenuToggle } from "./MenuToggle";
 import { Navigation } from "./Navigation";
