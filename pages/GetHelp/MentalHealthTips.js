@@ -9,7 +9,8 @@ import {
   useDragControls,
 } from "framer-motion";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
-// import "./styles.css"
+import "../../public/arrow_back.svg";
+import "../../public/arrow_forward.svg";
 
 const mentalHealthTips = [
   {
@@ -110,24 +111,24 @@ function MentalHealthTips() {
         ) : (
           <div className="h-fit flex items-center rounded-xl md:p-10">
             <button
-              className="w-10 h-10 rounded-full bg-orange-300"
-              style={{
-                backgroundColor: selectedTip === 0 ? "grey" : "orange",
-              }}
               onClick={() => setSelectedTip(([s, d]) => [s - 1, "right"])}
               disabled={selectedTip === 0}
             >
-              {"<"}
+              <img className="w-10" src="/arrow_back.svg"></img>
             </button>
-            <div className="flex w-full overflow-x-hidden overflow-y-auto m-5 items-center h-fit bg-green-400 p-5">
+            <div className="flex w-full overflow-x-hidden overflow-y-auto m-5 items-center h-fit rounded-lg bg-[#DFFFDC] shadow-lg p-5">
               <AnimatePresence>
                 {mentalHealthTips.map((tip, i) =>
                   i === selectedTip ? (
                     <motion.div
-                      initial={{ x: direction == "left" ? 200 : -200 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ x: direction == "left" ? -200 : 200 }}
                       className="w-full text-center"
+                      initial={{
+                        opacity: 0,
+                        x: direction == "left" ? 200 : -200,
+                      }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: direction == "left" ? -200 : 200 }}
+                      transition={{ type: "just" }}
                       drag="x"
                       dragConstraints={{ left: 0, right: 0 }}
                       dragElastic={1}
@@ -155,17 +156,10 @@ function MentalHealthTips() {
               </AnimatePresence>
             </div>
             <button
-              className="w-10 h-10 rounded-full bg-orange-300"
-              style={{
-                backgroundColor:
-                  selectedTip === mentalHealthTips.length - 1
-                    ? "grey"
-                    : "orange",
-              }}
               onClick={() => setSelectedTip(([s, d]) => [s + 1, "left"])}
               disabled={selectedTip === mentalHealthTips.length - 1}
             >
-              {">"}
+              <img className="w-10" src="/arrow_forward.svg"></img>
             </button>
           </div>
         )}
