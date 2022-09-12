@@ -121,15 +121,15 @@ function LearnMore() {
                   style={{ backgroundColor: illness.color }}
                 >
                   <div className="p-5 md:p-10 flex flex-col">
-                    <p className="text-xl grow">{illness.name}</p>
+                    <p className="text-base sm:text-lg md:text-xl grow">
+                      {illness.name}
+                    </p>
                     <button
-                      className="font-bold md:text-xl bg-black rounded-full px-4 p-2 bg-opacity-10 w-40 grow max-h-12"
+                      className="md:font-bold font-semibold text-xs sm:text-base md:text-xl bg-black rounded-full px-4 p-2 bg-opacity-10 w-max max-h-12"
                       onClick={() => setOpenedIllness(i)}
                     >
                       See More
                     </button>
-                    {/* <div className="h-full relative">
-                    </div> */}
                   </div>
                   <img
                     className="object-cover aspect-square w-full h-full"
