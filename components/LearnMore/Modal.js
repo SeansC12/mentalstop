@@ -8,14 +8,14 @@ function Modal({ data, setShowModal }) {
       animate={{ opacity: 1 }}
       initial={{ opacity: 0 }}
       exit={{ opacity: 0 }}
-      className="fixed h-screen w-screen z-50 flex justify-center items-center"
+      className="fixed h-screen w-screen z-[60] flex justify-center items-center"
     >
       <div
         className="absolute bg-black bg-opacity-50 w-full h-full z-40"
         onClick={() => setShowModal(-1)}
       ></div>
 
-      <div className="w-3/4 md:w-1/2 h-max rounded-md p-5 bg-gray-200 z-50 relative overflow-y-scroll">
+      <div className="w-3/4 md:w-1/2 h-max rounded-md p-5 bg-gray-200 z-50 relative overflow-y-auto">
         <img
           src="closeButton.svg"
           className="absolute right-2 top-2 cursor-pointer"
