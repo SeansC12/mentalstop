@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
-import { LayoutGroup, motion, useCycle } from "framer-motion";
+import { AnimatePresence, LayoutGroup, motion, useCycle } from "framer-motion";
 import favicon from "../../public/mentalStopLogo.png";
 import Image from "next/image";
 import { MenuToggle } from "./MenuToggle";
@@ -132,7 +132,13 @@ export default function Header({ tab }) {
                     variants={sidebar}
                     ref={mobileNavBarRef}
                   />
-                  <Navigation navigation={navigation} />
+                  {/* <AnimatePresence> */}
+                  {/* {isOpen ? ( */}
+                  <Navigation navigation={navigation} isOpen={isOpen} />
+                  {/* ) : ( */}
+                  {/* <div /> */}
+                  {/* )}
+                  </AnimatePresence> */}
                   <div ref={menuToggleRef}>
                     <MenuToggle toggle={() => toggleOpen()} />
                   </div>
