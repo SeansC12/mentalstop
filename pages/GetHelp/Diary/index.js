@@ -64,20 +64,6 @@ export default function Diary() {
       });
   };
 
-  // const feedbackToEmotion = (e) => {
-  //   if (e == null) {
-  //     return "";
-  //   } else if (e < -0.5) {
-  //     return "Looks like your day wasn't great, but that's ok. We all have bad days :)";
-  //   } else if (e < 0) {
-  //     return "a bit bad";
-  //   } else if (e < 0.5) {
-  //     return "a bit good";
-  //   } else if (e < 1) {
-  //     return "Seems like you've had a great day";
-  //   }
-  // };
-
   useEffect(() => {
     if (diaryText === null || diaryText === "") {
       evaluateButtonControls.start({
@@ -142,8 +128,6 @@ export default function Diary() {
           <div className="flex items-center justify-center mt-4 sm:flex sm:items-start sm:justify-start">
             <p
               className="text-md lg:text-xl md:text-lg font-lora underline w-fit"
-              // onMouseEnter={() => setShowPrivacyInfo(true)}
-              // onMouseLeave={() => setShowPrivacyInfo(false)}
             >
               Where is my data stored?
             </p>
