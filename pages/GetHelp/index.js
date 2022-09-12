@@ -147,11 +147,11 @@ function GetHelp() {
                 adopting positive mental health habits!
               </div>
             </div>
-            <GetHelpCard
-              data={mentalHealthHabits}
-              index={2}
-              link="/GetHelp/MentalHealthTips"
-            />
+              <GetHelpCard
+                data={mentalHealthHabits}
+                index={2}
+                link="/GetHelp/MentalHealthTips"
+              />
 
             {/* <div className="mt-10 mb-5 font-lora text-center text-3xl">
               Taking care of our <strong>mental wellbeing</strong>

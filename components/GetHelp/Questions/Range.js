@@ -10,10 +10,15 @@ export default function Range({
   let input = 5;
   return (
     <div className="text-center">
-      <strong className="text-2xl md:text-4xl">
+      {/* <strong className="text-2xl md:text-4xl">
         Question {currentQuestionIndex + 1} of {questions.length}
       </strong>
       <p className="text-xl md:text-3xl p-5">{question.question}</p>
+      <p>{question.subtext}</p> */}
+      <p className="text-xl md:text-2xl text-left">
+        <strong className="text-2xl md:text-4xl">Question {currentQuestionIndex + 1}</strong> of {questions.length}
+      </p>
+      <p className="text-xl text-center md:text-3xl p-5">{question.question}</p>
       <p>{question.subtext}</p>
       {useWindowDimensions().width > 640 ? (
         <div className="text-3xl p-10">
@@ -58,14 +63,14 @@ export default function Range({
           <p>10</p>
         </div>
       )}
-      <div className="w-full flex justify-center">
+      <div className="flex justify-center absolute bottom-5 w-[calc(100%-40px)]">
         <button
-          className="p-3 px-7 rounded-full bg-gradient-to-r from-[rgb(80,80,160)] to-[rgb(40,200,200)] text-xl text-white"
+          className="p-3 px-7 text-xl text-black rounded-full bg-[#C6DAF9] font-semibold"
           onClick={() => {
             handleSubmit(input);
           }}
         >
-          Submit
+          Start!
         </button>
       </div>
     </div>
