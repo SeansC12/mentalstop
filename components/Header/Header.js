@@ -132,13 +132,7 @@ export default function Header({ tab }) {
                     variants={sidebar}
                     ref={mobileNavBarRef}
                   />
-                  {/* <AnimatePresence> */}
-                  {/* {isOpen ? ( */}
                   <Navigation navigation={navigation} isOpen={isOpen} />
-                  {/* ) : ( */}
-                  {/* <div /> */}
-                  {/* )}
-                  </AnimatePresence> */}
                   <div ref={menuToggleRef}>
                     <MenuToggle toggle={() => toggleOpen()} />
                   </div>
