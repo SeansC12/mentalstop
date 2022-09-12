@@ -3,6 +3,7 @@ import Header from "../../components/Header/Header";
 import Agency from "../../components/GetHelp/ProfessionalSupport/Agency";
 import useOutsideClickAlerter from "../../hooks/useOutsideClickAlerter";
 import "../../public/callIcon.svg";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 const agencies = [
   {
@@ -115,16 +116,18 @@ function ProfessionalSupport() {
                     {agencies[selectedHelpline].message}
                   </h2>
                   <div className="flex items-center justify-center">
-                    <h3 className="font-Inter text-2xl font-medium mt-10 md:mt-20">
+                    <h3 className="font-Inter text-lg md:text-2xl font-medium mt-10 md:mt-20">
                       Call at {agencies[selectedHelpline].link.split(":").pop()}
                     </h3>
                   </div>
-                  <a href={agencies[selectedHelpline].link}>
-                    <img
-                      src="/callIcon.svg"
-                      className="absolute bottom-4 left-[calc(100%-8rem)] aspect-square h-24"
-                    />
-                  </a>
+                  <div className="w-full flex justify-center items-center sm:flex-none">
+                    <a href={agencies[selectedHelpline].link}>
+                      <img
+                        src="/callIcon.svg"
+                        className="sm:absolute sm:bottom-4 sm:left-[calc(100%-8rem)] aspect-square h-24"
+                      />
+                    </a>
+                  </div>
                   <div
                     className="absolute cursor-pointer top-4 left-[calc(100%-3rem)]"
                     onClick={() => setSelectedHelpline(undefined)}
