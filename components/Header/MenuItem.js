@@ -25,20 +25,22 @@ const variants = {
 
 export const MenuItem = ({ i, isOpen }) => {
   return (
-    <AnimatePresence>
-      {/* {isOpen && ( */}
-      <motion.li
-        // exit="closed"
-        variants={variants}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        className="list-none mb-5 flex items-center cursor-pointer"
-      >
-        <Link href={i.href}>
-          <div>{i.name}</div>
-        </Link>
-      </motion.li>
-      {/* )} */}
-    </AnimatePresence>
+    <>
+      <AnimatePresence>
+        {/* {isOpen && ( */}
+        <motion.li
+          // exit="closed"
+          variants={variants}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          className="list-none mb-5 flex items-center cursor-pointer"
+        >
+          <Link href={i.href}>
+            <div>{i.name}</div>
+          </Link>
+        </motion.li>
+        {/* )} */}
+      </AnimatePresence>
+    </>
   );
 };
