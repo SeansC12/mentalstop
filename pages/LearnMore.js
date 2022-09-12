@@ -95,8 +95,8 @@ function LearnMore() {
 
         <main className="font-Inter md:pb-96 pt-16 p-5 md:p-16 bg-gradient-to-b from-[#DFFFDC] to-[#E5E5DB]">
           <div className="text-3xl md:text-5xl font-lora">
-            <p>Some of the most prominent myths,</p>
-            <strong className="text-green-700">Debunked</strong>
+            Some of the most prominent myths,{" "}
+            <span className="text-green-700 font-bold">debunked</span>
           </div>
 
           <div>
