@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import questions from "../../../public/questions.json";
 import { motion } from "framer-motion";
 import "../../../public/closeButton.svg";
+import "../../../public/questionnaireIcon.png";
 import Mcq from "./Mcq";
 import Range from "./Range";
 import Results from "./Results";
@@ -39,14 +40,14 @@ export default function QuestionModal({ setShowModal }) {
       className="fixed h-screen w-screen z-50 flex justify-center items-center"
     >
       <div
-        className="absolute bg-black bg-opacity-50 w-full h-full z-40"
+        className="absolute bg-black bg-opacity-50 w-full h-full z-[60]"
         onClick={() => setShowModal(false)}
       />
 
-      <div className="w-3/4 lg:w-1/2 h-2/3 m-5 rounded-md p-5 bg-[#EBEBEB] z-50 relative overflow-auto">
+      <div className="w-3/4 lg:w-3/4 h-3/4 m-5 rounded-md p-5 bg-[#EBEBEB] relative z-[70] overflow-auto">
         <img
           src="closeButton.svg"
-          className="absolute right-2 top-2 cursor-pointer"
+          className="absolute right-2 top-2 cursor-pointer w-[30px] md:w-[40px] aspect-square"
           onClick={() => setShowModal(false)}
         />
         {questionsEnded ? (
@@ -54,20 +55,39 @@ export default function QuestionModal({ setShowModal }) {
         ) : (
           <>
             {currentQuestionIndex < 0 ? (
-              <div className="text-center">
-                <strong className="text-2xl md:text-4xl">
-                  Mental well-being self assesment
-                </strong>
-                <p className="text-lg md:text-xl p-5 md:p-10">
-                  Answer a few questions to determine if you may be at risk of
-                  mental health issues
-                  <br />
-                  Note that this <strong>isn't a professional diagnosis</strong>
-                  , it should be used as a <strong>rough gauge</strong>
-                </p>
-                <div className="flex justify-center absolute bottom-5 w-[calc(100%-40px)]">
+              <div className="w-full h-full md:h-3/4">
+                <div className="text-center">
+                  <div className="font-bold text-xl md:text-4xl">
+                    Mental well-being self-assessment
+                  </div>
+                </div>
+                <div className="w-full h-full grid grid-cols-1 grid-rows-[25%_75%] md:grid-cols-[25%_75%] md:grid-rows-1 place-items-center">
+                  <div className="flex justify-center items-center">
+                    <img
+                      src="questionnaireIcon.png"
+                      className="w-[100px] h-[100px] md:w-[150px] md:h-[150px] block"
+                    />
+                  </div>
+
+                  <div className="flex justify-center items-center">
+                    <div className="text-base md:text-lg p-3 md:p-8">
+                      <p>
+                        Our mental well-being is important because it affects
+                        how we handle stress and tackle the different demands in
+                        our lives. Having a positive mindset and being resilient
+                        can directly affect our overall well-being.
+                      </p>
+                      <br />
+                      <p className="font-bold">
+                        Please note this is a self-assessment and not a medical
+                        diagnosis.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex justify-center items-center">
                   <button
-                    className="p-3 px-7 text-xl text-black rounded-full bg-[#C6DAF9] font-semibold"
+                    className="p-2 px-10 mb-3 text-lg text-black rounded-full bg-[#C6DAF9] font-semibold"
                     onClick={() => setCurrentQuestionIndex(0)}
                   >
                     Start!

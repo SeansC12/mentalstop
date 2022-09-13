@@ -93,7 +93,7 @@ export default function Header({ tab }) {
   );
 
   return (
-    <div className="min-h-full font-Inter">
+    <div className="min-h-full font-Inter z-50">
       <div className="bg-[#CCF5C8] sm:h-14">
         {/* Mobile View */}
         {useWindowDimensions().width < 640 && (
@@ -109,7 +109,7 @@ export default function Header({ tab }) {
             />
            </div> */}
             {/* <div className="opacity-0 h-20 w-full mb-10"> */}
-            <div className="bg-[#CCF5C8] h-20 w-full fixed top-0 left-0 z-50">
+            <div className="bg-[#CCF5C8] h-20 w-full fixed top-0 left-0">
               <div className="w-full h-full relative">
                 <div className="absolute z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-[41.6666%]">
                   <Image
@@ -146,7 +146,7 @@ export default function Header({ tab }) {
 
       {/* Desktop View */}
       {useWindowDimensions().width >= 640 && (
-        <div className="fixed bg-[#CCF5C8] top-0 left-0 h-14 w-full z-50">
+        <div className="fixed bg-[#CCF5C8] top-0 left-0 h-14 w-full">
           <div className="relative w-full h-full flex flex-row">
             <div className="visible h-full absolute flex items-center justify-start z-20 ml-10">
               <Link href="/">
