@@ -147,11 +147,11 @@ function GetHelp() {
                 adopting positive mental health habits!
               </div>
             </div>
-              <GetHelpCard
-                data={mentalHealthHabits}
-                index={2}
-                link="/GetHelp/MentalHealthTips"
-              />
+            <GetHelpCard
+              data={mentalHealthHabits}
+              index={2}
+              link="/GetHelp/MentalHealthTips"
+            />
 
             {/* <div className="mt-10 mb-5 font-lora text-center text-3xl">
               Taking care of our <strong>mental wellbeing</strong>
@@ -210,7 +210,7 @@ function GetHelp() {
             ))}
             {/* Questionnaire */}
             <div
-              className={`flex flex-col p-4 md:p-8 text-left mb-8 bg-slate-500 rounded-2xl font-Inter min-h-56 bg-cover bg-[url("https://images.unsplash.com/photo-1554757387-2a28855c78fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80")]`}
+              className={`flex flex-col p-4 md:p-8 text-left mb-8 bg-slate-500 rounded-2xl min-h-56 bg-cover bg-[url("https://images.unsplash.com/photo-1554757387-2a28855c78fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80")]`}
             >
               <h1 className="font-normal font-lora text-2xl md:text-4xl">
                 {Inquire.Header}
