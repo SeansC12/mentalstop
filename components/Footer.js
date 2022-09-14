@@ -11,9 +11,16 @@ export default function Footer() {
       <p>
         Thanks to{" "}
         <a className="underline" href="https://unsplash.com/">
-          Unsplash{" "}
-        </a>
+          Unsplash
+        </a>{" "}
         for providing some images used in the website.
+      </p>
+      <p>
+        Thanks to{" "}
+        <a className="underline" href="https://flaticon.com">
+          Flaticon
+        </a>{" "}
+        for providing some of the icons used in the website.
       </p>
     </div>
   );
