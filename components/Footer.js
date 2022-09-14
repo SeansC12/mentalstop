@@ -9,10 +9,11 @@ export default function Footer() {
         Quan
       </p>
       <p>
-        Some images used are retrieved from{" "}
+        Thanks to{" "}
         <a className="underline" href="https://unsplash.com/">
-          Unsplash
+          Unsplash{" "}
         </a>
+        for providing some images used in the website.
       </p>
     </div>
   );
