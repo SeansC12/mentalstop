@@ -12,6 +12,7 @@ import "../public/performance.png";
 import "../public/qualityOfLife.png";
 import "../public/relationships.png";
 import useWindowDimensions from "../hooks/useWindowDimensions";
+import Footer from "../components/footer";
 
 const cardInfos = [
   {
@@ -253,6 +254,7 @@ export default function Home() {
           </div>
         </div>
       </main>
+      <Footer/>
     </div>
   );
 }
