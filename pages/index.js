@@ -69,7 +69,7 @@ export default function Home() {
   return (
     <div>
       <Header tab="Home" />
-      <main className="h-full font-Inter pb-10 p-10 pt-16 md:p-16 bg-gradient-to-b from-[#DFFFDC] to-[#E5E5DB]">
+      <main className="h-full font-Inter pb-14 p-10 pt-16 md:p-16 bg-gradient-to-b from-[#DFFFDC] to-[#E5E5DB]">
         <div>
           <p className="text-2xl md:text-5xl font-lora">
             "Not until we are lost, <br />

@@ -9,23 +9,16 @@ const ourOptions = {
     Header: "Take down your emotions and thoughts with Diary",
     Copy: "Write a short paragraph describing your emotions throughout the day, and our Diary AI will analyse your text using world-leading Machine Learning algorithms to gather trends in your feelings.",
     ButtonText: "Open Diary",
-    ImageLink: "",
+    ImageLink: "https://images.unsplash.com/photo-1554757387-2a28855c78fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
     redirectLink: "/GetHelp/Diary",
-  },
-  // Inquire: {
-  //   Header: "Find out about how you’re feeling with Inquire",
-  //   Copy: "Fill up a few questions, and our Inquire AI will use your responses to intelligently analyse trends in your feelings over past Inquire responses.",
-  //   ButtonText: "Open Inquire",
-  //   ImageLink: "",
-  //   redirectLink: "/GetHelp/Questions",
-  // },
+  }
 };
 
 const Inquire = {
   Header: "Find out about how you’re feeling with Inquire",
   Copy: "Fill up a few questions, and our Inquire AI will use your responses to intelligently analyse trends in your feelings over past Inquire responses.",
   ButtonText: "Open Inquire",
-  ImageLink: "",
+  ImageLink: "https://images.unsplash.com/photo-1554757387-2a28855c78fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
   redirectLink: "/GetHelp/Questions",
 };
 
@@ -33,7 +26,7 @@ const mentalHealthHabits = {
   Header: "Learn more about positive mental health practices",
   Copy: "We have curated a list of the most effective positive mental health practices that you can do every day to help improve your mental health.",
   ButtonText: "Learn More",
-  ImageLink: "",
+  ImageLink: "https://images.unsplash.com/photo-1554757387-2a28855c78fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
   redirectLink: "/GetHelp/MentalHealthTips",
 };
 
@@ -41,7 +34,7 @@ const professionalSupport = {
   Header: "Get professional support.",
   Copy: "Whatever is going on right now, remember that professional help is always one call away from you.",
   ButtonText: "Find Support",
-  ImageLink: "",
+  ImageLink: "https://images.unsplash.com/photo-1554757387-2a28855c78fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
   redirectLink: "/GetHelp/ProfessionalSupport",
 };
 
