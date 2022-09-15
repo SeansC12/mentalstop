@@ -9,7 +9,7 @@ const ourOptions = {
     Header: "Take down your emotions and thoughts with Diary",
     Copy: "Write a short paragraph describing your emotions throughout the day, and our Diary AI will analyse your text using world-leading Machine Learning algorithms to gather trends in your feelings.",
     ButtonText: "Open Diary",
-    ImageLink: "https://i.imgur.com/ZmIkXi7.jpg",
+    ImageLink: "https://i.imgur.com/lDHVBHP.png",
     redirectLink: "/GetHelp/Diary",
   }
 };
@@ -18,7 +18,7 @@ const Inquire = {
   Header: "Find out about how you’re feeling with Inquire",
   Copy: "Fill up a few questions, and our Inquire AI will use your responses to intelligently analyse trends in your feelings over past Inquire responses.",
   ButtonText: "Open Inquire",
-  ImageLink: "https://i.imgur.com/ZdyL54w.jpg",
+  ImageLink: "https://i.imgur.com/gKSBD4n.png",
   redirectLink: "/GetHelp/Questions",
 };
 
@@ -26,7 +26,7 @@ const mentalHealthHabits = {
   Header: "Learn more about positive mental health practices",
   Copy: "We have curated a list of the most effective positive mental health practices that you can do every day to help improve your mental health.",
   ButtonText: "Learn More",
-  ImageLink: "https://i.imgur.com/HHhGrQ5.jpg",
+  ImageLink: "https://i.imgur.com/IDMtgGh.jpg",
   redirectLink: "/GetHelp/MentalHealthTips",
 };
 
@@ -34,7 +34,7 @@ const professionalSupport = {
   Header: "Get professional support.",
   Copy: "Whatever is going on right now, remember that professional help is always one call away from you.",
   ButtonText: "Find Support",
-  ImageLink: "https://i.imgur.com/pu0qK2Q.jpg",
+  ImageLink: "https://i.imgur.com/BYfvf85.jpg",
   redirectLink: "/GetHelp/ProfessionalSupport",
 };
 
@@ -203,7 +203,7 @@ function GetHelp() {
             ))}
             {/* Questionnaire */}
             <div
-              className={`flex flex-col p-4 md:p-8 text-left mb-8 bg-slate-500 rounded-2xl min-h-56 bg-cover bg-[url("https://i.imgur.com/ZdyL54w.jpg")]`}
+              className={`flex flex-col p-4 md:p-8 text-left mb-8 bg-slate-500 rounded-2xl min-h-56 bg-cover bg-[url("https://i.imgur.com/9Fhsd2N.png")]`}
             >
               <h1 className="font-normal font-lora text-2xl md:text-4xl">
                 {Inquire.Header}

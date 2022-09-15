@@ -3,8 +3,7 @@ import Router from "next/router";
 
 function GetHelpCard({ data, index }) {
   let { Header, Copy, ButtonText, ImageLink, redirectLink } = data;
-  // ImageLink =
-  //   "https://images.unsplash.com/photo-1554757387-2a28855c78fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80";
+
   const colours = ["#DED4D4", "#E2DB98", "#AFE9AA", "#C6DAF9"];
   return (
     <div
