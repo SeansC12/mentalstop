@@ -99,7 +99,7 @@ function ProfessionalSupport() {
             />
           ))}
           {selectedHelpline >= 0 && selectedHelpline <= agencies.length && (
-            <div className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fixed w-[100vw] h-[100vh] bg-black/25 z-10">
+            <div className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fixed w-[100vw] h-[100vh] bg-black/25 z-[60]">
               <div className="">
                 <div
                   ref={modalRef}
