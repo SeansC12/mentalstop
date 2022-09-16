@@ -11,7 +11,7 @@ const ourOptions = {
     ButtonText: "Open Diary",
     ImageLink: "https://i.imgur.com/lDHVBHP.png",
     redirectLink: "/GetHelp/Diary",
-  }
+  },
 };
 
 const Inquire = {
@@ -81,7 +81,7 @@ function GetHelp() {
               remembers to{" "}
               <strong className="text-green-700">turn on the light.</strong>"
             </p>
-            <p className="mt-3">- Albert Dumbledore</p>
+            <p className="mt-3">- Albus Dumbledore</p>
           </div>
           <div>
             {/* Subheader */}
@@ -131,8 +131,7 @@ function GetHelp() {
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-                className="w-full max-w-full md:max-w-[70%] md:w-[70%] aspect-video mx-auto"
-              ></iframe>
+                className="w-full max-w-full md:max-w-[70%] md:w-[70%] aspect-video mx-auto"></iframe>
 
               <div className="mt-12 mb-5 font-lora text-center text-xl">
                 Sustaining mental-wellbeing requires{" "}
@@ -203,23 +202,24 @@ function GetHelp() {
             ))}
             {/* Questionnaire */}
             <div
-              className={`flex flex-col p-4 md:p-8 text-left mb-8 bg-slate-500 rounded-2xl min-h-56 bg-cover bg-[url("https://i.imgur.com/9Fhsd2N.png")]`}
-            >
-              <h1 className="font-normal font-lora text-2xl md:text-4xl">
-                {Inquire.Header}
-              </h1>
-              <h2 className="font-medium font-Inter my-2 md:text-xl">
-                {Inquire.Copy}
-              </h2>
-              <button
-                onClick={() => {
-                  setShowQuestions(true);
-                }}
-                className={`rounded-2xl px-4 py-2 w-max bg-[#E2DB98]`}
-                // style={{ backgroundColor: colours[((index + 1) % 4) - 1] }}
-              >
-                {Inquire.ButtonText}
-              </button>
+              className={`flex flex-col text-left mb-8 rounded-2xl min-h-56 bg-cover bg-[url("https://i.imgur.com/9Fhsd2N.png")]`}>
+              <div className="w-full h-full bg-white p-4 md:p-8 bg-opacity-30">
+                <h1 className="font-normal font-lora text-2xl md:text-4xl">
+                  {Inquire.Header}
+                </h1>
+                <h2 className="font-medium font-Inter my-2 md:text-xl">
+                  {Inquire.Copy}
+                </h2>
+                <button
+                  onClick={() => {
+                    setShowQuestions(true);
+                  }}
+                  className={`rounded-2xl px-4 py-2 w-max bg-[#E2DB98]`}
+                  // style={{ backgroundColor: colours[((index + 1) % 4) - 1] }}
+                >
+                  {Inquire.ButtonText}
+                </button>
+              </div>
             </div>
           </div>
         </main>
