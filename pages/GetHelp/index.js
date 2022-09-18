@@ -4,22 +4,19 @@ import GetHelpCard from "../../components/GetHelp/Homepage/GetHelpCard";
 import QuestionModal from "../../components/GetHelp/Questions/QuestionModal";
 import { AnimatePresence } from "framer-motion";
 
-const ourOptions = {
-  Diary: {
-    Header: "Take down your emotions and thoughts with Diary",
-    Copy: "Write a short paragraph describing your emotions throughout the day, and our Diary AI will analyse your text using world-leading Machine Learning algorithms to gather trends in your feelings.",
-    ButtonText: "Open Diary",
-    ImageLink: "https://i.imgur.com/lDHVBHP.png",
-    redirectLink: "/GetHelp/Diary",
-  }
+const diary = {
+  Header: "Take down your emotions and thoughts with Diary",
+  Copy: "Write a short paragraph describing your emotions throughout the day, and our Diary AI will analyse your text using world-leading Machine Learning algorithms to gather trends in your feelings.",
+  ButtonText: "Open Diary",
+  ImageLink: "https://i.imgur.com/lDHVBHP.png",
+  redirectLink: "/GetHelp/Diary",
 };
 
-const Inquire = {
+const inquire = {
   Header: "Find out about how you’re feeling with Inquire",
   Copy: "Fill up a few questions, and our Inquire AI will use your responses to intelligently analyse trends in your feelings over past Inquire responses.",
   ButtonText: "Open Inquire",
   ImageLink: "https://i.imgur.com/gKSBD4n.png",
-  redirectLink: "/GetHelp/Questions",
 };
 
 const mentalHealthHabits = {
@@ -38,18 +35,18 @@ const professionalSupport = {
   redirectLink: "/GetHelp/ProfessionalSupport",
 };
 
-const optionsArray = [];
-let ourOptionsComponentArray = [];
+// const optionsArray = [];
+// let ourOptionsComponentArray = [];
 
-for (const option in ourOptions) {
-  optionsArray.push(option.toString());
-  ourOptionsComponentArray.push(
-    <GetHelpCard
-      index={optionsArray.indexOf(option.toString())}
-      data={ourOptions[option]}
-    />
-  );
-}
+// for (const option in ourOptions) {
+//   optionsArray.push(option.toString());
+//   ourOptionsComponentArray.push(
+//     <GetHelpCard
+//       index={optionsArray.indexOf(option.toString())}
+//       data={ourOptions[option]}
+//     />
+//   );
+// }
 
 function GetHelp() {
   const [showQuestions, setShowQuestions] = useState(false);
@@ -97,11 +94,7 @@ function GetHelp() {
               for help. Things get crazy and overwhelming, it's life.
             </div>
             <div className="mt-10">
-              <GetHelpCard
-                data={professionalSupport}
-                index={0}
-                link="/GetHelp/ProfessionalSupport"
-              />
+              <GetHelpCard data={professionalSupport} index={0} />
             </div>
           </div>
 
@@ -132,7 +125,7 @@ function GetHelp() {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="w-full max-w-full md:max-w-[70%] md:w-[70%] aspect-video mx-auto"
-              ></iframe>
+              />
 
               <div className="mt-12 mb-5 font-lora text-center text-xl">
                 Sustaining mental-wellbeing requires{" "}
@@ -140,11 +133,7 @@ function GetHelp() {
                 adopting positive mental health habits!
               </div>
             </div>
-            <GetHelpCard
-              data={mentalHealthHabits}
-              index={2}
-              link="/GetHelp/MentalHealthTips"
-            />
+            <GetHelpCard data={mentalHealthHabits} index={1} />
 
             {/* <div className="mt-10 mb-5 font-lora text-center text-3xl">
               Taking care of our <strong>mental wellbeing</strong>
@@ -196,20 +185,23 @@ function GetHelp() {
                 <strong>aged 13 and above.</strong>
               </div>
             </div>
-            {ourOptionsComponentArray.map((component, key) => (
-              <div className="mb-8" key={key}>
-                {component}
-              </div>
-            ))}
+            <GetHelpCard data={diary} index={2} />
             {/* Questionnaire */}
-            <div
+            <div className="mt-3">
+              <GetHelpCard
+                data={inquire}
+                index={3}
+                onClickHandler={() => setShowQuestions(true)}
+              />
+            </div>
+            {/* <div
               className={`flex flex-col p-4 md:p-8 text-left mb-8 bg-slate-500 rounded-2xl min-h-56 bg-cover bg-[url("https://i.imgur.com/9Fhsd2N.png")]`}
             >
               <h1 className="font-normal font-lora text-2xl md:text-4xl">
-                {Inquire.Header}
+                {inquire.Header}
               </h1>
               <h2 className="font-medium font-Inter my-2 md:text-xl">
-                {Inquire.Copy}
+                {inquire.Copy}
               </h2>
               <button
                 onClick={() => {
@@ -218,9 +210,9 @@ function GetHelp() {
                 className={`rounded-2xl px-4 py-2 w-max bg-[#E2DB98]`}
                 // style={{ backgroundColor: colours[((index + 1) % 4) - 1] }}
               >
-                {Inquire.ButtonText}
+                {inquire.ButtonText}
               </button>
-            </div>
+            </div> */}
           </div>
         </main>
       </>
