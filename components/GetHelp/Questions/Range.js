@@ -83,7 +83,7 @@ export default function Range({
             handleSubmit(input);
           }}
         >
-          {buttonText[currentQuestionIndex] ?? "Start!"}
+          {buttonText[currentQuestionIndex] ?? "Submit"}
         </button>
       </div>
     </div>
