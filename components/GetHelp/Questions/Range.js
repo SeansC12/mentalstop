@@ -9,7 +9,7 @@ export default function Range({
 }) {
   let input = 5;
   return (
-    <div className="text-center w-full h-full">
+    <div className="text-center w-full h-3/4">
       {/* <strong className="text-2xl md:text-4xl">
         Question {currentQuestionIndex + 1} of {questions.length}
       </strong>
@@ -72,7 +72,7 @@ export default function Range({
           )}
         </div>
       </div>
-      <div className="flex justify-center absolute bottom-5 w-[calc(100%-40px)]">
+      <div className="flex justify-center w-[calc(100%-40px)]">
         <button
           className="p-3 px-7 text-xl text-black rounded-full bg-[#C6DAF9] font-semibold"
           onClick={() => {
