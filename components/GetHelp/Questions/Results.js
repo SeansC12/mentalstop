@@ -11,7 +11,7 @@ import {
   Legend,
 } from "chart.js";
 import { useEffect, useState } from "react";
-import { getLineOfBestFit } from "../../../utils/LinearRegression"
+import { getLineOfBestFit } from "../../../utils/LinearRegression";
 
 ChartJS.register(
   CategoryScale,
@@ -93,23 +93,27 @@ export default function Results({ result }) {
     // const labels = parsedQuestionsLog.map((log) => `${log.date}`);
     let lineOfBestFitDataset = [];
     let scoreDataset = [];
-    console.log(`${parsedQuestionsLog[0].month}`)
-    console.log(new Date().getMonth())
+    console.log(`${parsedQuestionsLog[0].month}`);
+    console.log(new Date().getMonth());
     for (let i = 0; i < parsedQuestionsLog.length; i++) {
       scoreDataset.push({
-        x: `${parsedQuestionsLog[i].date} ${month[parsedQuestionsLog[i].month]}`,
+        x: `${parsedQuestionsLog[i].date} ${
+          month[parsedQuestionsLog[i].month]
+        }`,
         y: parsedQuestionsLog[i].score,
       });
       try {
         lineOfBestFitDataset.push({
-          x: `${parsedQuestionsLog[i].date} ${month[parsedQuestionsLog[i].month]
-            }`,
+          x: `${parsedQuestionsLog[i].date} ${
+            month[parsedQuestionsLog[i].month]
+          }`,
           y: lineOfBestFitCoordinates[i][1],
         });
       } catch (err) {
         lineOfBestFitCoordinates.push({
-          x: `${parsedQuestionsLog[i].date} ${month[parsedQuestionsLog[i].month]
-            }`,
+          x: `${parsedQuestionsLog[i].date} ${
+            month[parsedQuestionsLog[i].month]
+          }`,
           y: parsedQuestionsLog[i].score,
         });
       }

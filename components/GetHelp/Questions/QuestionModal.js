@@ -17,6 +17,32 @@ export default function QuestionModal({ setShowModal }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(-1);
   const [questionsEnded, setQuestionsEnded] = useState(false);
 
+  const wrapperDivVariant = {
+    questionsNotEnded: {
+      opacity: 1,
+    },
+    questionsEnded: {
+      opacity: 1,
+    },
+  };
+
+  const modalDivVariant = {
+    questionsNotEnded: {
+      height: "60%",
+      transition: {
+        type: "tween",
+        duration: 0.5,
+      },
+    },
+    questionsEnded: {
+      height: "75%",
+      transition: {
+        type: "tween",
+        duration: 0.5,
+      },
+    },
+  };
+
   const handleSubmit = (input) => {
     if (questions[currentQuestionIndex].type === "mcq") {
       questionScores +=
@@ -34,9 +60,10 @@ export default function QuestionModal({ setShowModal }) {
 
   return (
     <motion.div
-      animate={{ opacity: 1 }}
+      animate={questionsEnded ? "questionsEnded" : "questionsNotEnded"}
       initial={{ opacity: 0 }}
       exit={{ opacity: 0 }}
+      variants={wrapperDivVariant}
       className="fixed h-screen w-screen z-50 flex justify-center items-center"
     >
       <div
@@ -44,7 +71,10 @@ export default function QuestionModal({ setShowModal }) {
         onClick={() => setShowModal(false)}
       />
 
-      <div className="w-3/4 lg:w-3/4 h-3/4 m-5 rounded-md p-5 bg-[#EBEBEB] relative z-[70] overflow-auto">
+      <motion.div
+        className="w-3/4 lg:w-3/4 h-[50%] m-5 rounded-md p-5 bg-[#EBEBEB] relative z-[70] overflow-auto"
+        variants={modalDivVariant}
+      >
         <img
           src="closeButton.svg"
           className="absolute right-2 top-2 cursor-pointer w-[30px] md:w-[40px] aspect-square"
@@ -121,7 +151,7 @@ export default function QuestionModal({ setShowModal }) {
             )}
           </>
         )}
-      </div>
+      </motion.div>
     </motion.div>
   );
 }

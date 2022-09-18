@@ -78,7 +78,7 @@ function GetHelp() {
               remembers to{" "}
               <strong className="text-green-700">turn on the light.</strong>"
             </p>
-            <p className="mt-3">- Albert Dumbledore</p>
+            <p className="mt-3">- Albus Dumbledore</p>
           </div>
           <div>
             {/* Subheader */}
