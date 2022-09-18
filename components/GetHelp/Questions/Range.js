@@ -2,6 +2,10 @@ import React from "react";
 import questions from "../../../public/questions.json";
 import useWindowDimensions from "../../../hooks/useWindowDimensions";
 
+const buttonText = {
+  13: "Results",
+};
+
 export default function Range({
   question,
   currentQuestionIndex,
@@ -74,12 +78,12 @@ export default function Range({
       </div>
       <div className="flex justify-center w-full">
         <button
-          className="p-3 px-7 text-xl text-black rounded-full bg-[#C6DAF9] font-semibold"
+          className="p-3 px-10 text-xl text-black rounded-full bg-[#C6DAF9] font-semibold"
           onClick={() => {
             handleSubmit(input);
           }}
         >
-          Start!
+          {buttonText[currentQuestionIndex] ?? "Start!"}
         </button>
       </div>
     </div>

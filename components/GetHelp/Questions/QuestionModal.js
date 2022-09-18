@@ -8,6 +8,12 @@ import Range from "./Range";
 import Results from "./Results";
 
 let questionScores = 0;
+
+const buttonText = {
+  "-1": "Start!",
+  12: "Results",
+};
+
 export default function QuestionModal({ setShowModal }) {
   useEffect(() => {
     // needed as user leaving qns and coming back will not reset prev score
@@ -50,7 +56,8 @@ export default function QuestionModal({ setShowModal }) {
     } else {
       questionScores += questions[currentQuestionIndex].answersToPoints[input];
     }
-    console.log(questionScores);
+    console.log(currentQuestionIndex);
+
     if (currentQuestionIndex === questions.length - 1) {
       setQuestionsEnded(true);
     } else {
