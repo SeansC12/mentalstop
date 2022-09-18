@@ -34,7 +34,7 @@
         }
     },
     {
-        "question": "Do you feel that you're coping well in the present",
+        "question": "Do you feel that you're coping well in the present?",
         "type": "range",
         "subtext":"1: Not coping well, 10: Coping very well",
         "answersToPoints":{
