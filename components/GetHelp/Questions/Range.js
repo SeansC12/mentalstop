@@ -72,7 +72,7 @@ export default function Range({
           )}
         </div>
       </div>
-      <div className="flex justify-center w-[calc(100%-40px)]">
+      <div className="flex justify-center w-full">
         <button
           className="p-3 px-7 text-xl text-black rounded-full bg-[#C6DAF9] font-semibold"
           onClick={() => {
