@@ -26,13 +26,13 @@ export default function Range({
         of {questions.length}
       </p>
       <div className="w-full h-full flex items-center justify-center flex-col">
-        <p className="text-xl text-center md:text-3xl p-5">
+        <p className="text-xl text-center md:text-3xl p-0 sm:p-5">
           {question.question}
         </p>
         <p>{question.subtext}</p>
         <div className="w-full">
           {useWindowDimensions().width > 640 ? (
-            <div className="text-3xl p-10">
+            <div className="text-base sm:text-lg md:text-xl lg:text-3xl p-10">
               <p className="flex justify-center text-justify w-full">
                 <p className="mr-auto">1</p>
                 <p className="mx-auto">2</p>
@@ -58,7 +58,7 @@ export default function Range({
               ></input>
             </div>
           ) : (
-            <div className="text-3xl p-10 flex items-center">
+            <div className="text-base sm:text-lg md:text-xl lg:text-3xl mt-5 flex items-center">
               <p>1</p>
               <input
                 className="w-full h-2 rounded-lg appearance-none cursor-pointer bg-gray-500 mx-4"

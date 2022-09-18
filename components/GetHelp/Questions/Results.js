@@ -38,6 +38,107 @@ const month = {
   11: "Dec",
 };
 
+const feedback = {
+  0: [
+    "May find it difficult to carry out daily responsibilities",
+    "May be facing major difficulties in your relationships with family and friends",
+    "May feel stuck and helpless when making decisions or trying to solve problems",
+    "May find it tough to control your emotions",
+    "May feel overwhelmed by stress",
+  ],
+  1: [
+    "May find it difficult to carry out daily responsibilities",
+    "May be facing major difficulties in your relationships with family and friends",
+    "May feel stuck and helpless when making decisions or trying to solve problems",
+    "May find it tough to control your emotions",
+    "May feel overwhelmed by stress",
+  ],
+  2: [
+    "May find it difficult to carry out daily responsibilities",
+    "May be facing major difficulties in your relationships with family and friends",
+    "May feel stuck and helpless when making decisions or trying to solve problems",
+    "May find it tough to control your emotions",
+    "May feel overwhelmed by stress",
+  ],
+  3: [
+    "May feel overly conscious about the future",
+    "Lack of enthusiasm for the day",
+    "May feel stuck and helpless when making decisions or trying to solve problems",
+    "Controlling your emotions may be difficult",
+    "Think your performance may be affected by our stress",
+  ],
+  4: [
+    "May feel overly conscious about the future",
+    "Lack of enthusiasm for the day",
+    "May feel stuck and helpless when making decisions or trying to solve problems",
+    "Controlling your emotions may be difficult",
+    "Think your performance may be affected by our stress",
+  ],
+  5: [
+    "May feel overly conscious about the future",
+    "Lack of enthusiasm for the day",
+    "May feel stuck and helpless when making decisions or trying to solve problems",
+    "Find your emotions difficult to control",
+    "Think your performance may be affected by our stress",
+  ],
+  6: [
+    "May feel overly conscious about the future",
+    "Lack of enthusiasm for the day",
+    "Heavily affected by the past",
+    "Find your emotions difficult to control",
+    "May feel alone",
+  ],
+  7: [
+    "Are anxious about the future",
+    "Lack of enthusiasm for the day",
+    "Are working on rebuilding your relationship with your friends and families",
+    "Are learning how to cope with your emotions",
+    "Focus on your progress as well",
+  ],
+  8: [
+    "Are anxious about the future",
+    "Lack of enthusiasm for the day",
+    "Are working on rebuilding your relationship with your friends and families",
+    "Are learning how to cope with your emotions",
+    "Focus on your progress as well",
+  ],
+  9: [
+    "Are anxious about the future",
+    "Lack of enthusiasm for the day",
+    "Are working on rebuilding your relationship with your friends and families",
+    "Are learning how to cope with your emotions",
+    "Focus on your progress as well",
+  ],
+  10: [
+    "Are anxious but ready about the future",
+    "Looking forward to the day",
+    "Have forged a positive relationship with friends and family",
+    "Are learning how to cope with your emotions",
+    "Focus on your progress as well",
+  ],
+  11: [
+    "Are anxious but ready about the future",
+    "Enjoying the struggles and challenges that life brings",
+    "Have forged a positive relationship with friends and family",
+    "Understand your emotions",
+    "Cope with stress well",
+  ],
+  12: [
+    "Excited and ready about the future",
+    "Enjoying the struggles and challenges that life brings",
+    "Enjoy meaningful interactions with friends and families",
+    "Understand your emotions",
+    "Cope with stress well",
+  ],
+  13: [
+    "Function very well in your daily activities",
+    "Enjoy meaningful and fulfilling relationships with family and friends",
+    "Make effective decisions",
+    "Understand and control your emotions very well",
+    "Accept yourself for who you are",
+  ],
+};
+
 export default function Results({ result }) {
   const [questionsLogs, setQuestionsLogs] = useState(null);
 
@@ -149,8 +250,18 @@ export default function Results({ result }) {
         <p className="font-bold text-xl md:text-2xl pb-5">
           Your result: {result}
         </p>
-        <div>
-          {questionsLogs && <Line className="h-full" data={questionsLogs} />}
+        <div className="h-full">
+          {questionsLogs && (
+            <Line className="h-full" data={questionsLogs} responsive={true} />
+          )}
+        </div>
+        <div className="w-full h-full flex justify-center items-center flex-col p-4 sm:p-0">
+          <div>Your answers indicate that you:</div>
+          <ul className="list-disc text-left mt-3">
+            {feedback[Math.floor(result / 10) - 1].map((listItem, index) => (
+              <li key={index}>{listItem}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>

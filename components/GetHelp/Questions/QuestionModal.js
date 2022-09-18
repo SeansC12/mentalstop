@@ -9,11 +9,6 @@ import Results from "./Results";
 
 let questionScores = 0;
 
-const buttonText = {
-  "-1": "Start!",
-  12: "Results",
-};
-
 export default function QuestionModal({ setShowModal }) {
   useEffect(() => {
     // needed as user leaving qns and coming back will not reset prev score
@@ -71,10 +66,10 @@ export default function QuestionModal({ setShowModal }) {
       initial={{ opacity: 0 }}
       exit={{ opacity: 0 }}
       variants={wrapperDivVariant}
-      className="fixed h-screen w-screen z-50 flex justify-center items-center"
+      className="fixed h-screen w-screen z-[60] flex justify-center items-center"
     >
       <div
-        className="absolute bg-black bg-opacity-50 w-full h-full z-[60]"
+        className="absolute bg-black bg-opacity-50 w-full h-full"
         onClick={() => setShowModal(false)}
       />
 
@@ -98,15 +93,14 @@ export default function QuestionModal({ setShowModal }) {
                     Mental well-being self-assessment
                   </div>
                 </div>
-                <div className="w-full h-full grid grid-cols-1 grid-rows-[25%_75%] md:grid-cols-[25%_75%] md:grid-rows-1 place-items-center">
-                  <div className="flex justify-center items-center">
+                <div className="w-full grid grid-cols-1 grid-rows-[25%_75%] md:grid-cols-[25%_75%] md:grid-rows-1 place-items-center">
+                  <div className="w-full flex justify-center items-center mt-12 sm:mt-0 sm:mb-0">
                     <img
                       src="questionnaireIcon.png"
-                      className="w-[100px] h-[100px] md:w-[150px] md:h-[150px] block"
+                      className="w-[100px] h-[100px] md:w-[150px] md:h-[150px] mb-5"
                     />
                   </div>
-
-                  <div className="flex justify-center items-center">
+                  <div className="flex justify-center items-center w-full h-full">
                     <div className="text-base md:text-lg p-3 md:p-8">
                       <p>
                         Our mental well-being is important because it affects
