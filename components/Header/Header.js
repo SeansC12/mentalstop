@@ -89,7 +89,7 @@ export default function Header({ tab }) {
     } else {
       setIsDiary(false);
     }
-  }, []);
+  }, [isDiary]);
 
   useOutsideClickAlerter(
     () => {
