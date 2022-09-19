@@ -143,7 +143,7 @@ export default function Home() {
                 title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
+                allowFullscreen
                 className="w-full aspect-video my-7 mx-20 md:mx-16"
               />
               {useWindowDimensions().width > 1200 && (
@@ -254,7 +254,7 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
