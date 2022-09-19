@@ -1,4 +1,4 @@
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
 import Header from "../../../components/Header/Header";
 import useMetaKey from "../../../hooks/useMetaKey";
@@ -126,9 +126,7 @@ export default function Diary() {
         </div>
         <div>
           <div className="flex items-center justify-center mt-4 sm:flex sm:items-start sm:justify-start">
-            <p
-              className="text-md lg:text-xl md:text-lg font-lora underline w-fit"
-            >
+            <p className="text-md lg:text-xl md:text-lg font-lora underline w-fit">
               Where is my data stored?
             </p>
           </div>

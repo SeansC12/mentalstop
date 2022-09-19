@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
@@ -79,8 +79,17 @@ export default function Header({ tab }) {
   }
 
   const [isOpen, toggleOpen] = useCycle(false, true);
+  const [isDiary, setIsDiary] = useState();
   const mobileNavBarRef = useRef();
   const menuToggleRef = useRef();
+
+  useEffect(() => {
+    if (window.location.href === "http://localhost:3000/GetHelp/Diary") {
+      setIsDiary(true);
+    } else {
+      setIsDiary(false);
+    }
+  }, []);
 
   useOutsideClickAlerter(
     () => {
@@ -113,7 +122,7 @@ export default function Header({ tab }) {
               <div className="w-full h-full relative">
                 <div className="absolute z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-[41.6666%]">
                   <Image
-                    src={favicon}
+                    src={isDiary ? "https://i.imgur.com/EaBf33W.png" : favicon}
                     alt=""
                     width="45px"
                     height="45px"
@@ -152,7 +161,7 @@ export default function Header({ tab }) {
               <Link href="/">
                 <div>
                   <Image
-                    src={favicon}
+                    src={isDiary ? "https://i.imgur.com/EaBf33W.png" : favicon}
                     alt=""
                     width="40px"
                     height="40px"
