@@ -63,13 +63,23 @@ const reachingOutForHelpImportance = [
   },
 ];
 
+const buttonColours = [
+  { backgroundColor: "#6be161" },
+  { backgroundColor: "#6aa3f9" },
+];
+
+const backgroundColourStyle = [
+  { background: "linear-gradient(to right, #AFE9AA, #c7f4c3)" },
+  { background: "linear-gradient(to right, #C6DAF9, #d2edeb)" },
+];
+
 export default function Home() {
   const [selectedImportance, setSelectedImportance] = useState(0);
 
   return (
     <div>
       <Header tab="Home" />
-      <main className="h-full font-Inter pb-14 p-10 pt-16 md:p-16 bg-gradient-to-b from-[#DFFFDC] to-[#E5E5DB]">
+      <main className="h-full font-Inter pb-14 p-10 pt-16 md:p-16 bg-gradient-to-br from-[#DFFFDC] to-[#E5E5DB]">
         <div>
           <p className="text-2xl md:text-5xl font-lora">
             "Not until we are lost, <br />
@@ -101,15 +111,27 @@ export default function Home() {
               <div
                 key={key}
                 className="rounded-2xl w-full h-full text-left p-4 md:p-8 flex flex-col"
-                style={{ backgroundColor: cardInfo.bgColour }}
-              >
+                // style={key === 0 || key === 3 ? backgroundColourStyle[0] : backgroundColourStyle[1]}
+                style={{
+                  backgroundColor:
+                    key === 0 || key === 3
+                      ? "rgb(211, 233, 233)"
+                      : "rgb(202, 234, 195)",
+                }}>
                 <p className="text-base sm:text-lg md:text-2xl xl:text-4xl font-lora">
                   {cardInfo.title}
                 </p>
                 <div className="flex flex-row">
                   <div className="w-full h-full flex justify-center items-center sm:justify-start sm:items-end">
                     <Link href={cardInfo.cardLink}>
-                      <div className="text-xs lg:text-xl bg-opacity-10 bg-black cursor-pointer w-max h-max py-2 px-4 font-bold md:py-2 md:px-6 rounded-full font-Inter">
+                      <div
+                        className="text-xs lg:text-xl cursor-pointer shadow w-max h-max py-2 px-4 font-bold md:py-2 md:px-6 rounded-full font-Inter"
+                        style={{
+                          backgroundColor:
+                            key === 0 || key === 3
+                              ? "rgb(198, 218, 249)"
+                              : "rgb(175, 233, 170)",
+                        }}>
                         {cardInfo.buttonLabel}
                       </div>
                     </Link>
@@ -117,8 +139,7 @@ export default function Home() {
                   <div className="flex justify-center items-center">
                     <img
                       className="w-full aspect-square"
-                      src={cardInfo.imageLink}
-                    ></img>
+                      src={cardInfo.imageLink}></img>
                   </div>
                 </div>
               </div>
@@ -174,8 +195,7 @@ export default function Home() {
                     ? "w-full rounded-full h-max bg-yellow-100 text-lg py-6 cursor-pointer shadow-2xl"
                     : "w-full rounded-full h-max bg-white text-lg py-6 cursor-pointer"
                 }
-                onClick={() => setSelectedImportance(0)}
-              >
+                onClick={() => setSelectedImportance(0)}>
                 Performance
               </div>
               <div
@@ -184,8 +204,7 @@ export default function Home() {
                     ? "w-full rounded-full h-max bg-yellow-100 text-lg py-6 cursor-pointer shadow-2xl"
                     : "w-full rounded-full h-max bg-white text-lg py-6 cursor-pointer"
                 }
-                onClick={() => setSelectedImportance(1)}
-              >
+                onClick={() => setSelectedImportance(1)}>
                 Quality of Life
               </div>
               <div
@@ -194,8 +213,7 @@ export default function Home() {
                     ? "w-full rounded-full h-max bg-yellow-100 text-lg py-6 cursor-pointer shadow-2xl"
                     : "w-full rounded-full h-max bg-white text-lg py-6 cursor-pointer"
                 }
-                onClick={() => setSelectedImportance(2)}
-              >
+                onClick={() => setSelectedImportance(2)}>
                 Relationships
               </div>
             </div>
