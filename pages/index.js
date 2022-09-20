@@ -110,7 +110,7 @@ export default function Home() {
             {cardInfos.map((cardInfo, key) => (
               <div
                 key={key}
-                className="rounded-2xl w-full h-full text-left p-4 md:p-8 flex flex-col"
+                className="rounded-2xl w-full h-full text-left p-4 md:p-8 flex flex-col shadow-md"
                 // style={key === 0 || key === 3 ? backgroundColourStyle[0] : backgroundColourStyle[1]}
                 style={{
                   backgroundColor:
