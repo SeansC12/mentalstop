@@ -84,12 +84,12 @@ export default function Header({ tab }) {
   const menuToggleRef = useRef();
 
   useEffect(() => {
-    if (window.location.href === "http://localhost:3000/GetHelp/Diary") {
+    if (window.location.href.indexOf("Diary") > -1) {
       setIsDiary(true);
     } else {
       setIsDiary(false);
     }
-  }, [isDiary]);
+  }, []);
 
   useOutsideClickAlerter(
     () => {
