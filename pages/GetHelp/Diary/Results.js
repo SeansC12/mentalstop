@@ -117,21 +117,26 @@ export default function Results() {
         });
       }
     }
-    console.log([...scoreDataset, {
-      x: `Today`,
-      y: newLog.score
-    }])
-    console.log([...scoreDataset])
+    console.log([
+      ...scoreDataset,
+      {
+        x: `Today`,
+        y: newLog.score,
+      },
+    ]);
+    console.log([...scoreDataset]);
     const data = {
       type: "line",
-      beginAtZero: true,
       datasets: [
         {
           label: "Daily",
-          data: [...scoreDataset, {
-            x: `${newLog.date} ${month[newLog.month]}`,
-            y: newLog.score,
-          }],
+          data: [
+            ...scoreDataset,
+            {
+              x: `${newLog.date} ${month[newLog.month]}`,
+              y: newLog.score,
+            },
+          ],
           // data: scoreDataset,
           borderColor: "rgb(255, 99, 132)",
           backgroundColor: "rgba(255, 99, 132, 0.5)",
@@ -174,7 +179,16 @@ export default function Results() {
                     // width={"100%"}
                     // height={"80%"}
                     // responsive={true}
-                    options={{ responsive: true, maintainAspectRatio: false }}
+                    options={{
+                      responsive: true,
+                      maintainAspectRatio: false,
+                      scales: {
+                        y: {
+                          min: 0,
+                          max: 10,
+                        },
+                      },
+                    }}
                   />
                 </div>
               </div>
