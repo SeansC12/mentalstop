@@ -124,7 +124,6 @@ export default function Results() {
     console.log([...scoreDataset])
     const data = {
       type: "line",
-      beginAtZero: true,
       datasets: [
         {
           label: "Daily",
