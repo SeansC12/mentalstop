@@ -117,13 +117,22 @@ export default function Results() {
         });
       }
     }
-
+    console.log([...scoreDataset, {
+      x: `Today`,
+      y: newLog.score
+    }])
+    console.log([...scoreDataset])
     const data = {
       type: "line",
+      beginAtZero: true,
       datasets: [
         {
           label: "Daily",
-          data: scoreDataset,
+          data: [...scoreDataset, {
+            x: `${newLog.date} ${month[newLog.month]}`,
+            y: newLog.score,
+          }],
+          // data: scoreDataset,
           borderColor: "rgb(255, 99, 132)",
           backgroundColor: "rgba(255, 99, 132, 0.5)",
         },

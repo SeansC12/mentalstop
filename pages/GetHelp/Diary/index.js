@@ -3,12 +3,14 @@ import React, { useEffect, useRef, useState } from "react";
 import Header from "../../../components/Header/Header";
 import useMetaKey from "../../../hooks/useMetaKey";
 import { motion, useAnimationControls } from "framer-motion";
+import "../../../public/cancelIcon2.svg";
 
 export default function Diary() {
   const [diaryText, setDiaryText] = useState("");
-  const [diaryEvaluation, setDiaryEvaluation] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [evalError, setEvalError] = useState(false);
+
   const inputRef = useRef();
   const router = useRouter();
   const evaluateButtonControls = useAnimationControls();
@@ -31,7 +33,6 @@ export default function Diary() {
     console.log("analysing");
     setErrorMessage("");
     setDiaryText(null);
-    setDiaryEvaluation(null);
     const url =
       "https://text-analysis12.p.rapidapi.com/sentiment-analysis/api/v1.1";
 
@@ -42,25 +43,26 @@ export default function Diary() {
         "X-RapidAPI-Key": "00b3000128mshefea4c98308e802p13efd7jsnb129a7ffac9c",
         "X-RapidAPI-Host": "text-analysis12.p.rapidapi.com",
       },
-      body: `{"language":"english","text":"${diaryText}"}`,
+      body: `{"language":"english","text":"${diaryText.trim("\n")}"}`,
     };
 
     fetch(url, apiParams)
       .then((res) => res.json())
       .then((json) => {
-        setDiaryEvaluation(json);
+        console.log(diaryText.trim("\n"))
         setErrorMessage("");
+        if (!json.ok) {
+          setEvalError(true);
+        } else {
         router.push(
           `/GetHelp/Diary/Results?results=${json.aggregate_sentiment.compound}`,
           `/GetHelp/Diary`,
           { shallow: true }
         );
+        }
       })
       .catch((err) => {
-        setErrorInEval({
-          error: true,
-          description: err,
-        });
+        setEvalError(true);
       });
   };
 
@@ -80,6 +82,12 @@ export default function Diary() {
   return (
     <div>
       <Header tab="Get Help" />
+      {evalError && (
+        <div className="absolute bottom-0 left-[50%] translate-x-[-50%] w-full h-fit p-2 px-3 mb-5 bg-red-500 text-white rounded-md flex items-center">
+          <img className="h-7 pr-2 fill-green-500" src="/cancelIcon2.svg" />
+          <p>Sorry, we encountered an error in evaluating your response</p>
+        </div>
+      )}
       <main className="bg-[#fff] p-10">
         <div className="flex flex-col lg:flex-row items-start justify-start w-full h-full">
           <p className="text-lg lg:text-4xl md:text-2xl sm:text-xl font-medium font-Inter text-green-700 w-max">
@@ -119,8 +127,7 @@ export default function Diary() {
               }
             }}
             ref={buttonRef}
-            animate={evaluateButtonControls}
-          >
+            animate={evaluateButtonControls}>
             {isLoading ? "Evaluating..." : "Evaluate"}
           </motion.button>
         </div>
