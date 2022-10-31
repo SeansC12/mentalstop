@@ -49,16 +49,16 @@ export default function Diary() {
     fetch(url, apiParams)
       .then((res) => res.json())
       .then((json) => {
-        console.log(diaryText.trim("\n"))
+        console.log(diaryText.trim("\n"));
         setErrorMessage("");
         if (!json.ok) {
           setEvalError(true);
         } else {
-        router.push(
-          `/GetHelp/Diary/Results?results=${json.aggregate_sentiment.compound}`,
-          `/GetHelp/Diary`,
-          { shallow: true }
-        );
+          router.push(
+            `/GetHelp/Diary/Results?results=${json.aggregate_sentiment.compound}`,
+            `/GetHelp/Diary/Results`,
+            { shallow: true }
+          );
         }
       })
       .catch((err) => {
@@ -127,7 +127,8 @@ export default function Diary() {
               }
             }}
             ref={buttonRef}
-            animate={evaluateButtonControls}>
+            animate={evaluateButtonControls}
+          >
             {isLoading ? "Evaluating..." : "Evaluate"}
           </motion.button>
         </div>
