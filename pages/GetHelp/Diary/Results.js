@@ -14,6 +14,8 @@ import {
 import Header from "../../../components/Header/Header";
 import { useEffect, useState } from "react";
 import { getLineOfBestFit, getBestFit } from "../../../utils/LinearRegression";
+import Link from "next/link";
+import "../../../public/arrowBack.svg"
 
 ChartJS.register(
   CategoryScale,
@@ -152,7 +154,11 @@ export default function Results() {
       <Header tab="Get Help" />
       <main className="text-center">
         <div className="p-10">
-          <div className="">
+          <div className="mr-auto w-fit -ml-5 md:ml-0 mt-5 md:mt-0 py-1 pl-3 pr-4 flex flex-row border-[#9cf087] border-4 rounded-full text-black">
+            <img className="h-6 flex content-center mr-1" src="/arrowBack.svg" />
+            <Link className="pr-3" href="/GetHelp/Diary">Back</Link>
+          </div>
+          <div>
             <p className="font-bold text-2xl">Today's results: </p>
             <p>
               Results: {Math.round((Router.query.results * 5 + 5) * 100) / 100}{" "}
