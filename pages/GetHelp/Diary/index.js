@@ -33,6 +33,10 @@ export default function Diary() {
     console.log("analysing");
     setErrorMessage("");
     setDiaryText(null);
+    let textToBeSent = diaryText;
+    textToBeSent = textToBeSent.trim("\n");
+    textToBeSent = textToBeSent.replace(/[^a-zA-Z0-9,. ]/g, "");
+    console.log(textToBeSent);
     const url =
       "https://text-analysis12.p.rapidapi.com/sentiment-analysis/api/v1.1";
 
@@ -43,7 +47,7 @@ export default function Diary() {
         "X-RapidAPI-Key": "00b3000128mshefea4c98308e802p13efd7jsnb129a7ffac9c",
         "X-RapidAPI-Host": "text-analysis12.p.rapidapi.com",
       },
-      body: `{"language":"english","text":"${diaryText.trim("\n")}"}`,
+      body: `{"language":"english","text":"${textToBeSent}"}`,
     };
 
     fetch(url, apiParams)
