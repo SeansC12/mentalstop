@@ -163,6 +163,7 @@ export default function Results({ result }) {
       for (let i = 0; i < parsedQuestionsLog.length; i++) {
         param.push([parsedQuestionsLog[i].date, parseInt(parsedQuestionsLog[i].score)]);
       }
+      param.push([newLog.date, newLog.score])
       lineOfBestFitCoordinates = getLineOfBestFit(param);
 
       if (

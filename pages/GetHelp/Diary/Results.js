@@ -67,6 +67,7 @@ export default function Results() {
       for (let i = 0; i < parsedEmotionsLog.length; i++) {
         param.push([parsedEmotionsLog[i].date, parsedEmotionsLog[i].score]);
       }
+      param.push([newLog.date, newLog.score])
       lineOfBestFitCoordinates = getLineOfBestFit(param);
 
       if (
@@ -103,25 +104,18 @@ export default function Results() {
       });
       try {
         lineOfBestFitDataset.push({
-          x: `${parsedEmotionsLog[i].date} ${
-            month[parsedEmotionsLog[i].month]
-          }`,
+          x: `${parsedEmotionsLog[i].date} ${month[parsedEmotionsLog[i].month]
+            }`,
           y: lineOfBestFitCoordinates[i][1],
         });
       } catch (err) {
         lineOfBestFitCoordinates.push({
-          x: `${parsedEmotionsLog[i].date} ${
-            month[parsedEmotionsLog[i].month]
-          }`,
+          x: `${parsedEmotionsLog[i].date} ${month[parsedEmotionsLog[i].month]
+            }`,
           y: parsedEmotionsLog[i].score,
         });
       }
     }
-    console.log([...scoreDataset, {
-      x: `Today`,
-      y: newLog.score
-    }])
-    console.log([...scoreDataset])
     const data = {
       type: "line",
       datasets: [
