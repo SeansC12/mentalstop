@@ -121,10 +121,13 @@ export default function Results() {
       datasets: [
         {
           label: "Daily",
-          data: [...scoreDataset, {
-            x: `${newLog.date} ${month[newLog.month]}`,
-            y: newLog.score,
-          }],
+          data: [
+            ...scoreDataset,
+            {
+              x: `${newLog.date} ${month[newLog.month]}`,
+              y: newLog.score,
+            },
+          ],
           // data: scoreDataset,
           borderColor: "rgb(255, 99, 132)",
           backgroundColor: "rgba(255, 99, 132, 0.5)",
@@ -157,9 +160,30 @@ export default function Results() {
             </p>
           </div>
           <div className="my-10 w-[100%] h-0.5 bg-[#aae99a]"></div>
-          <div>
+          <div className="w-full">
             <p className="font-bold text-2xl pb-10">Past Entries</p>
-            {emotionsLogs && <Line data={emotionsLogs} />}
+            {emotionsLogs && (
+              <div className="relative h-[80vh] sm:h-full overflow-x-auto">
+                <div className="w-[120vw] h-[80vh] sm:w-full">
+                  <Line
+                    data={emotionsLogs}
+                    // width={"100%"}
+                    // height={"80%"}
+                    // responsive={true}
+                    options={{
+                      responsive: true,
+                      maintainAspectRatio: false,
+                      scales: {
+                        y: {
+                          min: 0,
+                          max: 10,
+                        },
+                      },
+                    }}
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </main>
