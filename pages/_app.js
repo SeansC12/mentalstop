@@ -24,33 +24,15 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>MentalStop</title>
         <link rel="icon" type="image/x-icon" href="mentalStopLogo.png"></link>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-C29B7NDMQ7"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${gtag.GA_TRACKING_ID}', {
-                page_path: window.location.pathname,
-              });
-            `,
-          }}
-        />
       </Head>
-      {/* <script dangerouslySetInnerHTML={{
+      <script dangerouslySetInnerHTML={{
         __html: `window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
         gtag('config', 'G-C29B7NDMQ7');`
-      }} /> */}
-      {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-C29B7NDMQ7"></script> */}
-
-      <Script
-        strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
-      />
+      }} />
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-C29B7NDMQ7"></script>
       <Component {...pageProps} />
     </>
   );
