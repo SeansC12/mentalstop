@@ -162,7 +162,7 @@ export default function Home() {
               <iframe
                 src="https://www.youtube.com/embed/tYj6oJhZrAw"
                 title="YouTube video player"
-                frameborder="0"
+                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullscreen
                 className="w-full aspect-video my-7 mx-20 md:mx-16"
