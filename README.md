@@ -1,34 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# [🌐 View MentalStop!](https://mentalstop-sstinc.web.app/)
 
-## Getting Started
+# About
 
-First, run the development server:
+During the COVID-19 pandemic, social interactions were significantly reduced, resulting in mental wellness becoming one of the world's key focuses. MentalStop is a one-stop online resource that harnesses the capabilities of Artificial Intelligence to help youths with mental health conditions take charge of their mood, and provides a platform for the general public to gain awareness of mental health conditions.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+As a testament to MentalStop's significant positive impact on the general community, it won the Distinction Award at the IMDA DigitalForLife Youth Awards in 2022.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Features
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Home page
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- Red call button for 24 hours help from the Samaritans of Singapore
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Quick links for the key resources and features in this app
 
-## Learn More
+- Segment to show the importance of seeking help
 
-To learn more about Next.js, take a look at the following resources:
+### Get Help page
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Information on 6 different organisations for users to get professional support
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Curated good mental health practices
 
-## Deploy on Vercel
+- **Diary**
+  
+  - Functions just like a physical diary where users can write down their feelings and reflect on them. The user's writing is analysed using AI-powered sentiment analysis to detect the tone of the sentences and determine a mood score.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Inquire**
+  
+  - For users who are less motivated to write about their feelings in Diary. It is a questionnaire to allow one to reflect on their emotions, and is simpler and more convenient than Diary.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Intelligent Graph**
+  
+  - Gathers hundreds of data points from Diary and and analyses mood changes to display increasing or decreasing trends in the user’s emotion, allowing users to better gauge their progress in improving their mental health.
+
+### Learn More page
+
+- Contains debunked myths and information on common mental illnesses, helping to fight stereotypes and misconceptions that lead to improper care and treatment.
+
+### Donate page
+
+- Links users to donation pages of reputable organisations that provide free support to those who need it
+
+# Screenshots
+
+<p>
+    <img src="screenshots/screenshot_1.png" width=300/>
+    <img src="screenshots/screenshot_2.png" width=300/>
+    <img src="screenshots/screenshot_3.png" width=300/>
+    <img src="screenshots/screenshot_4.png" width=300/>
+    <img src="screenshots/screenshot_5.png" width=300/>
+    <img src="screenshots/screenshot_6.png" width=300/>
+</p>
+
+# Credits
+
+MentalStop was created by Tan Xuan Han (leader), Sean Ulric Buguina Chua, Harish Ram Baghavath, Tay Kai Quan and Asher Ng Say Kiat.
+
+MentalStop is one of many projects created under Project Serve at SST Inc in the School of Science and Technology, Singapore. SST Inc is a startup incubator and ICT Talent Development Programme that nurtures members to create applications to serve the community. Learn more about SST Inc: https://www.sstinc.org/

@@ -3,3 +3,5 @@ node_modules
 out
 .firebaserc
 .firebase
+
+.DS_Store
