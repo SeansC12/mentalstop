@@ -24,6 +24,8 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>MentalStop</title>
         <link rel="icon" type="image/x-icon" href="mentalStopLogo.png"></link>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4411922986701001"
+          crossorigin="anonymous"></script>
       </Head>
       <script dangerouslySetInnerHTML={{
         __html: `window.dataLayer = window.dataLayer || [];
